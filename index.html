@@ -447,6 +447,21 @@
         <p class="save-status no-print" id="portfolio-save-status" role="status" aria-live="polite">Чернетка зберігається автоматично.</p>
       </form>
 
+
+      <section class="ai-assistant no-print" aria-labelledby="ai-assistant-title">
+        <div class="ai-assistant-heading">
+          <div>
+            <p class="ai-eyebrow">Навчальний помічник</p>
+            <h3 id="ai-assistant-title">🤖 Попрацюйте із ШІ</h3>
+          </div>
+          <p class="ai-guidance"><strong>Використовуйте ШІ як консультанта, а не як автора роботи.</strong> Спочатку сформулюйте власні думки, а потім попросіть ШІ допомогти їх уточнити, перевірити або доповнити.</p>
+        </div>
+
+        <div class="ai-prompt-grid" id="ai-prompt-grid" aria-label="Промпти для роботи з практичним завданням"></div>
+        <p class="ai-copy-status" id="ai-copy-status" role="status" aria-live="polite"></p>
+        <noscript><p class="callout callout-warning">Для копіювання промптів увімкніть JavaScript у браузері.</p></noscript>
+      </section>
+
       <aside class="portfolio-note">
         <h3>Портфель мера</h3>
         <p>Новий документ: Карта цифрового рішення для кліматичної дії. Вона допоможе перейти від кліматичної візії до одного практичного цифрового кроку та стане основою для адаптації міжнародного досвіду в наступному занятті.</p>
@@ -549,14 +564,15 @@
   </main>
 
   <nav class="lesson-nav no-print" aria-label="Навігація між сторінками">
-    <button class="button button-secondary" id="prev-page" type="button">Попередній розділ</button>
-    <button class="button button-primary" id="next-page" type="button">Наступний розділ</button>
+    <button class="button button-secondary" id="prev-page" type="button">⬅️ Попередній розділ</button>
+    <button class="button button-primary" id="next-page" type="button">Наступний розділ ➡️</button>
   </nav>
 
   <footer class="site-footer no-print">
     <p>UCAN · Онлайн-заняття</p>
   </footer>
 
+  <script src="js/lesson03-ai-prompts.js"></script>
   <script src="js/script.js"></script>
 </body>
 </html>

@@ -119,3 +119,11 @@ GitHub Pages may be used only as a QA Preview environment. Uploading this packag
 ## 14. Release boundary
 
 This package is Controlled Release Patch v1.1. It changes only the learner-facing numbering, technical labels, and section navigation defined for Patch 1.1.
+
+
+## Patch 1.2
+- Додано контекстний блок «🤖 Попрацюйте із ШІ» для практичного завдання.
+- Промпти винесено до `js/lesson03-ai-prompts.js`.
+- Додано копіювання, ручний перегляд і відкриття ChatGPT.
+- Після навігації сторінка автоматично повертається вгору, а фокус переходить на заголовок нового розділу.
+- Застосовано затверджені emoji-маркери до навігації та AI Assistant.

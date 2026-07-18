@@ -63,7 +63,7 @@
     prevButton.disabled = currentPage === 1;
     const testGateActive = currentPage === 10 && !isTestComplete();
     nextButton.disabled = currentPage === totalPages || testGateActive;
-    nextButton.textContent = currentPage === totalPages ? 'Завершено' : 'Наступний розділ';
+    nextButton.textContent = currentPage === totalPages ? 'Завершено' : 'Наступний розділ ➡️';
   }
 
   function showPage(pageNumber, options = {}) {
@@ -80,10 +80,17 @@
     storageSet(STORAGE.progress, JSON.stringify(progress));
     updateNavigation();
 
-    if (!options.keepScroll) window.scrollTo(0, 0);
     if (options.focus !== false) {
       const heading = pages[target - 1].querySelector('h1, h2[tabindex="-1"], h2');
       if (heading) heading.focus({ preventScroll: true });
+    }
+    if (!options.keepScroll) {
+      const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      window.requestAnimationFrame(() => {
+        window.requestAnimationFrame(() => {
+          window.scrollTo({ top: 0, left: 0, behavior: reducedMotion ? 'auto' : 'smooth' });
+        });
+      });
     }
   }
 
@@ -347,6 +354,92 @@
       testGateNote.textContent = 'Завершальна сторінка відкриється після правильної відповіді на всі шість питань.';
     }
     updateNavigation();
+  }
+
+  // Contextual AI assistant for the practical assignment.
+  const aiPack = window.UCAN_AI_PROMPT_PACK;
+  const aiGrid = document.getElementById('ai-prompt-grid');
+  const aiStatus = document.getElementById('ai-copy-status');
+
+  function fallbackCopy(text) {
+    const area = document.createElement('textarea');
+    area.value = text;
+    area.setAttribute('readonly', '');
+    area.style.position = 'fixed';
+    area.style.opacity = '0';
+    document.body.appendChild(area);
+    area.select();
+    const copied = document.execCommand('copy');
+    area.remove();
+    return copied;
+  }
+
+  async function copyPrompt(prompt, title) {
+    let copied = false;
+    try {
+      if (navigator.clipboard && window.isSecureContext) {
+        await navigator.clipboard.writeText(prompt);
+        copied = true;
+      } else {
+        copied = fallbackCopy(prompt);
+      }
+    } catch (error) {
+      copied = fallbackCopy(prompt);
+    }
+    aiStatus.textContent = copied
+      ? `Промпт «${title}» скопійовано. Вставте його у вікно ШІ.`
+      : 'Не вдалося скопіювати автоматично. Відкрийте промпт і скопіюйте текст вручну.';
+    return copied;
+  }
+
+  function openPromptDialog(item) {
+    const dialog = document.createElement('dialog');
+    dialog.className = 'ai-prompt-dialog';
+    dialog.innerHTML = `<div class="ai-dialog-inner"><h3>${item.icon} ${item.title}</h3><p>Скопіюйте текст і вставте його у вибраний ШІ-інструмент.</p><textarea class="ai-dialog-prompt" readonly></textarea><div class="ai-dialog-actions"><button class="button button-primary" type="button" data-dialog-copy>Скопіювати промпт</button><button class="button button-secondary" type="button" data-dialog-close>Закрити</button></div></div>`;
+    dialog.querySelector('textarea').value = item.prompt;
+    dialog.querySelector('[data-dialog-copy]').addEventListener('click', () => copyPrompt(item.prompt, item.title));
+    dialog.querySelector('[data-dialog-close]').addEventListener('click', () => dialog.close());
+    dialog.addEventListener('close', () => dialog.remove());
+    document.body.appendChild(dialog);
+    dialog.showModal();
+    dialog.querySelector('textarea').focus();
+  }
+
+  if (aiPack && aiGrid && Array.isArray(aiPack.prompts)) {
+    aiPack.prompts.forEach((item) => {
+      const card = document.createElement('article');
+      card.className = 'ai-prompt-card';
+      const title = document.createElement('h4');
+      title.textContent = `${item.icon} ${item.title}`;
+      const description = document.createElement('p');
+      description.textContent = item.description;
+      const actions = document.createElement('div');
+      actions.className = 'ai-prompt-actions';
+
+      const copyButton = document.createElement('button');
+      copyButton.className = 'button button-primary';
+      copyButton.type = 'button';
+      copyButton.textContent = 'Скопіювати промпт';
+      copyButton.addEventListener('click', () => copyPrompt(item.prompt, item.title));
+
+      const viewButton = document.createElement('button');
+      viewButton.className = 'button button-secondary';
+      viewButton.type = 'button';
+      viewButton.textContent = 'Переглянути промпт';
+      viewButton.addEventListener('click', () => openPromptDialog(item));
+
+      const chatButton = document.createElement('a');
+      chatButton.className = 'button button-quiet';
+      chatButton.href = 'https://chatgpt.com/';
+      chatButton.target = '_blank';
+      chatButton.rel = 'noopener noreferrer';
+      chatButton.textContent = 'Відкрити ChatGPT ↗';
+      chatButton.addEventListener('click', () => copyPrompt(item.prompt, item.title));
+
+      actions.append(copyButton, viewButton, chatButton);
+      card.append(title, description, actions);
+      aiGrid.appendChild(card);
+    });
   }
 
   // Restore state after all listeners are ready.

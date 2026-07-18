@@ -14,7 +14,6 @@
   const totalPages = pages.length;
   const prevButton = document.getElementById('prev-page');
   const nextButton = document.getElementById('next-page');
-  const pageCounter = document.getElementById('page-counter');
   const progressPercent = document.getElementById('progress-percent');
   const progressFill = document.getElementById('progress-fill');
   const progressTrack = document.querySelector('.progress-track');
@@ -57,7 +56,6 @@
 
   function updateNavigation() {
     const percent = Math.round((currentPage / totalPages) * 100);
-    pageCounter.textContent = `Сторінка ${currentPage} із ${totalPages}`;
     progressPercent.textContent = `${percent}%`;
     progressFill.style.width = `${percent}%`;
     progressTrack.setAttribute('aria-valuenow', String(percent));
@@ -65,7 +63,7 @@
     prevButton.disabled = currentPage === 1;
     const testGateActive = currentPage === 10 && !isTestComplete();
     nextButton.disabled = currentPage === totalPages || testGateActive;
-    nextButton.textContent = currentPage === totalPages ? 'Завершено' : 'Далі';
+    nextButton.textContent = currentPage === totalPages ? 'Завершено' : 'Наступний розділ';
   }
 
   function showPage(pageNumber, options = {}) {

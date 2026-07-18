@@ -1,10 +1,10 @@
-# UCAN Заняття 03 — HTML Release Candidate v1.0
+# UCAN Заняття 03 — Controlled Release v1.0
 
 ## 1. Package name and version
 
-- Package: `UCAN_Заняття_03_HTML_RC_v1.0`
-- Version: `1.0`
-- Status: Release Candidate; not a Controlled Release and not Published.
+- Package: `UCAN_Заняття_03_Controlled_Release_Patch_v1.1`
+- Version: `1.1`
+- Status: Controlled Release v1.0; not Published.
 
 ## 2. Canonical source list
 
@@ -29,7 +29,7 @@ Normative sources:
 ## 3. File structure
 
 ```text
-UCAN_Заняття_03_HTML_RC_v1.0/
+UCAN_Заняття_03_Controlled_Release_Patch_v1.1/
 ├── index.html
 ├── css/
 │   └── style.css
@@ -96,7 +96,7 @@ Assets are displayed as ordinary `<img>` elements, are not cropped, are not stre
 
 ## 11. Open verification flags
 
-- Covenant of Mayors, TAPAS, data.gov.ua, and videos 3-1 / 3-2 / 3-3 require lesson-specific source verification before learner-facing publication. Therefore, the unverified resource block is omitted from this Release Candidate.
+- Covenant of Mayors, TAPAS, data.gov.ua, and videos 3-1 / 3-2 / 3-3 require lesson-specific source verification before learner-facing publication. Therefore, the unverified resource block remains outside Patch v1.1 and is reserved for a later controlled patch.
 - A core evidence case may be added only after approval in the Evidence Library / SVS.
 - The final test uses the six questions preserved in Final Lesson v2.0, as required by the HTML Builder instruction.
 - Visual scale and the supplied asset encoding/dimensions require confirmation in HTML Conformance / Visual QA.
@@ -118,4 +118,4 @@ GitHub Pages may be used only as a QA Preview environment. Uploading this packag
 
 ## 14. Release boundary
 
-This package is a Release Candidate only. It is not yet a Controlled Release, final publication ZIP, or Published lesson.
+This package is Controlled Release Patch v1.1. It changes only the learner-facing numbering, technical labels, and section navigation defined for Patch 1.1.

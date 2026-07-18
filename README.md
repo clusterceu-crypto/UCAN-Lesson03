@@ -1,9 +1,9 @@
-# UCAN Заняття 03 — Controlled Release v1.0
+# UCAN Заняття 03 — Controlled Release Patch v1.2.1
 
 ## 1. Package name and version
 
-- Package: `UCAN_Заняття_03_Controlled_Release_Patch_v1.1`
-- Version: `1.1`
+- Package: `UCAN_Заняття_03_Controlled_Release_Patch_v1.2.1`
+- Version: `1.2.1`
 - Status: Controlled Release v1.0; not Published.
 
 ## 2. Canonical source list
@@ -29,12 +29,13 @@ Normative sources:
 ## 3. File structure
 
 ```text
-UCAN_Заняття_03_Controlled_Release_Patch_v1.1/
+UCAN_Заняття_03_Controlled_Release_Patch_v1.2.1/
 ├── index.html
 ├── css/
 │   └── style.css
 ├── js/
-│   └── script.js
+│   ├── script.js
+│   └── lesson03-ai-prompts.js
 ├── assets/
 │   ├── L03-A01_Від_кліматичної_дії_до_першого_цифрового_кроку_v1.0.png
 │   ├── L03-A02_Технологія_чи_управлінське_рішення_v1.0.png
@@ -91,7 +92,6 @@ Assets are displayed as ordinary `<img>` elements, are not cropped, are not stre
 
 - Browser print rendering can differ slightly by browser and operating system.
 - The supplied files with `.png` names are encoded as JPEG and have source dimensions 1229 × 1536 px. They are included without alteration because they are the approved supplied assets.
-- No AI assistant block is included because it is not present in the canonical Final Lesson or Designer Package.
 - No core evidence case is included because none is approved for this lesson.
 
 ## 11. Open verification flags
@@ -118,7 +118,7 @@ GitHub Pages may be used only as a QA Preview environment. Uploading this packag
 
 ## 14. Release boundary
 
-This package is Controlled Release Patch v1.1. It changes only the learner-facing numbering, technical labels, and section navigation defined for Patch 1.1.
+This package is Controlled Release Patch v1.2.1. It adds the approved UX hotfixes while preserving the canonical lesson content and visual assets.
 
 
 ## Patch 1.2
@@ -127,3 +127,14 @@ This package is Controlled Release Patch v1.1. It changes only the learner-facin
 - Додано копіювання, ручний перегляд і відкриття ChatGPT.
 - Після навігації сторінка автоматично повертається вгору, а фокус переходить на заголовок нового розділу.
 - Застосовано затверджені emoji-маркери до навігації та AI Assistant.
+
+
+## Patch 1.2.1
+- Повністю застосовано затверджені emoji-маркери до основних заголовків, блоків і дій.
+- Додано кнопки «Відкрити ChatGPT» і «Відкрити Gemini» для кожного промпту.
+- Поточні відповіді з практичної форми автоматично додаються до AI-промпту під час копіювання, перегляду або відкриття ШІ.
+- Додано мінімальний блок «Контекст моєї громади»: громада та ключова тема / напрям.
+- Додано кнопку копіювання короткого контексту для наступного заняття.
+- На сторінці інтерактивної самоперевірки додано конкретний приклад.
+- На завершальній сторінці додано перехід до Lesson 04: `https://clusterceu-crypto.github.io/UCAN-Lesson04/`.
+- Підсумковий тест у цьому hotfix не змінювався; його складність залишається окремим assessment-покращенням.

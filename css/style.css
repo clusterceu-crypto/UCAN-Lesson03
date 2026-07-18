@@ -320,3 +320,22 @@ textarea { resize: vertical; min-height: 7rem; }
   .print-footer-note { margin-top: 12pt; border-top: 1px solid #999; padding-top: 6pt; font-size: 9pt; }
   .portfolio-note { margin-top: 10pt; page-break-inside: avoid; }
 }
+
+
+/* Patch 1.2.1: transition context, multi-AI actions and completion link. */
+.portfolio-context-card { grid-column: 1 / -1; display: grid; gap: 1rem; padding: 1.15rem; background: var(--blue-50, #eef6fb); border: 2px solid var(--blue-800); border-radius: var(--radius); }
+.portfolio-context-card h3 { margin: 0 0 0.35rem; }
+.portfolio-context-card p { margin: 0; }
+.context-fields { display: grid; gap: 1rem; }
+.context-fields label { display: block; margin-bottom: 0.35rem; font-weight: 800; }
+.context-fields input { width: 100%; }
+.self-check-example p { margin: 0.35rem 0; }
+.ai-platform-actions { display: grid; grid-template-columns: 1fr; gap: 0.55rem; }
+.completion-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center; }
+@media (min-width: 700px) {
+  .context-fields { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .ai-platform-actions { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media print {
+  .portfolio-context-card { border: 1px solid #555; background: #fff; }
+}

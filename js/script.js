@@ -259,6 +259,36 @@
     portfolioStatus.textContent = 'Форму очищено.';
   });
 
+
+  function getTransitionContext() {
+    const data = collectPortfolioData();
+    const lines = [
+      `Громада: ${data.communityName || 'не вказано'}`,
+      `Ключова тема / напрям: ${data.keyTheme || 'не вказано'}`,
+      `Кліматична дія: ${data.climateAction || 'не визначено'}`,
+      `Цифрове рішення: ${data.digitalSolution || 'не визначено'}`
+    ];
+    return `Контекст для наступного заняття UCAN:\n${lines.join('\n')}`;
+  }
+
+  document.getElementById('copy-transition-context').addEventListener('click', async () => {
+    const text = getTransitionContext();
+    let copied = false;
+    try {
+      if (navigator.clipboard && window.isSecureContext) {
+        await navigator.clipboard.writeText(text);
+        copied = true;
+      } else {
+        copied = fallbackCopy(text);
+      }
+    } catch (error) {
+      copied = fallbackCopy(text);
+    }
+    portfolioStatus.textContent = copied
+      ? 'Контекст громади скопійовано. Вставте його в наступному занятті.'
+      : 'Не вдалося скопіювати автоматично. Скопіюйте значення полів вручну.';
+  });
+
   function preparePrintValues() {
     document.querySelectorAll('[data-print-for]').forEach((output) => {
       const source = document.getElementById(output.getAttribute('data-print-for'));
@@ -374,6 +404,41 @@
     return copied;
   }
 
+
+  const portfolioPromptLabels = {
+    communityName: 'Громада',
+    keyTheme: 'Ключова тема / напрям',
+    climateAction: 'Кліматична дія',
+    managementQuestion: 'Управлінське питання',
+    digitalSolution: 'Цифрове рішення',
+    neededData: 'Необхідні дані',
+    dataOwner: 'Джерело даних / відповідальний',
+    managementBenefit: 'Управлінська користь',
+    firstStep: 'Перший крок',
+    indicator1: 'Показник результату 1',
+    indicator2: 'Показник результату 2',
+    indicator3: 'Показник результату 3',
+    dataStatus: 'Статус даних'
+  };
+
+  function buildPortfolioContext() {
+    const data = collectPortfolioData();
+    const entries = Object.entries(portfolioPromptLabels).map(([key, label]) => {
+      const value = typeof data[key] === 'string' ? data[key].trim() : '';
+      return `- ${label}: ${value || 'ще не заповнено'}`;
+    });
+    return `
+
+КОНТЕКСТ ГРОМАДИ ТА ПОТОЧНА ЧЕРНЕТКА
+${entries.join('\n')}
+
+Працюй лише з наведеним контекстом. Якщо даних бракує, постав уточнювальне запитання замість того, щоб вигадувати відповідь.`;
+  }
+
+  function buildPrompt(item) {
+    return `${item.prompt}${buildPortfolioContext()}`;
+  }
+
   async function copyPrompt(prompt, title) {
     let copied = false;
     try {
@@ -395,9 +460,10 @@
   function openPromptDialog(item) {
     const dialog = document.createElement('dialog');
     dialog.className = 'ai-prompt-dialog';
-    dialog.innerHTML = `<div class="ai-dialog-inner"><h3>${item.icon} ${item.title}</h3><p>Скопіюйте текст і вставте його у вибраний ШІ-інструмент.</p><textarea class="ai-dialog-prompt" readonly></textarea><div class="ai-dialog-actions"><button class="button button-primary" type="button" data-dialog-copy>Скопіювати промпт</button><button class="button button-secondary" type="button" data-dialog-close>Закрити</button></div></div>`;
-    dialog.querySelector('textarea').value = item.prompt;
-    dialog.querySelector('[data-dialog-copy]').addEventListener('click', () => copyPrompt(item.prompt, item.title));
+    dialog.innerHTML = `<div class="ai-dialog-inner"><h3>${item.icon} ${item.title}</h3><p>Скопіюйте текст і вставте його у вибраний ШІ-інструмент.</p><textarea class="ai-dialog-prompt" readonly></textarea><div class="ai-dialog-actions"><button class="button button-primary" type="button" data-dialog-copy>📋 Скопіювати промпт</button><button class="button button-secondary" type="button" data-dialog-close>✖️ Закрити</button></div></div>`;
+    const preparedPrompt = buildPrompt(item);
+    dialog.querySelector('textarea').value = preparedPrompt;
+    dialog.querySelector('[data-dialog-copy]').addEventListener('click', () => copyPrompt(buildPrompt(item), item.title));
     dialog.querySelector('[data-dialog-close]').addEventListener('click', () => dialog.close());
     dialog.addEventListener('close', () => dialog.remove());
     document.body.appendChild(dialog);
@@ -419,24 +485,36 @@
       const copyButton = document.createElement('button');
       copyButton.className = 'button button-primary';
       copyButton.type = 'button';
-      copyButton.textContent = 'Скопіювати промпт';
-      copyButton.addEventListener('click', () => copyPrompt(item.prompt, item.title));
+      copyButton.textContent = '📋 Скопіювати промпт';
+      copyButton.addEventListener('click', () => copyPrompt(buildPrompt(item), item.title));
 
       const viewButton = document.createElement('button');
       viewButton.className = 'button button-secondary';
       viewButton.type = 'button';
-      viewButton.textContent = 'Переглянути промпт';
+      viewButton.textContent = '👁️ Переглянути промпт';
       viewButton.addEventListener('click', () => openPromptDialog(item));
+
+      const platformActions = document.createElement('div');
+      platformActions.className = 'ai-platform-actions';
 
       const chatButton = document.createElement('a');
       chatButton.className = 'button button-quiet';
       chatButton.href = 'https://chatgpt.com/';
       chatButton.target = '_blank';
       chatButton.rel = 'noopener noreferrer';
-      chatButton.textContent = 'Відкрити ChatGPT ↗';
-      chatButton.addEventListener('click', () => copyPrompt(item.prompt, item.title));
+      chatButton.textContent = '🤖 Відкрити ChatGPT ↗';
+      chatButton.addEventListener('click', () => copyPrompt(buildPrompt(item), item.title));
 
-      actions.append(copyButton, viewButton, chatButton);
+      const geminiButton = document.createElement('a');
+      geminiButton.className = 'button button-quiet';
+      geminiButton.href = 'https://gemini.google.com/app';
+      geminiButton.target = '_blank';
+      geminiButton.rel = 'noopener noreferrer';
+      geminiButton.textContent = '✨ Відкрити Gemini ↗';
+      geminiButton.addEventListener('click', () => copyPrompt(buildPrompt(item), item.title));
+
+      platformActions.append(chatButton, geminiButton);
+      actions.append(copyButton, viewButton, platformActions);
       card.append(title, description, actions);
       aiGrid.appendChild(card);
     });

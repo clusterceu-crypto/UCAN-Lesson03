@@ -135,12 +135,30 @@
   const selfCheckForm = document.getElementById('self-check-form');
   const selfCheckResult = document.getElementById('self-check-result');
   const diagnosticPrompts = [
-    'Назвіть, яку кліматичну дію або проблему підтримує це рішення.',
-    'Сформулюйте, яке управлінське рішення має стати кращим.',
-    'Уточніть, які дані потрібні і звідки вони беруться.',
-    'Визначте, хто відповідає за дані та реагування.',
-    'Опишіть, яку управлінську користь отримає команда.',
-    'Назвіть перший реалістичний крок без великої закупівлі.'
+    {
+      instruction: 'Назвіть, яку кліматичну дію або проблему підтримує це рішення.',
+      example: 'Наприклад: зменшити споживання теплової та електричної енергії у школах громади.'
+    },
+    {
+      instruction: 'Сформулюйте, яке управлінське рішення має стати кращим.',
+      example: 'Наприклад: визначати, які школи потрібно перевірити або модернізувати першими.'
+    },
+    {
+      instruction: 'Уточніть, які дані потрібні і звідки вони беруться.',
+      example: 'Наприклад: щомісячні показники споживання тепла й електроенергії з рахунків та лічильників кожної школи.'
+    },
+    {
+      instruction: 'Визначте, хто відповідає за дані та реагування.',
+      example: 'Наприклад: відповідальні за дані — директори шкіл та енергоменеджер; рішення готує управління освіти.'
+    },
+    {
+      instruction: 'Опишіть, яку управлінську користь отримає команда.',
+      example: 'Наприклад: команда бачить найбільші відхилення, порівнює школи та спрямовує перевірки туди, де втрати найвищі.'
+    },
+    {
+      instruction: 'Назвіть перший реалістичний крок без великої закупівлі.',
+      example: 'Наприклад: зібрати за останні 12 місяців рахунки 3–5 шкіл і створити просту порівняльну таблицю.'
+    }
   ];
 
   function getSelfCheckAnswers() {
@@ -167,7 +185,7 @@
       } else if (answers[i] === 'clarify') {
         allYes = false;
         fieldset.classList.add('needs-review');
-        if (showSummary) feedback.textContent = `Потрібно уточнити: ${diagnosticPrompts[i - 1]}`;
+        if (showSummary) feedback.innerHTML = `<strong>Потрібно уточнити.</strong> ${diagnosticPrompts[i - 1].instruction}<br><span class="diagnostic-example">${diagnosticPrompts[i - 1].example}</span>`;
       } else {
         fieldset.classList.add('is-correct');
         if (showSummary) feedback.textContent = 'Цей елемент визначено.';
@@ -421,22 +439,47 @@
     dataStatus: 'Статус даних'
   };
 
-  function buildPortfolioContext() {
+  function buildPortfolioContext(options = {}) {
     const data = collectPortfolioData();
-    const entries = Object.entries(portfolioPromptLabels).map(([key, label]) => {
-      const value = typeof data[key] === 'string' ? data[key].trim() : '';
-      return `- ${label}: ${value || 'ще не заповнено'}`;
+    const entries = Object.entries(portfolioPromptLabels)
+      .map(([key, label]) => {
+        const value = typeof data[key] === 'string' ? data[key].trim() : '';
+        return value ? `- ${label}: ${value}` : '';
+      })
+      .filter(Boolean);
+
+    const selfCheckAnswers = getSelfCheckAnswers();
+    const selfCheckEntries = Object.entries(selfCheckAnswers).map(([key, value]) => {
+      const label = diagnosticPrompts[Number(key) - 1]?.instruction || `Пункт ${key}`;
+      const status = value === 'yes' ? 'визначено' : 'потрібно уточнити';
+      return `- ${label} — ${status}`;
     });
+
+    if (entries.length === 0 && selfCheckEntries.length === 0) {
+      return `
+
+ДАНІ УЧАСНИКА ЩЕ НЕ ЗАПОВНЕНІ
+Попроси учасника спочатку заповнити Карту цифрового рішення. Не вигадуй контекст громади.`;
+    }
+
+    const blocks = [];
+    if (entries.length) blocks.push(`ЗАПОВНЕНА КАРТА УЧАСНИКА
+${entries.join('\n')}`);
+    if (options.includeSelfCheck && selfCheckEntries.length) {
+      blocks.push(`РЕЗУЛЬТАТ ІНТЕРАКТИВНОЇ САМОПЕРЕВІРКИ
+${selfCheckEntries.join('\n')}`);
+    }
+
     return `
 
-КОНТЕКСТ ГРОМАДИ ТА ПОТОЧНА ЧЕРНЕТКА
-${entries.join('\n')}
+${blocks.join('\n\n')}
 
-Працюй лише з наведеним контекстом. Якщо даних бракує, постав уточнювальне запитання замість того, щоб вигадувати відповідь.`;
+Працюй лише з наведеними відповідями учасника. Не замінюй їх загальними порадами. Якщо якогось елемента бракує, прямо назви прогалину та постав уточнювальне запитання.`;
   }
 
   function buildPrompt(item) {
-    return `${item.prompt}${buildPortfolioContext()}`;
+    const isReview = item.id === 'review';
+    return `${item.prompt}${buildPortfolioContext({ includeSelfCheck: isReview })}`;
   }
 
   async function copyPrompt(prompt, title) {
@@ -496,6 +539,7 @@ ${entries.join('\n')}
 
       const platformActions = document.createElement('div');
       platformActions.className = 'ai-platform-actions';
+      platformActions.setAttribute('aria-label', 'Відкрити промпт у вибраному ШІ');
 
       const chatButton = document.createElement('a');
       chatButton.className = 'button button-quiet';

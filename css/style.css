@@ -339,3 +339,15 @@ textarea { resize: vertical; min-height: 7rem; }
 @media print {
   .portfolio-context-card { border: 1px solid #555; background: #fff; }
 }
+
+
+/* Patch 1.2.2: visible Gemini action, contextual review and final navigation order. */
+.ai-platform-actions { display: flex; flex-direction: column; gap: 0.55rem; width: 100%; }
+.ai-platform-actions .button { width: 100%; justify-content: center; }
+.diagnostic-example { display: inline-block; margin-top: 0.35rem; font-weight: 500; }
+.completion-actions { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); width: 100%; }
+.completion-actions .completion-next { justify-self: end; }
+@media (max-width: 620px) {
+  .completion-actions { grid-template-columns: 1fr; }
+  .completion-actions .button, .completion-actions .completion-next { width: 100%; justify-self: stretch; }
+}

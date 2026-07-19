@@ -351,23 +351,281 @@
     document.getElementById('print-data-status').textContent = status ? status.value : '—';
   }
 
-  document.getElementById('print-portfolio').addEventListener('click', () => {
-    preparePrintValues();
-    portfolioStatus.textContent = 'У системному вікні оберіть «Зберегти як PDF».';
-    document.body.classList.add('print-portfolio');
-    window.print();
-  });
-  window.addEventListener('afterprint', () => document.body.classList.remove('print-portfolio'));
+  function normalizePdfText(value) {
+    return String(value || '').replace(/\r\n/g, '\n').replace(/\r/g, '\n').trim() || '—';
+  }
+
+  function sanitizeFilePart(value) {
+    const cleaned = String(value || '')
+      .trim()
+      .replace(/[\\/:*?"<>|]+/g, ' ')
+      .replace(/\s+/g, '_')
+      .replace(/^_+|_+$/g, '');
+    return cleaned.slice(0, 70);
+  }
+
+  function wrapCanvasText(context, text, maxWidth) {
+    const paragraphs = normalizePdfText(text).split('\n');
+    const lines = [];
+    paragraphs.forEach((paragraph, paragraphIndex) => {
+      const words = paragraph.split(/\s+/).filter(Boolean);
+      if (words.length === 0) {
+        lines.push('');
+      } else {
+        let line = words.shift();
+        words.forEach((word) => {
+          const candidate = `${line} ${word}`;
+          if (context.measureText(candidate).width <= maxWidth) line = candidate;
+          else {
+            lines.push(line);
+            line = word;
+          }
+        });
+        lines.push(line);
+      }
+      if (paragraphIndex < paragraphs.length - 1) lines.push('');
+    });
+    return lines;
+  }
+
+  function dataUrlToBytes(dataUrl) {
+    const base64 = dataUrl.split(',')[1];
+    const binary = window.atob(base64);
+    const bytes = new Uint8Array(binary.length);
+    for (let i = 0; i < binary.length; i += 1) bytes[i] = binary.charCodeAt(i);
+    return bytes;
+  }
+
+  function concatByteArrays(parts) {
+    const total = parts.reduce((sum, part) => sum + part.length, 0);
+    const output = new Uint8Array(total);
+    let offset = 0;
+    parts.forEach((part) => {
+      output.set(part, offset);
+      offset += part.length;
+    });
+    return output;
+  }
+
+  function textBytes(text) {
+    return new TextEncoder().encode(text);
+  }
+
+  function buildImagePdf(pageImages) {
+    const objects = [];
+    const pageObjectIds = [];
+    const imageObjectIds = [];
+    const contentObjectIds = [];
+    let nextId = 3;
+
+    pageImages.forEach(() => {
+      pageObjectIds.push(nextId++);
+      imageObjectIds.push(nextId++);
+      contentObjectIds.push(nextId++);
+    });
+
+    objects[1] = textBytes('<< /Type /Catalog /Pages 2 0 R >>');
+    objects[2] = textBytes(`<< /Type /Pages /Count ${pageImages.length} /Kids [${pageObjectIds.map((id) => `${id} 0 R`).join(' ')}] >>`);
+
+    pageImages.forEach((page, index) => {
+      const pageId = pageObjectIds[index];
+      const imageId = imageObjectIds[index];
+      const contentId = contentObjectIds[index];
+      const imageName = `Im${index + 1}`;
+      const content = `q\n595 0 0 842 0 0 cm\n/${imageName} Do\nQ\n`;
+      objects[pageId] = textBytes(`<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /XObject << /${imageName} ${imageId} 0 R >> >> /Contents ${contentId} 0 R >>`);
+      objects[imageId] = concatByteArrays([
+        textBytes(`<< /Type /XObject /Subtype /Image /Width ${page.width} /Height ${page.height} /ColorSpace /DeviceRGB /BitsPerComponent 8 /Filter /DCTDecode /Length ${page.bytes.length} >>\nstream\n`),
+        page.bytes,
+        textBytes('\nendstream')
+      ]);
+      objects[contentId] = textBytes(`<< /Length ${content.length} >>\nstream\n${content}endstream`);
+    });
+
+    const chunks = [textBytes('%PDF-1.4\n%\xE2\xE3\xCF\xD3\n')];
+    const offsets = [0];
+    let position = chunks[0].length;
+    for (let id = 1; id < objects.length; id += 1) {
+      offsets[id] = position;
+      const chunk = concatByteArrays([textBytes(`${id} 0 obj\n`), objects[id], textBytes('\nendobj\n')]);
+      chunks.push(chunk);
+      position += chunk.length;
+    }
+    const xrefOffset = position;
+    let xref = `xref\n0 ${objects.length}\n0000000000 65535 f \n`;
+    for (let id = 1; id < objects.length; id += 1) xref += `${String(offsets[id]).padStart(10, '0')} 00000 n \n`;
+    xref += `trailer\n<< /Size ${objects.length} /Root 1 0 R >>\nstartxref\n${xrefOffset}\n%%EOF`;
+    chunks.push(textBytes(xref));
+    return new Blob([concatByteArrays(chunks)], { type: 'application/pdf' });
+  }
+
+  function createPortfolioPdfPages(data) {
+    const width = 1240;
+    const height = 1754;
+    const margin = 92;
+    const contentWidth = width - (margin * 2);
+    const lineHeight = 34;
+    const sectionGap = 28;
+    const pages = [];
+    let canvas;
+    let context;
+    let y;
+
+    function newPage() {
+      canvas = document.createElement('canvas');
+      canvas.width = width;
+      canvas.height = height;
+      context = canvas.getContext('2d');
+      context.fillStyle = '#ffffff';
+      context.fillRect(0, 0, width, height);
+      context.textBaseline = 'top';
+      y = margin;
+      context.fillStyle = '#06265f';
+      context.fillRect(0, 0, width, 24);
+    }
+
+    function finishPage() {
+      context.font = '24px Arial, sans-serif';
+      context.fillStyle = '#445066';
+      context.fillText(`UCAN · Заняття 03 · Сторінка ${pages.length + 1}`, margin, height - 58);
+      pages.push({ width, height, bytes: dataUrlToBytes(canvas.toDataURL('image/jpeg', 0.92)) });
+    }
+
+    function ensureSpace(requiredHeight) {
+      if (y + requiredHeight > height - 100) {
+        finishPage();
+        newPage();
+      }
+    }
+
+    function drawTitle(title, subtitle) {
+      context.fillStyle = '#06265f';
+      context.font = 'bold 46px Arial, sans-serif';
+      const titleLines = wrapCanvasText(context, title, contentWidth);
+      titleLines.forEach((line) => {
+        context.fillText(line, margin, y);
+        y += 56;
+      });
+      context.font = '28px Arial, sans-serif';
+      context.fillStyle = '#123f78';
+      wrapCanvasText(context, subtitle, contentWidth).forEach((line) => {
+        context.fillText(line, margin, y);
+        y += 38;
+      });
+      y += 18;
+      context.strokeStyle = '#149eb5';
+      context.lineWidth = 5;
+      context.beginPath();
+      context.moveTo(margin, y);
+      context.lineTo(width - margin, y);
+      context.stroke();
+      y += 34;
+    }
+
+    function drawField(label, value) {
+      context.font = 'bold 27px Arial, sans-serif';
+      const labelLines = wrapCanvasText(context, label, contentWidth - 40);
+      context.font = '27px Arial, sans-serif';
+      const valueLines = wrapCanvasText(context, normalizePdfText(value), contentWidth - 40);
+      const boxHeight = 28 + (labelLines.length * 34) + 14 + (valueLines.length * lineHeight) + 28;
+      ensureSpace(boxHeight + sectionGap);
+      context.fillStyle = '#f4f6f8';
+      context.strokeStyle = '#cbd4df';
+      context.lineWidth = 2;
+      context.fillRect(margin, y, contentWidth, boxHeight);
+      context.strokeRect(margin, y, contentWidth, boxHeight);
+      let textY = y + 22;
+      context.font = 'bold 27px Arial, sans-serif';
+      context.fillStyle = '#06265f';
+      labelLines.forEach((line) => {
+        context.fillText(line, margin + 20, textY);
+        textY += 34;
+      });
+      textY += 8;
+      context.font = '27px Arial, sans-serif';
+      context.fillStyle = '#172033';
+      valueLines.forEach((line) => {
+        context.fillText(line, margin + 20, textY);
+        textY += lineHeight;
+      });
+      y += boxHeight + sectionGap;
+    }
+
+    newPage();
+    drawTitle('Карта цифрового рішення для кліматичної дії', 'Портфель мера · UCAN · Заняття 03');
+    drawField('Громада', data.communityName);
+    drawField('Ключова тема / напрям', data.keyTheme);
+    drawField('1. Кліматична дія', data.climateAction);
+    drawField('2. Управлінське питання', data.managementQuestion);
+    drawField('3. Цифрове рішення', data.digitalSolution);
+    drawField('4. Необхідні дані', data.neededData);
+    drawField('5. Джерело даних / відповідальний', data.dataOwner);
+    drawField('6. Управлінська користь', data.managementBenefit);
+    drawField('7. Перший крок', data.firstStep);
+    drawField('8. Показник результату 1', data.indicator1);
+    drawField('9. Показник результату 2', data.indicator2);
+    drawField('10. Показник результату 3', data.indicator3);
+    drawField('Статус даних', data.dataStatus);
+    ensureSpace(125);
+    context.fillStyle = '#eaf7ed';
+    context.strokeStyle = '#0b722d';
+    context.lineWidth = 2;
+    context.fillRect(margin, y, contentWidth, 112);
+    context.strokeRect(margin, y, contentWidth, 112);
+    context.font = '24px Arial, sans-serif';
+    context.fillStyle = '#172033';
+    wrapCanvasText(context, 'Чернетка створена учасником. Перевірте дані й припущення разом із відповідальними підрозділами громади.', contentWidth - 40).forEach((line) => {
+      context.fillText(line, margin + 20, y + 22);
+      y += 31;
+    });
+    finishPage();
+    return pages;
+  }
+
+  async function downloadPortfolioPdf() {
+    const button = document.getElementById('print-portfolio');
+    const originalLabel = button.textContent;
+    button.disabled = true;
+    button.textContent = '⏳ Формуємо PDF…';
+    portfolioStatus.textContent = 'Формуємо PDF у Вашому браузері…';
+    try {
+      savePortfolio();
+      const data = collectPortfolioData();
+      const pages = createPortfolioPdfPages(data);
+      const blob = buildImagePdf(pages);
+      const community = sanitizeFilePart(data.communityName);
+      const filename = community
+        ? `UCAN_L03_Карта_цифрового_рішення_${community}.pdf`
+        : 'UCAN_L03_Карта_цифрового_рішення.pdf';
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = filename;
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+      window.setTimeout(() => URL.revokeObjectURL(url), 1000);
+      portfolioStatus.textContent = `PDF сформовано: ${filename}`;
+    } catch (error) {
+      console.error(error);
+      portfolioStatus.textContent = 'Не вдалося сформувати PDF. Перевірте браузер і спробуйте ще раз.';
+    } finally {
+      button.disabled = false;
+      button.textContent = originalLabel;
+    }
+  }
+
+  document.getElementById('print-portfolio').addEventListener('click', downloadPortfolioPdf);
 
   // Final test. Completion is stored only after all answers are correct.
   const finalTestForm = document.getElementById('final-test-form');
   const finalTestResult = document.getElementById('final-test-result');
   const testGateNote = document.getElementById('test-gate-note');
-  const correctAnswers = { 1: 'B', 2: 'B', 3: 'A', 4: 'B', 5: 'B', 6: 'B' };
+  const correctAnswers = { 1: 'B', 2: 'C', 3: 'D', 4: 'A', 5: 'C', 6: 'B', 7: 'D', 8: 'A', 9: 'B', 10: 'C' };
 
   function getTestAnswers() {
     const answers = {};
-    for (let i = 1; i <= 6; i += 1) {
+    for (let i = 1; i <= 10; i += 1) {
       const selected = finalTestForm.querySelector(`input[name="test-${i}"]:checked`);
       if (selected) answers[i] = selected.value;
     }
@@ -385,7 +643,7 @@
     storageSet(STORAGE.testAnswers, JSON.stringify(answers));
     const incorrect = [];
     const unanswered = [];
-    for (let i = 1; i <= 6; i += 1) {
+    for (let i = 1; i <= 10; i += 1) {
       const fieldset = finalTestForm.querySelector(`[data-test-question="${i}"]`);
       const status = document.getElementById(`test-status-${i}`);
       fieldset.classList.remove('needs-review', 'is-correct');
@@ -410,7 +668,7 @@
       finalTestResult.textContent = `Є відповіді, які варто переглянути: ${incorrect.join(', ')}. Спробуйте ще раз.`;
       storageSet(STORAGE.testCompleted, 'false');
     } else {
-      finalTestResult.textContent = 'Усі шість відповідей правильні. Ви можете перейти до завершальної сторінки.';
+      finalTestResult.textContent = 'Усі десять відповідей правильні. Ви можете перейти до завершальної сторінки.';
       storageSet(STORAGE.testCompleted, 'true');
       testGateNote.textContent = 'Тест завершено. Кнопка «Далі» доступна.';
     }
@@ -420,7 +678,7 @@
 
   function restoreTest() {
     const answers = parseJson(storageGet(STORAGE.testAnswers), {});
-    for (let i = 1; i <= 6; i += 1) {
+    for (let i = 1; i <= 10; i += 1) {
       finalTestForm.querySelectorAll(`input[name="test-${i}"]`).forEach((input) => { input.checked = false; });
       const value = answers[i];
       const radio = value ? finalTestForm.querySelector(`input[name="test-${i}"][value="${value}"]`) : null;
@@ -435,7 +693,7 @@
       testGateNote.textContent = 'Тест завершено. Кнопка «Далі» доступна.';
     } else {
       finalTestResult.textContent = '';
-      testGateNote.textContent = 'Завершальна сторінка відкриється після правильної відповіді на всі шість питань.';
+      testGateNote.textContent = 'Завершальна сторінка відкриється після правильної відповіді на всі десять питань.';
     }
     updateNavigation();
   }

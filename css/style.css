@@ -558,3 +558,11 @@ textarea { resize: vertical; min-height: 7rem; }
     border: 1px solid #555;
   }
 }
+
+
+/* Patch 1.3.5: advanced final test and direct PDF download states. */
+#final-test-form .test-question label { transition: border-color 160ms ease, background-color 160ms ease; }
+#final-test-form .test-question label:hover { border-color: var(--turquoise-600); background: var(--turquoise-100); }
+#final-test-form .test-question.is-correct label:has(input:checked) { border-color: var(--green-800); background: var(--green-100); }
+#final-test-form .test-question.needs-review label:has(input:checked) { border-color: var(--warning-border); background: var(--warning-bg); }
+#print-portfolio[disabled] { cursor: wait; }

@@ -1,664 +1,656 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="uk">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Онлайн-заняття курсу UCAN про роль технологій та цифровізації у міських кліматичних діях.">
-  <title>Роль технологій та цифровізації у міських кліматичних діях — UCAN</title>
-  <link rel="stylesheet" href="css/style.css">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="Онлайн-заняття курсу UCAN про роль технологій та цифровізації у міських кліматичних діях." name="description"/>
+<title>Роль технологій та цифровізації у міських кліматичних діях — UCAN</title>
+<link href="css/style.css" rel="stylesheet"/>
 </head>
 <body>
-  <a class="skip-link" href="#main-content">Перейти до основного змісту</a>
-
-  <header class="site-header" aria-label="Навігація заняття">
-    <div class="header-inner">
-      <div class="brand" aria-label="UCAN">
-        <span class="brand-mark" aria-hidden="true">U</span>
-        <span class="brand-text">UCAN · Онлайн-курс</span>
-      </div>
-      <div class="header-actions">
-        <button class="button button-quiet" id="reset-progress" type="button">🔄 Почати спочатку</button>
-      </div>
-    </div>
-    <div class="progress-shell" aria-label="Прогрес заняття">
-      <div class="progress-meta">
-        <span>Прогрес проходження</span>
-        <span id="progress-percent">9%</span>
-      </div>
-      <div class="progress-track" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="9" aria-label="Прогрес проходження">
-        <div class="progress-fill" id="progress-fill"></div>
-      </div>
-    </div>
-  </header>
-
-  <main id="main-content" tabindex="-1">
-    <section class="lesson-page is-active" data-page="1" aria-labelledby="page-1-title">
-      <div class="page-kicker">💻 Технології та цифровізація</div>
-      <h1 id="page-1-title">💻 Роль технологій та цифровізації у міських кліматичних діях</h1>
-      <p class="lead">Дані, цифровізація та управління на основі фактів</p>
-
-      <div class="meta-strip" aria-label="Параметри заняття">
-        <span>Основна частина: 20–30 хвилин</span>
-        <span>Практичний результат: одна управлінська карта</span>
-      </div>
-
-      <aside class="callout callout-primary" aria-labelledby="core-message-title">
-        <h2 id="core-message-title" class="callout-title">💡 Головна думка</h2>
-        <p>Цифровізація має сенс лише тоді, коли допомагає громаді виконати конкретну кліматичну дію та покращує управлінське рішення. Починаємо не з платформи, а з проблеми, даних і першого практичного кроку.</p>
-      </aside>
-
-      <section aria-labelledby="goal-title">
-        <h2 id="goal-title">🎯 Мета заняття</h2>
-        <p>Допомогти міському голові та управлінській команді перейти від цифровізації заради інструментів до цифровізації для конкретної кліматичної дії: визначити управлінське питання, потрібні дані, цифрове рішення, очікувану користь і перший практичний крок.</p>
-      </section>
-
-      <section aria-labelledby="why-title">
-        <h2 id="why-title">🧭 Навіщо Вам це заняття</h2>
-        <p>У попередніх заняттях громада визначила головний кліматичний виклик і сформувала першу кліматично нейтральну візію. Тепер виникає практичне питання: яке конкретне управлінське рішення потрібно покращити і як дані та цифрові інструменти можуть підтримати цю кліматичну дію?</p>
-        <p>Команда може мати сильну візію, але не бачити, що саме потрібно цифровізувати. Купівля платформи або датчиків сама по собі не створює результату. Спочатку потрібно визначити кліматичну дію, управлінське питання, потрібні дані, відповідального та рішення, яке має стати кращим.</p>
-      </section>
-
-      <aside class="callout" aria-labelledby="transition-title">
-        <h2 id="transition-title" class="callout-title">🔄 Ключовий перехід</h2>
-        <p>Стара модель звучить так: “Нам здається, що тут треба ремонт”. Нова модель звучить інакше: “Дані показують, що саме цей об’єкт має найбільше споживання, найбільший ризик або найбільший потенціал економії”.</p>
-      </aside>
-
-      <section aria-labelledby="outcomes-title">
-        <h2 id="outcomes-title">✅ Після цього заняття Ви зможете:</h2>
-        <ul class="check-list">
-          <li>пояснювати, чому дані є управлінським ресурсом громади;</li>
-          <li>відрізняти цифровізацію заради технологій від цифровізації для ухвалення рішень;</li>
-          <li>пояснювати Twin Transition — подвійний зелений і цифровий перехід;</li>
-          <li>обирати одну кліматичну дію, якій потрібна цифрова підтримка;</li>
-          <li>визначати потрібні дані, їхнє джерело, відповідального та управлінську користь;</li>
-          <li>створювати Карту цифрового рішення для кліматичної дії з першим кроком і 2–3 показниками результату.</li>
-        </ul>
-      </section>
-
-      <section aria-labelledby="result-title">
-        <h2 id="result-title">📂 Практичний результат</h2>
-        <div class="portfolio-card">
-          <p><strong>Карта цифрового рішення для кліматичної дії</strong> — короткий документ, який пов’язує кліматичний виклик і кліматично нейтральну візію, сформовані раніше, конкретну дію громади, потрібні дані, цифровий інструмент, управлінську користь, перший крок і 2–3 показники результату.</p>
-        </div>
-      </section>
-
-      <figure class="generated-visual">
-        <img src="assets/L03-A01_Від_кліматичної_дії_до_першого_цифрового_кроку_v1.0.png" alt="Вертикальна схема з шести кроків: кліматична дія, управлінське питання, цифрове рішення, дані, управлінська користь і перший крок." width="1229" height="1536">
-        <figcaption>Від кліматичної дії до першого цифрового кроку</figcaption>
-      </figure>
-
-      <section aria-labelledby="map-title">
-        <h2 id="map-title">🗺️ Карта заняття</h2>
-        <div class="table-wrap">
-          <table>
-            <thead><tr><th scope="col">№</th><th scope="col">Блок</th><th scope="col">Активність</th></tr></thead>
-            <tbody>
-              <tr><td>1</td><td>Навіщо Вам це заняття</td><td>Побачити, як це заняття продовжує роботу з викликом і візією.</td></tr>
-              <tr><td>2</td><td>Дані як управлінський ресурс</td><td>Відрізнити загальні враження від даних, що підтримують рішення.</td></tr>
-              <tr><td>3</td><td>Smart City без гаджетизації</td><td>Перевірити, чи технологія справді покращує управління.</td></tr>
-              <tr><td>4</td><td>Twin Transition</td><td>Поєднати зелену та цифрову трансформацію в одній управлінській логіці.</td></tr>
-              <tr><td>5</td><td>Від кліматичної дії до цифрового рішення</td><td>Визначити потрібні дані, управлінську користь і перший крок.</td></tr>
-              <tr><td>6</td><td>Практичне завдання</td><td>Створити Карту цифрового рішення для Портфеля мера.</td></tr>
-              <tr><td>7</td><td>Тест і рефлексія</td><td>Перевірити логіку рішення та підготувати розмову з командою.</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </section>
-    </section>
-
-    <section class="lesson-page" data-page="2" aria-labelledby="page-2-title" hidden>
-      <div class="page-kicker">📘 Теоретичний блок 1</div>
-      <h2 id="page-2-title" tabindex="-1">📊 Дані як новий управлінський ресурс громади</h2>
-      <p>Дані — це не лише таблиці, звіти або файли в комп’ютері. Для міського голови дані — це спосіб бачити реальний стан громади і не покладатися тільки на враження, скарги або політичну видимість проблеми.</p>
-      <p>Наприклад, громада може знати, що “школи споживають багато тепла”. Але це ще не управлінські дані. Управлінські дані починаються тоді, коли команда може відповісти: які саме школи споживають найбільше, скільки це коштує бюджету, чи є аномалії, хто відповідає за дані, як часто вони оновлюються і яке рішення ухвалюється на їхній основі.</p>
-
-      <div class="table-wrap responsive-table">
-        <table>
-          <thead><tr><th scope="col">Загальне враження</th><th scope="col">Управлінські дані</th></tr></thead>
-          <tbody>
-            <tr><td data-label="Загальне враження">У нас великі витрати на енергію.</td><td data-label="Управлінські дані">Які 10 будівель створюють найбільшу частку витрат на тепло або електроенергію?</td></tr>
-            <tr><td data-label="Загальне враження">У нас проблемний транспорт.</td><td data-label="Управлінські дані">Які райони не мають зручного маршруту до лікарні, школи або ЦНАП?</td></tr>
-            <tr><td data-label="Загальне враження">Потрібно більше озеленення.</td><td data-label="Управлінські дані">Які громадські простори перегріваються, де бракує тіні і хто найбільше вразливий?</td></tr>
-            <tr><td data-label="Загальне враження">Треба модернізувати комунальне підприємство.</td><td data-label="Управлінські дані">Які втрати зростають, як часто вони вимірюються і хто відповідає за реагування?</td></tr>
-          </tbody>
-        </table>
-      </div>
-
-      <aside class="callout callout-leader">
-        <h3>🏛️ Що це означає для міського голови та управлінської команди?</h3>
-        <p>Дані потрібні не для того, щоб створювати більше звітів. Дані потрібні, щоб команда бачила, де громада втрачає гроші, де зростає ризик і де потрібно діяти першочергово.</p>
-      </aside>
-      <aside class="callout callout-community">
-        <h3>🏙️ Що це означає для громади?</h3>
-        <p>Для мешканців управління на основі даних означає більш зрозумілі пріоритети, менше випадкових рішень і більше довіри до того, чому влада обирає саме ці об’єкти, маршрути або проєкти.</p>
-      </aside>
-      <aside class="quick-check">
-        <h3>✅ Швидка перевірка</h3>
-        <p>Оберіть одну кліматичну дію громади. Яке управлінське рішення потрібно покращити? Які дані вже є? Хто ними володіє? Який цифровий інструмент може допомогти?</p>
-      </aside>
-
-      <aside class="official-video" aria-labelledby="official-video-open-data-title">
-        <div class="resource-badge">🎥 Офіційна відеолекція</div>
-        <h3 id="official-video-open-data-title">Загальна характеристика відкритих даних, принципи та міжнародні стандарти</h3>
-        <p>Відеолекція допоможе поглибити розуміння того, як відкриті дані підтримують планування кліматичних дій і перехід від загальних вражень до обґрунтованих управлінських рішень.</p>
-        <a class="button button-primary resource-link" href="https://www.youtube.com/watch?v=-jJTrDF7OVM" target="_blank" rel="noopener noreferrer">▶️ Переглянути відеолекцію ↗</a>
-        <p class="resource-source">Курс «Циркулярна економіка» · рекомендовано для Розділу 3 посібника</p>
-      </aside>
-    </section>
-
-    <section class="lesson-page" data-page="3" aria-labelledby="page-3-title" hidden>
-      <div class="page-kicker">📘 Теоретичний блок 2</div>
-      <h2 id="page-3-title" tabindex="-1">🏙️ Smart City — це не гаджети, а модель управління</h2>
-      <p>Раніше Smart City було визначено не як набір технологій, а як спосіб ухвалювати кращі управлінські рішення. У цьому занятті робимо наступний крок: цифровізація має цінність лише тоді, коли відповідає на конкретне управлінське питання.</p>
-
-      <div class="table-wrap responsive-table">
-        <table>
-          <thead><tr><th scope="col">Цифровий інструмент</th><th scope="col">Коли він має управлінську цінність</th></tr></thead>
-          <tbody>
-            <tr><td data-label="Цифровий інструмент">Система енергомоніторингу</td><td data-label="Управлінська цінність">Коли команда аналізує відхилення і діє, а не лише збирає показники.</td></tr>
-            <tr><td data-label="Цифровий інструмент">GPS на комунальній техніці</td><td data-label="Управлінська цінність">Коли дані допомагають оптимізувати маршрути, витрати пального і якість послуг.</td></tr>
-            <tr><td data-label="Цифровий інструмент">Портал відкритих даних</td><td data-label="Управлінська цінність">Коли дані оновлюються, зрозумілі користувачам і підтримують прозорість.</td></tr>
-            <tr><td data-label="Цифровий інструмент">Цифрова карта зелених насаджень</td><td data-label="Управлінська цінність">Коли вона впливає на планування тіні, догляду, маршрутів і громадських просторів.</td></tr>
-            <tr><td data-label="Цифровий інструмент">Управлінський дашборд</td><td data-label="Управлінська цінність">Коли мер і команда регулярно використовують його для аналізу, реагування та перевірки результату.</td></tr>
-          </tbody>
-        </table>
-      </div>
-
-      <figure class="generated-visual">
-        <img src="assets/L03-A02_Технологія_чи_управлінське_рішення_v1.0.png" alt="Порівняння двох підходів: цифровізація заради інструментів і цифровізація для конкретної кліматичної дії, з контрольним питанням про управлінське рішення." width="1229" height="1536">
-        <figcaption>Технологія чи управлінське рішення?</figcaption>
-      </figure>
-
-      <aside class="callout callout-leader">
-        <h3>🏛️ Що це означає для міського голови та управлінської команди?</h3>
-        <p>Перед будь-якою цифровою закупівлею варто поставити просте питання: яке управлінське рішення стане кращим завдяки цій технології?</p>
-      </aside>
-      <aside class="callout callout-warning">
-        <h3>⚠️ Типова помилка</h3>
-        <p>Починати цифровізацію з покупки програмного забезпечення, не визначивши кліматичну дію, управлінське питання, потрібні дані, власника процесу та перший практичний крок.</p>
-      </aside>
-    </section>
-
-    <section class="lesson-page" data-page="4" aria-labelledby="page-4-title" hidden>
-      <div class="page-kicker">📘 Теоретичний блок 3</div>
-      <h2 id="page-4-title" tabindex="-1">🔄 Twin Transition — зелена і цифрова трансформація разом</h2>
-      <p>Twin Transition означає подвійний перехід: зелений і цифровий. Для громади це дуже практична логіка: кліматичні рішення мають спиратися на дані, а цифровізація має допомагати зменшувати викиди, витрати й ризики.</p>
-
-      <figure class="generated-visual">
-        <img src="assets/L03-A03_Twin_Transition_v1.0.png" alt="Схема Twin Transition: зелена трансформація і цифрова трансформація сходяться у кращих управлінських рішеннях." width="1229" height="1536">
-        <figcaption>Twin Transition: зелена і цифрова трансформація разом</figcaption>
-      </figure>
-
-      <div class="table-wrap responsive-table three-column">
-        <table>
-          <thead><tr><th scope="col">Приклад</th><th scope="col">Зелена частина</th><th scope="col">Цифрова частина</th></tr></thead>
-          <tbody>
-            <tr><td data-label="Приклад">Зменшення витрат на енергію</td><td data-label="Зелена частина">Термомодернізація, ефективне теплопостачання, ВДЕ, енергозбереження.</td><td data-label="Цифрова частина">Енергомоніторинг, облік, порівняння будівель, виявлення аномалій і 2–3 показники результату.</td></tr>
-            <tr><td data-label="Приклад">Покращення мобільності</td><td data-label="Зелена частина">Громадський транспорт, пішохідні маршрути, велоінфраструктура, менша залежність від приватного авто.</td><td data-label="Цифрова частина">Дані про маршрути, GPS, пасажиропотоки, карта доступності, аналіз скарг і показники регулярності.</td></tr>
-          </tbody>
-        </table>
-      </div>
-
-      <aside class="callout callout-leader">
-        <h3>🏛️ Що це означає для міського голови та управлінської команди?</h3>
-        <p>Зелена трансформація без даних слабка. Цифровізація без кліматичної й бюджетної мети порожня. Найкращі рішення виникають там, де цифрові інструменти допомагають зменшувати витрати, викиди й ризики.</p>
-      </aside>
-      <aside class="callout callout-community">
-        <h3>🏙️ Що це означає для громади?</h3>
-        <p>Мешканці відчувають Twin Transition не як термін, а як кращі послуги: тепліші школи, надійніший транспорт, менше аварій, прозоріші рішення і зрозуміліші пріоритети.</p>
-      </aside>
-    </section>
-
-    <section class="lesson-page" data-page="5" aria-labelledby="page-5-title" hidden>
-      <div class="page-kicker">📘 Теоретичні блоки 4–5</div>
-      <h2 id="page-5-title" tabindex="-1">🌱 Від кліматичної дії до цифрового рішення</h2>
-      <p>Цифрове рішення починається не з назви платформи. Воно починається з конкретної кліматичної дії та управлінського питання. Спочатку команда визначає, що потрібно покращити: зменшити втрати енергії, швидше реагувати на підтоплення, оптимізувати маршрути або краще планувати зелені зони. Лише після цього обираються дані й цифровий інструмент.</p>
-
-      <h3>🌱 Кліматична дія та дані для цифрового рішення</h3>
-      <div class="table-wrap responsive-table">
-        <table>
-          <thead><tr><th scope="col">Кліматична дія / сфера</th><th scope="col">Які дані можуть підтримати цифрове рішення</th></tr></thead>
-          <tbody>
-            <tr><td data-label="Кліматична дія / сфера">Енергія</td><td data-label="Дані">Які муніципальні будівлі споживають найбільше тепла й електроенергії; де є облік; де є аномалії; де найбільший потенціал економії.</td></tr>
-            <tr><td data-label="Кліматична дія / сфера">Будівлі</td><td data-label="Дані">Перелік об’єктів, площа, технічний стан, наявність енергоаудиту, кількість користувачів, соціальна важливість і витрати на утримання.</td></tr>
-            <tr><td data-label="Кліматична дія / сфера">Транспорт і мобільність</td><td data-label="Дані">Основні маршрути мешканців, доступність громадського транспорту, стан зупинок, маршрути до шкіл, лікарень і ЦНАП, витрати пального.</td></tr>
-            <tr><td data-label="Кліматична дія / сфера">Вода, підтоплення і ризики</td><td data-label="Дані">Де виникають підтоплення, які об’єкти під ризиком, де є проблеми з водовідведенням, які райони перегріваються, де бракує тіні.</td></tr>
-            <tr><td data-label="Кліматична дія / сфера">Відходи й ресурси</td><td data-label="Дані">Обсяги побутових, органічних і будівельних відходів, маршрути вивезення, витрати, можливості повторного використання та партнерства.</td></tr>
-            <tr><td data-label="Кліматична дія / сфера">Фінанси і проєкти</td><td data-label="Дані">Які витрати зростають, які проєкти мають базові дані, попередню вартість, відповідального і потенціал для фінансування.</td></tr>
-          </tbody>
-        </table>
-      </div>
-
-      <h3>💡 Як визначити управлінську цінність цифрового рішення</h3>
-      <p>Цифрове рішення має управлінську цінність, коли допомагає бачити проблему, порівнювати варіанти, вчасно реагувати або перевіряти результат. Для міського голови важливе не саме програмне забезпечення, а те, яке рішення стане швидшим, точнішим, прозорішим або економнішим.</p>
-      <p>Сильне цифрове рішення має чіткий зв’язок: кліматична дія → управлінське питання → потрібні дані → цифровий інструмент → управлінська користь. Якщо цей зв’язок не можна пояснити одним реченням, рішення ще потребує уточнення.</p>
-
-      <aside class="official-video official-video-secondary" aria-labelledby="official-video-sectors-title">
-        <div class="resource-badge">🎥 Додаткове відео</div>
-        <h3 id="official-video-sectors-title">Потенціал циркулярної економіки в Україні</h3>
-        <p>Матеріал демонструє можливості циркулярних рішень у ключових секторах українських громад і може допомогти під час вибору сфери для цифрової підтримки.</p>
-        <a class="button button-secondary resource-link" href="https://www.youtube.com/watch?v=JRiTGhkzSkM&amp;t=1s" target="_blank" rel="noopener noreferrer">▶️ Переглянути додаткове відео ↗</a>
-        <p class="resource-source">Курс «Циркулярна економіка» · додатковий матеріал для Розділу 3 посібника</p>
-      </aside>
-
-      <aside class="callout">
-        <h3>💬 Що обговорити на найближчій нараді?</h3>
-        <p>Оберіть одну кліматичну дію та попросіть профільний підрозділ, фінанси, комунальне підприємство і команду цифровізації назвати: яке рішення потрібно покращити, які дані вже існують і хто за них відповідає.</p>
-      </aside>
-      <aside class="callout callout-primary">
-        <h3>🚀 Принцип для старту</h3>
-        <p>Краще одне цифрове рішення з чіткою управлінською користю і реалістичним першим кроком, ніж велика платформа без визначеної проблеми, даних і відповідального.</p>
-      </aside>
-      <aside class="callout callout-warning">
-        <h3>⚠️ Типова помилка</h3>
-        <p>Обирати цифровий інструмент тому, що він популярний або сучасний. Спочатку команда має визначити кліматичну дію, управлінське питання та рішення, яке потрібно покращити.</p>
-      </aside>
-    </section>
-
-    <section class="lesson-page" data-page="6" aria-labelledby="page-6-title" hidden>
-      <div class="page-kicker">📘 Теоретичні блоки 6–7</div>
-      <h2 id="page-6-title" tabindex="-1">📊 Дані, відповідальність і 2–3 показники результату</h2>
-
-      <h3>👥 Дані та відповідальність до запуску</h3>
-      <p>До запуску потрібно визначити мінімальний набір даних, їхнє джерело, якість, періодичність оновлення та відповідального. Не потрібно чекати ідеальної системи. Важливо чесно позначити: дані вже є, вони розрізнені або їх ще потрібно почати збирати.</p>
-
-      <h3>📈 2–3 показники для перевірки результату</h3>
-      <p>У цьому занятті громада не створює повну систему KPI. Для одного цифрового рішення достатньо визначити 2–3 показники, які допоможуть перевірити, чи рішення працює. Повний набір KPI та адаптивний цикл управління створюватимуться в окремому наступному занятті курсу.</p>
-
-      <div class="table-wrap responsive-table">
-        <table>
-          <thead><tr><th scope="col">Цифрове рішення</th><th scope="col">Можливі 2–3 показники результату</th></tr></thead>
-          <tbody>
-            <tr><td data-label="Цифрове рішення">Енергомоніторинг будівель</td><td data-label="Показники">Зміна споживання енергії; кількість виявлених аномалій; частка об’єктів із регулярними даними.</td></tr>
-            <tr><td data-label="Цифрове рішення">Цифрова карта підтоплень</td><td data-label="Показники">Кількість підтверджених ризикових точок; час реагування; кількість пріоритетних заходів, внесених до плану.</td></tr>
-            <tr><td data-label="Цифрове рішення">GPS-моніторинг комунального транспорту</td><td data-label="Показники">Зміна витрат пального; регулярність маршрутів; кількість відхилень, на які команда відреагувала.</td></tr>
-            <tr><td data-label="Цифрове рішення">Карта зелених насаджень</td><td data-label="Показники">Частка об’єктів із актуальними даними; кількість зон перегріву, врахованих у плануванні; виконані заходи з догляду.</td></tr>
-            <tr><td data-label="Цифрове рішення">Цифровий облік відходів</td><td data-label="Показники">Частка потоків із підтвердженими даними; зміна обсягів змішаних відходів; кількість управлінських рішень на основі даних.</td></tr>
-            <tr><td data-label="Цифрове рішення">Управлінський дашборд</td><td data-label="Показники">Регулярність оновлення; кількість показників із відповідальним; кількість рішень, зафіксованих після перегляду даних.</td></tr>
-          </tbody>
-        </table>
-      </div>
-
-      <h3>🗺️ Що потрібно визначити у карті</h3>
-      <div class="table-wrap responsive-table">
-        <table>
-          <thead><tr><th scope="col">Поле карти</th><th scope="col">Що потрібно визначити</th></tr></thead>
-          <tbody>
-            <tr><td data-label="Поле карти">Кліматична дія</td><td data-label="Що визначити">Яку конкретну зміну або проблему громада хоче підтримати.</td></tr>
-            <tr><td data-label="Поле карти">Управлінське питання</td><td data-label="Що визначити">Яке рішення має стати швидшим, точнішим, прозорішим або економнішим.</td></tr>
-            <tr><td data-label="Поле карти">Цифрове рішення</td><td data-label="Що визначити">Який інструмент, реєстр, карта, моніторинг або інший цифровий підхід може допомогти.</td></tr>
-            <tr><td data-label="Поле карти">Потрібні дані</td><td data-label="Що визначити">Які дані потрібні для роботи рішення.</td></tr>
-            <tr><td data-label="Поле карти">Джерело і відповідальний</td><td data-label="Що визначити">Звідки беруться дані, хто їх оновлює і хто реагує.</td></tr>
-            <tr><td data-label="Поле карти">Управлінська користь</td><td data-label="Що визначити">Що саме команда зможе бачити, порівнювати, планувати або змінювати.</td></tr>
-            <tr><td data-label="Поле карти">Перший крок</td><td data-label="Що визначити">Що можна зробити протягом найближчого місяця без великої закупівлі.</td></tr>
-            <tr><td data-label="Поле карти">2–3 показники</td><td data-label="Що визначити">Як команда перевірить, що цифрове рішення справді допомагає.</td></tr>
-          </tbody>
-        </table>
-      </div>
-
-      <aside class="quick-check">
-        <h3>✅ Швидка перевірка</h3>
-        <p>Сформулюйте одним реченням: «Щоб підтримати [кліматичну дію], ми використаємо [цифрове рішення], яке допоможе [управлінська користь] на основі [дані]». Якщо речення не складається, карту потрібно уточнити.</p>
-      </aside>
-    </section>
-
-    <section class="lesson-page" data-page="7" aria-labelledby="page-7-title" hidden>
-      <div class="page-kicker">✅ Інтерактивна самоперевірка</div>
-      <h2 id="page-7-title" tabindex="-1">✅ Технологія чи управлінське рішення?</h2>
-      <p>Оберіть одну кліматичну дію громади та один можливий цифровий інструмент: енергомоніторинг, цифрову карту, GPS-моніторинг, реєстр, датчики або управлінський дашборд.</p>
-      <p>Перевірте рішення за шістьма питаннями:</p>
-
-      <aside class="callout callout-primary self-check-example" aria-label="Приклад сформованого рішення">
-        <h3>💡 Приклад</h3>
-        <p><strong>Кліматична дія:</strong> зменшити споживання енергії у школах.</p>
-        <p><strong>Цифровий інструмент:</strong> система енергомоніторингу.</p>
-        <p><strong>Відповідь на управлінське питання:</strong> команда щомісяця бачить будівлі з найбільшими відхиленнями та визначає, де потрібна першочергова перевірка.</p>
-      </aside>
-
-      <form id="self-check-form" novalidate>
-        <div class="diagnostic-list">
-          <fieldset class="diagnostic-item" data-diagnostic="1">
-            <legend><span class="question-number">1</span> Яку кліматичну дію або проблему підтримує це рішення?</legend>
-            <div class="choice-row"><label><input type="radio" name="diagnostic-1" value="yes"> Так</label><label><input type="radio" name="diagnostic-1" value="clarify"> Потрібно уточнити</label></div>
-            <p class="item-feedback" id="diagnostic-feedback-1" aria-live="polite"></p>
-          </fieldset>
-          <fieldset class="diagnostic-item" data-diagnostic="2">
-            <legend><span class="question-number">2</span> Яке управлінське рішення має стати кращим?</legend>
-            <div class="choice-row"><label><input type="radio" name="diagnostic-2" value="yes"> Так</label><label><input type="radio" name="diagnostic-2" value="clarify"> Потрібно уточнити</label></div>
-            <p class="item-feedback" id="diagnostic-feedback-2" aria-live="polite"></p>
-          </fieldset>
-          <fieldset class="diagnostic-item" data-diagnostic="3">
-            <legend><span class="question-number">3</span> Які дані потрібні і звідки вони беруться?</legend>
-            <div class="choice-row"><label><input type="radio" name="diagnostic-3" value="yes"> Так</label><label><input type="radio" name="diagnostic-3" value="clarify"> Потрібно уточнити</label></div>
-            <p class="item-feedback" id="diagnostic-feedback-3" aria-live="polite"></p>
-          </fieldset>
-          <fieldset class="diagnostic-item" data-diagnostic="4">
-            <legend><span class="question-number">4</span> Хто відповідає за дані та реагування?</legend>
-            <div class="choice-row"><label><input type="radio" name="diagnostic-4" value="yes"> Так</label><label><input type="radio" name="diagnostic-4" value="clarify"> Потрібно уточнити</label></div>
-            <p class="item-feedback" id="diagnostic-feedback-4" aria-live="polite"></p>
-          </fieldset>
-          <fieldset class="diagnostic-item" data-diagnostic="5">
-            <legend><span class="question-number">5</span> Яку управлінську користь отримає команда?</legend>
-            <div class="choice-row"><label><input type="radio" name="diagnostic-5" value="yes"> Так</label><label><input type="radio" name="diagnostic-5" value="clarify"> Потрібно уточнити</label></div>
-            <p class="item-feedback" id="diagnostic-feedback-5" aria-live="polite"></p>
-          </fieldset>
-          <fieldset class="diagnostic-item" data-diagnostic="6">
-            <legend><span class="question-number">6</span> Який перший реалістичний крок можна зробити без великої закупівлі?</legend>
-            <div class="choice-row"><label><input type="radio" name="diagnostic-6" value="yes"> Так</label><label><input type="radio" name="diagnostic-6" value="clarify"> Потрібно уточнити</label></div>
-            <p class="item-feedback" id="diagnostic-feedback-6" aria-live="polite"></p>
-          </fieldset>
-        </div>
-        <button class="button button-primary" type="submit">✅ Перевірити рішення</button>
-        <div class="result-box" id="self-check-result" role="status" aria-live="polite" tabindex="-1"></div>
-      </form>
-    </section>
-
-    <section class="lesson-page" data-page="8" aria-labelledby="page-8-title" hidden>
-      <div class="page-kicker">🛠️ Практичне завдання</div>
-      <h2 id="page-8-title" tabindex="-1">🛠️ Створіть Карту цифрового рішення для кліматичної дії</h2>
-      <p>Мета завдання — описати одне цифрове рішення, яке може підтримати конкретну кліматичну дію громади. Це не технічне завдання на закупівлю і не повна цифрова стратегія. Це коротка управлінська карта для розмови з командою.</p>
-
-      <figure class="generated-visual generated-visual-repeat">
-        <img src="assets/L03-A01_Від_кліматичної_дії_до_першого_цифрового_кроку_v1.0.png" alt="Вертикальна схема з шести кроків: кліматична дія, управлінське питання, цифрове рішення, дані, управлінська користь і перший крок." width="1229" height="1536">
-        <figcaption>Нагадайте собі послідовність перед заповненням карти.</figcaption>
-      </figure>
-
-      <div class="steps">
-        <section class="step-card"><div class="step-index" aria-hidden="true">1</div><div><h3>📂 Візьміть документи з попередніх занять</h3><ul><li>Картку кліматичного виклику;</li><li>Картку кліматично нейтральної візії громади.</li></ul></div></section>
-        <section class="step-card"><div class="step-index" aria-hidden="true">2</div><div><h3>🌱 Оберіть одну кліматичну дію та управлінське питання</h3><p>Оберіть одну дію, найбільш пов’язану з вашим викликом і візією: зменшення споживання енергії, реагування на підтоплення, покращення мобільності, управління зеленими зонами, водою, відходами або інша підтверджена потреба громади. Сформулюйте, яке рішення має стати кращим.</p></div></section>
-        <section class="step-card"><div class="step-index" aria-hidden="true">3</div><div><h3>💻 Опишіть одне цифрове рішення</h3><ul><li>підтримує одну конкретну кліматичну дію;</li><li>відповідає на одне зрозуміле управлінське питання;</li><li>використовує дані, які вже є або які реально почати збирати;</li><li>має визначеного власника даних і відповідального за реагування;</li><li>дає зрозумілу управлінську користь;</li><li>може початися з одного реалістичного першого кроку.</li></ul></div></section>
-        <section class="step-card"><div class="step-index" aria-hidden="true">4</div><div><h3>🗺️ Заповніть Карту цифрового рішення</h3><p>На наступній сторінці внесіть відповіді до робочої форми.</p></div></section>
-        <section class="step-card"><div class="step-index" aria-hidden="true">5</div><div><h3>📈 Додайте 2–3 показники та позначте якість даних</h3><p>Не створюйте повну систему KPI. Оберіть лише показники, які допоможуть перевірити роботу одного рішення.</p></div></section>
-      </div>
-
-      <section class="official-resources" aria-labelledby="official-resources-title">
-        <div class="resource-section-heading">
-          <p class="resource-eyebrow">Матеріали замовника</p>
-          <h3 id="official-resources-title">🔗 Корисні інструменти для Вашого рішення</h3>
-          <p>Ці ресурси відібрано з офіційної колекції CNSC. Не потрібно використовувати всі: оберіть один інструмент, який відповідає Вашій кліматичній дії та управлінському питанню.</p>
-        </div>
-        <div class="resource-grid">
-          <article class="resource-card">
-            <div class="resource-badge">Дані та готовність</div>
-            <h4>City Climate Data Management Framework</h4>
-            <p>Допомагає оцінити, як у місті організовано кліматичні дані, відповідальність, якість і використання інформації. Містить самооцінювання, таблиці оцінювання та кейси.</p>
-            <a class="button button-secondary resource-link" href="https://www.c40knowledgehub.org/s/article/City-Climate-Data-Management-Framework?language=en_US" target="_blank" rel="noopener noreferrer">Відкрити ресурс ↗</a>
-            <p class="resource-source">C40 Cities Climate Leadership Group · EY</p>
-          </article>
-          <article class="resource-card">
-            <div class="resource-badge">Будівлі та енергія</div>
-            <h4>Healthy and Efficient Retrofitted Buildings Tool (HERB)</h4>
-            <p>Допомагає містам на основі даних оцінити ширші кліматичні, соціально-економічні та медичні переваги модернізації однієї будівлі або міського портфеля будівель.</p>
-            <a class="button button-secondary resource-link" href="https://www.c40knowledgehub.org/s/article/Healthy-and-Efficient-Retrofitted-Buildings-Tool-HERB?language=en_US" target="_blank" rel="noopener noreferrer">Відкрити ресурс ↗</a>
-            <p class="resource-source">C40 Climate Leadership Group</p>
-          </article>
-          <article class="resource-card">
-            <div class="resource-badge">Вибір пріоритетів</div>
-            <h4>Action Selection and Prioritisation (ASAP) Tool</h4>
-            <p>Підтримує порівняння кліматичних дій за перевагами та викликами й створює графічні результати для обговорення. Інструмент підтримує рішення, але не ухвалює його замість міста.</p>
-            <a class="button button-secondary resource-link" href="https://www.c40knowledgehub.org/s/article/Action-Selection-and-Prioritisation-ASAP-Tool?language=en_US" target="_blank" rel="noopener noreferrer">Відкрити ресурс ↗</a>
-            <p class="resource-source">C40 Cities Climate Leadership Group</p>
-          </article>
-          <article class="resource-card">
-            <div class="resource-badge">Інвентаризація викидів</div>
-            <h4>City Inventory Reporting and Information System (CIRIS)</h4>
-            <p>Excel-інструмент для системного введення, розрахунку та звітування даних міської інвентаризації парникових газів відповідно до GPC.</p>
-            <a class="button button-secondary resource-link" href="https://www.c40knowledgehub.org/s/article/City-Inventory-Reporting-and-Information-System-CIRIS?language=en_US" target="_blank" rel="noopener noreferrer">Відкрити ресурс ↗</a>
-            <p class="resource-source">C40 Cities Climate Leadership Group</p>
-          </article>
-        </div>
-        <aside class="resource-use-note">
-          <strong>💡 Як використати:</strong> перегляньте опис одного релевантного інструмента й уточніть у своїй карті, які дані, відповідальні або критерії вибору Вам ще потрібно визначити.
-        </aside>
-      </section>
-
-      <section aria-labelledby="success-title">
-        <h3 id="success-title">✅ Критерії успішного виконання</h3>
-        <ul class="check-list">
-          <li>використано Картку кліматичного виклику та Картку кліматично нейтральної візії громади;</li>
-          <li>обрано одну конкретну кліматичну дію;</li>
-          <li>описано одне цифрове рішення та управлінське питання, яке воно підтримує;</li>
-          <li>визначено потрібні дані, джерело, відповідального та управлінську користь;</li>
-          <li>сформульовано перший реалістичний крок;</li>
-          <li>додано 2–3 показники результату та позначено прогалини в даних.</li>
-        </ul>
-      </section>
-    </section>
-
-    <section class="lesson-page portfolio-page" data-page="9" aria-labelledby="page-9-title" hidden>
-      <div class="print-only print-portfolio-header">
-        <div>Портфель мера</div>
-        <h2>📂 Карта цифрового рішення для кліматичної дії</h2>
-      </div>
-      <div class="page-kicker no-print">📂 Портфель мера</div>
-      <h2 id="page-9-title" tabindex="-1" class="no-print">📂 Карта цифрового рішення для кліматичної дії</h2>
-      <p class="no-print">Форма зберігається лише у Вашому браузері. Дані не передаються назовні. Використайте кнопку «Друк / PDF», щоб зберегти заповнену карту.</p>
-
-      <form id="portfolio-form" class="portfolio-form" autocomplete="off">
-        <section class="portfolio-context-card" aria-labelledby="portfolio-context-title">
-          <div>
-            <h3 id="portfolio-context-title">🧩 Контекст моєї громади</h3>
-            <p>Збережіть лише мінімальний контекст, який допоможе продовжити роботу в наступному занятті та зробить поради ШІ точнішими.</p>
-          </div>
-          <div class="context-fields">
-            <div>
-              <label for="community-name">Громада</label>
-              <input id="community-name" name="communityName" type="text" placeholder="Наприклад: Житомирська громада">
-              <div class="print-value" data-print-for="community-name"></div>
-            </div>
-            <div>
-              <label for="key-theme">Ключова тема / напрям</label>
-              <input id="key-theme" name="keyTheme" type="text" placeholder="Наприклад: енергоефективність муніципальних будівель">
-              <div class="print-value" data-print-for="key-theme"></div>
-            </div>
-          </div>
-        </section>
-        <div class="form-card">
-          <label for="climate-action">1. Кліматична дія</label>
-          <p class="field-help" id="climate-action-help">Що саме громада хоче покращити?</p>
-          <textarea id="climate-action" name="climateAction" rows="4" aria-describedby="climate-action-help"></textarea>
-          <div class="print-value" data-print-for="climate-action"></div>
-        </div>
-        <div class="form-card">
-          <label for="management-question">2. Управлінське питання</label>
-          <p class="field-help" id="management-question-help">Яке рішення має стати кращим?</p>
-          <textarea id="management-question" name="managementQuestion" rows="4" aria-describedby="management-question-help"></textarea>
-          <div class="print-value" data-print-for="management-question"></div>
-        </div>
-        <div class="form-card">
-          <label for="digital-solution">3. Цифрове рішення</label>
-          <p class="field-help" id="digital-solution-help">Який інструмент може допомогти?</p>
-          <textarea id="digital-solution" name="digitalSolution" rows="4" aria-describedby="digital-solution-help"></textarea>
-          <div class="print-value" data-print-for="digital-solution"></div>
-        </div>
-        <div class="form-card">
-          <label for="needed-data">4. Необхідні дані</label>
-          <p class="field-help" id="needed-data-help">Які дані потрібні?</p>
-          <textarea id="needed-data" name="neededData" rows="5" aria-describedby="needed-data-help"></textarea>
-          <div class="print-value" data-print-for="needed-data"></div>
-        </div>
-        <div class="form-card">
-          <label for="data-owner">5. Джерело даних / відповідальний</label>
-          <p class="field-help" id="data-owner-help">Звідки дані і хто відповідає?</p>
-          <textarea id="data-owner" name="dataOwner" rows="4" aria-describedby="data-owner-help"></textarea>
-          <div class="print-value" data-print-for="data-owner"></div>
-        </div>
-        <div class="form-card">
-          <label for="management-benefit">6. Управлінська користь</label>
-          <p class="field-help" id="management-benefit-help">Що команда зможе робити краще?</p>
-          <textarea id="management-benefit" name="managementBenefit" rows="4" aria-describedby="management-benefit-help"></textarea>
-          <div class="print-value" data-print-for="management-benefit"></div>
-        </div>
-        <div class="form-card">
-          <label for="first-step">7. Перший крок</label>
-          <p class="field-help" id="first-step-help">Що можна зробити протягом місяця?</p>
-          <textarea id="first-step" name="firstStep" rows="4" aria-describedby="first-step-help"></textarea>
-          <div class="print-value" data-print-for="first-step"></div>
-        </div>
-        <div class="form-card indicators-card">
-          <fieldset>
-            <legend>8–10. Показники результату</legend>
-            <p class="field-help">Як перевіримо, що рішення працює?</p>
-            <label for="indicator-1">Показник результату 1</label>
-            <input id="indicator-1" name="indicator1" type="text">
-            <div class="print-value" data-print-for="indicator-1"></div>
-            <label for="indicator-2">Показник результату 2</label>
-            <input id="indicator-2" name="indicator2" type="text">
-            <div class="print-value" data-print-for="indicator-2"></div>
-            <label for="indicator-3">Показник результату 3 — необов’язково</label>
-            <input id="indicator-3" name="indicator3" type="text">
-            <div class="print-value" data-print-for="indicator-3"></div>
-          </fieldset>
-        </div>
-        <div class="form-card">
-          <fieldset>
-            <legend>Статус даних</legend>
-            <div class="radio-stack">
-              <label><input type="radio" name="dataStatus" value="Дані є"> Дані є</label>
-              <label><input type="radio" name="dataStatus" value="Дані є, але розрізнені"> Дані є, але розрізнені</label>
-              <label><input type="radio" name="dataStatus" value="Даних бракує"> Даних бракує</label>
-            </div>
-          </fieldset>
-          <div class="print-value" id="print-data-status"></div>
-        </div>
-
-        <div class="form-actions no-print">
-          <button class="button button-primary" id="print-portfolio" type="button">🖨️ Друк / PDF</button>
-          <button class="button button-secondary" id="copy-transition-context" type="button">📋 Скопіювати контекст для наступного заняття</button>
-          <button class="button button-danger" id="clear-portfolio" type="button">🗑️ Очистити форму</button>
-        </div>
-        <p class="save-status no-print" id="portfolio-save-status" role="status" aria-live="polite">Чернетка зберігається автоматично.</p>
-      </form>
+<a class="skip-link" href="#main-content">Перейти до основного змісту</a>
+<header aria-label="Навігація заняття" class="site-header">
+<div class="header-inner">
+<div aria-label="UCAN" class="brand">
+<span aria-hidden="true" class="brand-mark">U</span>
+<span class="brand-text">UCAN · Онлайн-курс</span>
+</div>
+<div class="header-actions">
+<button class="button button-quiet" id="reset-progress" type="button">🔄 Почати спочатку</button>
+</div>
+</div>
+<div aria-label="Прогрес заняття" class="progress-shell">
+<div class="progress-meta">
+<span>Прогрес проходження</span>
+<span id="progress-percent">9%</span>
+</div>
+<div aria-label="Прогрес проходження" aria-valuemax="100" aria-valuemin="0" aria-valuenow="9" class="progress-track" role="progressbar">
+<div class="progress-fill" id="progress-fill"></div>
+</div>
+</div>
+</header>
+<main id="main-content" tabindex="-1">
+<section aria-labelledby="page-1-title" class="lesson-page is-active" data-page="1">
+<div class="page-kicker">💻 Технології та цифровізація</div>
+<h1 id="page-1-title">💻 Роль технологій та цифровізації у міських кліматичних діях</h1>
+<p class="lead">Дані, цифровізація та управління на основі фактів</p>
+<div aria-label="Параметри заняття" class="meta-strip">
+<span>Основна частина: 20–30 хвилин</span>
+<span>Практичний результат: одна управлінська карта</span>
+</div>
+<aside aria-labelledby="core-message-title" class="callout callout-primary">
+<h2 class="callout-title" id="core-message-title">💡 Головна думка</h2>
+<p>Цифровізація має сенс лише тоді, коли допомагає громаді виконати конкретну кліматичну дію та покращує управлінське рішення. Починаємо не з платформи, а з проблеми, даних і першого практичного кроку.</p>
+</aside>
+<section aria-labelledby="goal-title">
+<h2 id="goal-title">🎯 Мета заняття</h2>
+<p>Допомогти міському голові та управлінській команді перейти від цифровізації заради інструментів до цифровізації для конкретної кліматичної дії: визначити управлінське питання, потрібні дані, цифрове рішення, очікувану користь і перший практичний крок.</p>
+</section>
+<section aria-labelledby="why-title">
+<h2 id="why-title">🧭 Навіщо Вам це заняття</h2>
+<p>У попередніх заняттях громада визначила головний кліматичний виклик і сформувала першу кліматично нейтральну візію. Тепер виникає практичне питання: яке конкретне управлінське рішення потрібно покращити і як дані та цифрові інструменти можуть підтримати цю кліматичну дію?</p>
+<p>Команда може мати сильну візію, але не бачити, що саме потрібно цифровізувати. Купівля платформи або датчиків сама по собі не створює результату. Спочатку потрібно визначити кліматичну дію, управлінське питання, потрібні дані, відповідального та рішення, яке має стати кращим.</p>
+</section>
+<aside aria-labelledby="transition-title" class="callout">
+<h2 class="callout-title" id="transition-title">🔄 Ключовий перехід</h2>
+<p>Стара модель звучить так: “Нам здається, що тут треба ремонт”. Нова модель звучить інакше: “Дані показують, що саме цей об’єкт має найбільше споживання, найбільший ризик або найбільший потенціал економії”.</p>
+</aside>
+<section aria-labelledby="outcomes-title">
+<h2 id="outcomes-title">✅ Після цього заняття Ви зможете:</h2>
+<ul class="check-list">
+<li>пояснювати, чому дані є управлінським ресурсом громади;</li>
+<li>відрізняти цифровізацію заради технологій від цифровізації для ухвалення рішень;</li>
+<li>пояснювати Twin Transition — подвійний зелений і цифровий перехід;</li>
+<li>обирати одну кліматичну дію, якій потрібна цифрова підтримка;</li>
+<li>визначати потрібні дані, їхнє джерело, відповідального та управлінську користь;</li>
+<li>створювати Карту цифрового рішення для кліматичної дії з першим кроком і 2–3 показниками результату.</li>
+</ul>
+</section>
+<section aria-labelledby="result-title">
+<h2 id="result-title">📂 Практичний результат</h2>
+<div class="portfolio-card">
+<p><strong>Карта цифрового рішення для кліматичної дії</strong> — короткий документ, який пов’язує кліматичний виклик і кліматично нейтральну візію, сформовані раніше, конкретну дію громади, потрібні дані, цифровий інструмент, управлінську користь, перший крок і 2–3 показники результату.</p>
+</div>
+</section>
+<figure class="generated-visual">
+<img alt="Вертикальна схема з шести кроків: кліматична дія, управлінське питання, цифрове рішення, дані, управлінська користь і перший крок." height="1536" src="assets/L03-A01_Від_кліматичної_дії_до_першого_цифрового_кроку_v1.0.png" width="1229"/>
+<figcaption>Від кліматичної дії до першого цифрового кроку</figcaption>
+</figure>
+<section aria-labelledby="map-title">
+<h2 id="map-title">🗺️ Карта заняття</h2>
+<div class="table-wrap">
+<table>
+<thead><tr><th scope="col">№</th><th scope="col">Блок</th><th scope="col">Активність</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>Навіщо Вам це заняття</td><td>Побачити, як це заняття продовжує роботу з викликом і візією.</td></tr>
+<tr><td>2</td><td>Дані як управлінський ресурс</td><td>Відрізнити загальні враження від даних, що підтримують рішення.</td></tr>
+<tr><td>3</td><td>Smart City без гаджетизації</td><td>Перевірити, чи технологія справді покращує управління.</td></tr>
+<tr><td>4</td><td>Twin Transition</td><td>Поєднати зелену та цифрову трансформацію в одній управлінській логіці.</td></tr>
+<tr><td>5</td><td>Від кліматичної дії до цифрового рішення</td><td>Визначити потрібні дані, управлінську користь і перший крок.</td></tr>
 
 
-      <section class="ai-assistant no-print" aria-labelledby="ai-assistant-title">
-        <div class="ai-assistant-heading">
-          <div>
-            <p class="ai-eyebrow">Навчальний помічник</p>
-            <h3 id="ai-assistant-title">🤖 Попрацюйте із ШІ</h3>
-          </div>
-          <p class="ai-guidance"><strong>Використовуйте ШІ як консультанта, а не як автора роботи.</strong> Спочатку сформулюйте власні думки, а потім попросіть ШІ допомогти їх уточнити, перевірити або доповнити.</p>
-        </div>
-
-        <div class="ai-prompt-grid" id="ai-prompt-grid" aria-label="Промпти для роботи з практичним завданням"></div>
-        <p class="ai-copy-status" id="ai-copy-status" role="status" aria-live="polite"></p>
-        <noscript><p class="callout callout-warning">Для копіювання промптів увімкніть JavaScript у браузері.</p></noscript>
-      </section>
-
-      <aside class="portfolio-note">
-        <h3>📂 Портфель мера</h3>
-        <p>Новий документ: Карта цифрового рішення для кліматичної дії. Вона допоможе перейти від кліматичної візії до одного практичного цифрового кроку та стане основою для адаптації міжнародного досвіду в наступному занятті.</p>
-      </aside>
-      <p class="print-only print-footer-note">Чернетка, створена учасником. Дані потребують перевірки з відповідальними підрозділами громади.</p>
-    </section>
-
-    <section class="lesson-page" data-page="10" aria-labelledby="page-10-title" hidden>
-      <div class="page-kicker">📝 Підсумкова самоперевірка</div>
-      <h2 id="page-10-title" tabindex="-1">📝 Підсумковий тест заняття</h2>
-      <p>Оберіть одну правильну відповідь у кожному питанні. Тест допоможе перевірити розуміння теми; кількість спроб не обмежена.</p>
-
-      <form id="final-test-form" novalidate>
-        <fieldset class="test-question" data-test-question="1">
-          <legend>1. Для чого громаді потрібні дані у кліматичному управлінні?</legend>
-          <label><input type="radio" name="test-1" value="A"> A. Щоб створити більше звітів.</label>
-          <label><input type="radio" name="test-1" value="B"> B. Щоб приймати рішення на основі фактів, бачити втрати, ризики й пріоритети.</label>
-          <label><input type="radio" name="test-1" value="C"> C. Щоб замінити роботу всіх підрозділів.</label>
-          <p class="test-item-status" id="test-status-1" aria-live="polite"></p>
-        </fieldset>
-        <fieldset class="test-question" data-test-question="2">
-          <legend>2. Що означає Smart City у логіці цього заняття?</legend>
-          <label><input type="radio" name="test-2" value="A"> A. Наявність якомога більшої кількості цифрових сервісів.</label>
-          <label><input type="radio" name="test-2" value="B"> B. Управління громадою на основі даних, фактів і реальних потреб.</label>
-          <label><input type="radio" name="test-2" value="C"> C. Закупівля дорогого програмного забезпечення.</label>
-          <p class="test-item-status" id="test-status-2" aria-live="polite"></p>
-        </fieldset>
-        <fieldset class="test-question" data-test-question="3">
-          <legend>3. Що таке Twin Transition?</legend>
-          <label><input type="radio" name="test-3" value="A"> A. Одночасна зелена і цифрова трансформація.</label>
-          <label><input type="radio" name="test-3" value="B"> B. Поділ громади на два департаменти.</label>
-          <label><input type="radio" name="test-3" value="C"> C. Окрема ІТ-реформа без зв’язку з кліматом.</label>
-          <p class="test-item-status" id="test-status-3" aria-live="polite"></p>
-        </fieldset>
-        <fieldset class="test-question" data-test-question="4">
-          <legend>4. Який управлінський артефакт створюється у цьому занятті?</legend>
-          <label><input type="radio" name="test-4" value="A"> A. Початковий набір KPI громади.</label>
-          <label><input type="radio" name="test-4" value="B"> B. Карта цифрового рішення для кліматичної дії.</label>
-          <label><input type="radio" name="test-4" value="C"> C. Повна технічна специфікація цифрової платформи.</label>
-          <p class="test-item-status" id="test-status-4" aria-live="polite"></p>
-        </fieldset>
-        <fieldset class="test-question" data-test-question="5">
-          <legend>5. Яке цифрове рішення є сильнішим?</legend>
-          <label><input type="radio" name="test-5" value="A"> A. Те, що має найбільше функцій, але не пов’язане з рішенням команди.</label>
-          <label><input type="radio" name="test-5" value="B"> B. Те, що підтримує конкретну кліматичну дію, має потрібні дані, відповідального і перший крок.</label>
-          <label><input type="radio" name="test-5" value="C"> C. Те, для якого одразу закуплено найдорожче програмне забезпечення.</label>
-          <p class="test-item-status" id="test-status-5" aria-live="polite"></p>
-        </fieldset>
-        <fieldset class="test-question" data-test-question="6">
-          <legend>6. Чому не варто починати цифровізацію з великої платформи?</legend>
-          <label><input type="radio" name="test-6" value="A"> A. Тому що платформи завжди непотрібні.</label>
-          <label><input type="radio" name="test-6" value="B"> B. Тому що спочатку потрібно зрозуміти, які управлінські рішення мають покращитися і які дані для цього потрібні.</label>
-          <label><input type="radio" name="test-6" value="C"> C. Тому що всі дані мають залишатися на папері.</label>
-          <p class="test-item-status" id="test-status-6" aria-live="polite"></p>
-        </fieldset>
-        <button class="button button-primary" type="submit">Перевірити відповіді</button>
-        <div class="result-box" id="final-test-result" role="status" aria-live="polite" tabindex="-1"></div>
-        <p class="gate-note" id="test-gate-note">Завершальна сторінка відкриється після правильної відповіді на всі шість питань.</p>
-      </form>
-    </section>
-
-    <section class="lesson-page" data-page="11" aria-labelledby="page-11-title" hidden>
-      <div class="page-kicker">🎉 Завершення заняття</div>
-      <h2 id="page-11-title" tabindex="-1">🎉 Рефлексія та наступний крок</h2>
-
-      <section aria-labelledby="reflection-title">
-        <h3 id="reflection-title">💭 Рефлексія</h3>
-        <ul class="reflection-list">
-          <li>Яке рішення громади сьогодні ухвалюється більше інтуїтивно, ніж на основі даних?</li>
-          <li>Яку кліматичну дію можна підсилити цифровим інструментом?</li>
-          <li>Які дані для цього вже є, а яких бракує?</li>
-          <li>Хто має бути власником даних і відповідальним за реагування?</li>
-          <li>Який перший крок можна зробити протягом найближчого місяця?</li>
-        </ul>
-      </section>
-
-      <aside class="callout callout-primary">
-        <h3>💡 Головна думка заняття</h3>
-        <p>Цифровізація має сенс лише тоді, коли допомагає громаді виконати конкретну кліматичну дію та покращує управлінське рішення. Починаємо не з платформи, а з проблеми, даних і першого практичного кроку.</p>
-      </aside>
-
-      <section aria-labelledby="next-title">
-        <h3 id="next-title">➡️ Логічний перехід до наступного заняття</h3>
-        <p>У цьому занятті громада створила Карту цифрового рішення для кліматичної дії. Тепер команда може пояснити, яку проблему вирішує інструмент, які дані потрібні, яку управлінську користь він дає і з чого почати.</p>
-        <p>Наступний крок — подивитися ширше: які глобальні тренди, міжнародні кейси та практики Climate Mission Cities можуть допомогти громаді не вигадувати все з нуля.</p>
-        <p><strong>У наступному занятті Ви перейдете до теми глобальних кейсів і Climate Mission Cities.</strong></p>
-      </section>
-
-      <section aria-labelledby="tomorrow-title">
-        <h3 id="tomorrow-title">🚀 Що варто зробити вже завтра</h3>
-        <p>Проведіть коротку робочу зустріч із підрозділом, який відповідає за обрану кліматичну дію, та командою цифровізації. Поставте одне питання: яке конкретне рішення має стати кращим завдяки даним і цифровому інструменту?</p>
-        <p>Після зустрічі заповніть першу версію Карти цифрового рішення для кліматичної дії.</p>
-      </section>
-
-      <div class="completion-card">
-        <p><strong>🎉 Заняття завершено.</strong></p>
-        <div class="completion-actions">
-          <button class="button button-secondary" id="return-start" type="button">↩️ Повернутися на початок</button>
-          <a class="button button-primary completion-next" href="https://clusterceu-crypto.github.io/UCAN-Lesson04/" rel="next">➡️ Перейти до заняття 04</a>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <nav class="lesson-nav no-print" aria-label="Навігація між сторінками">
-    <button class="button button-secondary" id="prev-page" type="button">⬅️ Попередній розділ</button>
-    <button class="button button-primary" id="next-page" type="button">Наступний розділ ➡️</button>
-  </nav>
-
-  <footer class="site-footer no-print">
-    <p>UCAN · Онлайн-заняття</p>
-  </footer>
-
-  <script src="js/lesson03-ai-prompts.js?v=1.3"></script>
-  <script src="js/script.js?v=1.3"></script>
+<tr><td>6</td><td>Перед тим як перейти до практики</td><td>Побачити приклади, ресурси й сформулювати власне управлінське питання.</td></tr><tr><td>7</td><td>Практичне завдання</td><td>Створити Карту цифрового рішення для Портфеля мера.</td></tr><tr><td>8</td><td>Тест і рефлексія</td><td>Перевірити логіку рішення та підготувати розмову з командою.</td></tr></tbody>
+</table>
+</div>
+</section>
+</section>
+<section aria-labelledby="page-2-title" class="lesson-page" data-page="2" hidden="">
+<div class="page-kicker">📘 Теоретичний блок 1</div>
+<h2 id="page-2-title" tabindex="-1">📊 Дані як новий управлінський ресурс громади</h2>
+<p>Дані — це не лише таблиці, звіти або файли в комп’ютері. Для міського голови дані — це спосіб бачити реальний стан громади і не покладатися тільки на враження, скарги або політичну видимість проблеми.</p>
+<p>Наприклад, громада може знати, що “школи споживають багато тепла”. Але це ще не управлінські дані. Управлінські дані починаються тоді, коли команда може відповісти: які саме школи споживають найбільше, скільки це коштує бюджету, чи є аномалії, хто відповідає за дані, як часто вони оновлюються і яке рішення ухвалюється на їхній основі.</p>
+<div class="table-wrap responsive-table">
+<table>
+<thead><tr><th scope="col">Загальне враження</th><th scope="col">Управлінські дані</th></tr></thead>
+<tbody>
+<tr><td data-label="Загальне враження">У нас великі витрати на енергію.</td><td data-label="Управлінські дані">Які 10 будівель створюють найбільшу частку витрат на тепло або електроенергію?</td></tr>
+<tr><td data-label="Загальне враження">У нас проблемний транспорт.</td><td data-label="Управлінські дані">Які райони не мають зручного маршруту до лікарні, школи або ЦНАП?</td></tr>
+<tr><td data-label="Загальне враження">Потрібно більше озеленення.</td><td data-label="Управлінські дані">Які громадські простори перегріваються, де бракує тіні і хто найбільше вразливий?</td></tr>
+<tr><td data-label="Загальне враження">Треба модернізувати комунальне підприємство.</td><td data-label="Управлінські дані">Які втрати зростають, як часто вони вимірюються і хто відповідає за реагування?</td></tr>
+</tbody>
+</table>
+</div>
+<aside class="callout callout-leader">
+<h3>🏛️ Що це означає для міського голови та управлінської команди?</h3>
+<p>Дані потрібні не для того, щоб створювати більше звітів. Дані потрібні, щоб команда бачила, де громада втрачає гроші, де зростає ризик і де потрібно діяти першочергово.</p>
+</aside>
+<aside class="callout callout-community">
+<h3>🏙️ Що це означає для громади?</h3>
+<p>Для мешканців управління на основі даних означає більш зрозумілі пріоритети, менше випадкових рішень і більше довіри до того, чому влада обирає саме ці об’єкти, маршрути або проєкти.</p>
+</aside>
+<aside class="quick-check">
+<h3>✅ Швидка перевірка</h3>
+<p>Оберіть одну кліматичну дію громади. Яке управлінське рішення потрібно покращити? Які дані вже є? Хто ними володіє? Який цифровий інструмент може допомогти?</p>
+</aside>
+</section>
+<section aria-labelledby="page-3-title" class="lesson-page" data-page="3" hidden="">
+<div class="page-kicker">📘 Теоретичний блок 2</div>
+<h2 id="page-3-title" tabindex="-1">🏙️ Smart City — це не гаджети, а модель управління</h2>
+<p>Раніше Smart City було визначено не як набір технологій, а як спосіб ухвалювати кращі управлінські рішення. У цьому занятті робимо наступний крок: цифровізація має цінність лише тоді, коли відповідає на конкретне управлінське питання.</p>
+<div class="table-wrap responsive-table">
+<table>
+<thead><tr><th scope="col">Цифровий інструмент</th><th scope="col">Коли він має управлінську цінність</th></tr></thead>
+<tbody>
+<tr><td data-label="Цифровий інструмент">Система енергомоніторингу</td><td data-label="Управлінська цінність">Коли команда аналізує відхилення і діє, а не лише збирає показники.</td></tr>
+<tr><td data-label="Цифровий інструмент">GPS на комунальній техніці</td><td data-label="Управлінська цінність">Коли дані допомагають оптимізувати маршрути, витрати пального і якість послуг.</td></tr>
+<tr><td data-label="Цифровий інструмент">Портал відкритих даних</td><td data-label="Управлінська цінність">Коли дані оновлюються, зрозумілі користувачам і підтримують прозорість.</td></tr>
+<tr><td data-label="Цифровий інструмент">Цифрова карта зелених насаджень</td><td data-label="Управлінська цінність">Коли вона впливає на планування тіні, догляду, маршрутів і громадських просторів.</td></tr>
+<tr><td data-label="Цифровий інструмент">Управлінський дашборд</td><td data-label="Управлінська цінність">Коли мер і команда регулярно використовують його для аналізу, реагування та перевірки результату.</td></tr>
+</tbody>
+</table>
+</div>
+<figure class="generated-visual">
+<img alt="Порівняння двох підходів: цифровізація заради інструментів і цифровізація для конкретної кліматичної дії, з контрольним питанням про управлінське рішення." height="1536" src="assets/L03-A02_Технологія_чи_управлінське_рішення_v1.0.png" width="1229"/>
+<figcaption>Технологія чи управлінське рішення?</figcaption>
+</figure>
+<aside class="callout callout-leader">
+<h3>🏛️ Що це означає для міського голови та управлінської команди?</h3>
+<p>Перед будь-якою цифровою закупівлею варто поставити просте питання: яке управлінське рішення стане кращим завдяки цій технології?</p>
+</aside>
+<aside class="callout callout-warning">
+<h3>⚠️ Типова помилка</h3>
+<p>Починати цифровізацію з покупки програмного забезпечення, не визначивши кліматичну дію, управлінське питання, потрібні дані, власника процесу та перший практичний крок.</p>
+</aside>
+</section>
+<section aria-labelledby="page-4-title" class="lesson-page" data-page="4" hidden="">
+<div class="page-kicker">📘 Теоретичний блок 3</div>
+<h2 id="page-4-title" tabindex="-1">🔄 Twin Transition — зелена і цифрова трансформація разом</h2>
+<p>Twin Transition означає подвійний перехід: зелений і цифровий. Для громади це дуже практична логіка: кліматичні рішення мають спиратися на дані, а цифровізація має допомагати зменшувати викиди, витрати й ризики.</p>
+<figure class="generated-visual">
+<img alt="Схема Twin Transition: зелена трансформація і цифрова трансформація сходяться у кращих управлінських рішеннях." height="1536" src="assets/L03-A03_Twin_Transition_v1.0.png" width="1229"/>
+<figcaption>Twin Transition: зелена і цифрова трансформація разом</figcaption>
+</figure>
+<div class="table-wrap responsive-table three-column">
+<table>
+<thead><tr><th scope="col">Приклад</th><th scope="col">Зелена частина</th><th scope="col">Цифрова частина</th></tr></thead>
+<tbody>
+<tr><td data-label="Приклад">Зменшення витрат на енергію</td><td data-label="Зелена частина">Термомодернізація, ефективне теплопостачання, ВДЕ, енергозбереження.</td><td data-label="Цифрова частина">Енергомоніторинг, облік, порівняння будівель, виявлення аномалій і 2–3 показники результату.</td></tr>
+<tr><td data-label="Приклад">Покращення мобільності</td><td data-label="Зелена частина">Громадський транспорт, пішохідні маршрути, велоінфраструктура, менша залежність від приватного авто.</td><td data-label="Цифрова частина">Дані про маршрути, GPS, пасажиропотоки, карта доступності, аналіз скарг і показники регулярності.</td></tr>
+</tbody>
+</table>
+</div>
+<aside class="callout callout-leader">
+<h3>🏛️ Що це означає для міського голови та управлінської команди?</h3>
+<p>Зелена трансформація без даних слабка. Цифровізація без кліматичної й бюджетної мети порожня. Найкращі рішення виникають там, де цифрові інструменти допомагають зменшувати витрати, викиди й ризики.</p>
+</aside>
+<aside class="callout callout-community">
+<h3>🏙️ Що це означає для громади?</h3>
+<p>Мешканці відчувають Twin Transition не як термін, а як кращі послуги: тепліші школи, надійніший транспорт, менше аварій, прозоріші рішення і зрозуміліші пріоритети.</p>
+</aside>
+</section>
+<section aria-labelledby="page-5-title" class="lesson-page" data-page="5" hidden="">
+<div class="page-kicker">📘 Теоретичні блоки 4–5</div>
+<h2 id="page-5-title" tabindex="-1">🌱 Від кліматичної дії до цифрового рішення</h2>
+<p>Цифрове рішення починається не з назви платформи. Воно починається з конкретної кліматичної дії та управлінського питання. Спочатку команда визначає, що потрібно покращити: зменшити втрати енергії, швидше реагувати на підтоплення, оптимізувати маршрути або краще планувати зелені зони. Лише після цього обираються дані й цифровий інструмент.</p>
+<h3>🌱 Кліматична дія та дані для цифрового рішення</h3>
+<div class="table-wrap responsive-table">
+<table>
+<thead><tr><th scope="col">Кліматична дія / сфера</th><th scope="col">Які дані можуть підтримати цифрове рішення</th></tr></thead>
+<tbody>
+<tr><td data-label="Кліматична дія / сфера">Енергія</td><td data-label="Дані">Які муніципальні будівлі споживають найбільше тепла й електроенергії; де є облік; де є аномалії; де найбільший потенціал економії.</td></tr>
+<tr><td data-label="Кліматична дія / сфера">Будівлі</td><td data-label="Дані">Перелік об’єктів, площа, технічний стан, наявність енергоаудиту, кількість користувачів, соціальна важливість і витрати на утримання.</td></tr>
+<tr><td data-label="Кліматична дія / сфера">Транспорт і мобільність</td><td data-label="Дані">Основні маршрути мешканців, доступність громадського транспорту, стан зупинок, маршрути до шкіл, лікарень і ЦНАП, витрати пального.</td></tr>
+<tr><td data-label="Кліматична дія / сфера">Вода, підтоплення і ризики</td><td data-label="Дані">Де виникають підтоплення, які об’єкти під ризиком, де є проблеми з водовідведенням, які райони перегріваються, де бракує тіні.</td></tr>
+<tr><td data-label="Кліматична дія / сфера">Відходи й ресурси</td><td data-label="Дані">Обсяги побутових, органічних і будівельних відходів, маршрути вивезення, витрати, можливості повторного використання та партнерства.</td></tr>
+<tr><td data-label="Кліматична дія / сфера">Фінанси і проєкти</td><td data-label="Дані">Які витрати зростають, які проєкти мають базові дані, попередню вартість, відповідального і потенціал для фінансування.</td></tr>
+</tbody>
+</table>
+</div>
+<h3>💡 Як визначити управлінську цінність цифрового рішення</h3>
+<p>Цифрове рішення має управлінську цінність, коли допомагає бачити проблему, порівнювати варіанти, вчасно реагувати або перевіряти результат. Для міського голови важливе не саме програмне забезпечення, а те, яке рішення стане швидшим, точнішим, прозорішим або економнішим.</p>
+<p>Сильне цифрове рішення має чіткий зв’язок: кліматична дія → управлінське питання → потрібні дані → цифровий інструмент → управлінська користь. Якщо цей зв’язок не можна пояснити одним реченням, рішення ще потребує уточнення.</p>
+<aside class="callout">
+<h3>💬 Що обговорити на найближчій нараді?</h3>
+<p>Оберіть одну кліматичну дію та попросіть профільний підрозділ, фінанси, комунальне підприємство і команду цифровізації назвати: яке рішення потрібно покращити, які дані вже існують і хто за них відповідає.</p>
+</aside>
+<aside class="callout callout-primary">
+<h3>🚀 Принцип для старту</h3>
+<p>Краще одне цифрове рішення з чіткою управлінською користю і реалістичним першим кроком, ніж велика платформа без визначеної проблеми, даних і відповідального.</p>
+</aside>
+<aside class="callout callout-warning">
+<h3>⚠️ Типова помилка</h3>
+<p>Обирати цифровий інструмент тому, що він популярний або сучасний. Спочатку команда має визначити кліматичну дію, управлінське питання та рішення, яке потрібно покращити.</p>
+</aside>
+</section>
+<section aria-labelledby="page-6-title" class="lesson-page" data-page="6" hidden="">
+<div class="page-kicker">📘 Теоретичні блоки 6–7</div>
+<h2 id="page-6-title" tabindex="-1">📊 Дані, відповідальність і 2–3 показники результату</h2>
+<h3>👥 Дані та відповідальність до запуску</h3>
+<p>До запуску потрібно визначити мінімальний набір даних, їхнє джерело, якість, періодичність оновлення та відповідального. Не потрібно чекати ідеальної системи. Важливо чесно позначити: дані вже є, вони розрізнені або їх ще потрібно почати збирати.</p>
+<h3>📈 2–3 показники для перевірки результату</h3>
+<p>У цьому занятті громада не створює повну систему KPI. Для одного цифрового рішення достатньо визначити 2–3 показники, які допоможуть перевірити, чи рішення працює. Повний набір KPI та адаптивний цикл управління створюватимуться в окремому наступному занятті курсу.</p>
+<div class="table-wrap responsive-table">
+<table>
+<thead><tr><th scope="col">Цифрове рішення</th><th scope="col">Можливі 2–3 показники результату</th></tr></thead>
+<tbody>
+<tr><td data-label="Цифрове рішення">Енергомоніторинг будівель</td><td data-label="Показники">Зміна споживання енергії; кількість виявлених аномалій; частка об’єктів із регулярними даними.</td></tr>
+<tr><td data-label="Цифрове рішення">Цифрова карта підтоплень</td><td data-label="Показники">Кількість підтверджених ризикових точок; час реагування; кількість пріоритетних заходів, внесених до плану.</td></tr>
+<tr><td data-label="Цифрове рішення">GPS-моніторинг комунального транспорту</td><td data-label="Показники">Зміна витрат пального; регулярність маршрутів; кількість відхилень, на які команда відреагувала.</td></tr>
+<tr><td data-label="Цифрове рішення">Карта зелених насаджень</td><td data-label="Показники">Частка об’єктів із актуальними даними; кількість зон перегріву, врахованих у плануванні; виконані заходи з догляду.</td></tr>
+<tr><td data-label="Цифрове рішення">Цифровий облік відходів</td><td data-label="Показники">Частка потоків із підтвердженими даними; зміна обсягів змішаних відходів; кількість управлінських рішень на основі даних.</td></tr>
+<tr><td data-label="Цифрове рішення">Управлінський дашборд</td><td data-label="Показники">Регулярність оновлення; кількість показників із відповідальним; кількість рішень, зафіксованих після перегляду даних.</td></tr>
+</tbody>
+</table>
+</div>
+<h3>🗺️ Що потрібно визначити у карті</h3>
+<div class="table-wrap responsive-table">
+<table>
+<thead><tr><th scope="col">Поле карти</th><th scope="col">Що потрібно визначити</th></tr></thead>
+<tbody>
+<tr><td data-label="Поле карти">Кліматична дія</td><td data-label="Що визначити">Яку конкретну зміну або проблему громада хоче підтримати.</td></tr>
+<tr><td data-label="Поле карти">Управлінське питання</td><td data-label="Що визначити">Яке рішення має стати швидшим, точнішим, прозорішим або економнішим.</td></tr>
+<tr><td data-label="Поле карти">Цифрове рішення</td><td data-label="Що визначити">Який інструмент, реєстр, карта, моніторинг або інший цифровий підхід може допомогти.</td></tr>
+<tr><td data-label="Поле карти">Потрібні дані</td><td data-label="Що визначити">Які дані потрібні для роботи рішення.</td></tr>
+<tr><td data-label="Поле карти">Джерело і відповідальний</td><td data-label="Що визначити">Звідки беруться дані, хто їх оновлює і хто реагує.</td></tr>
+<tr><td data-label="Поле карти">Управлінська користь</td><td data-label="Що визначити">Що саме команда зможе бачити, порівнювати, планувати або змінювати.</td></tr>
+<tr><td data-label="Поле карти">Перший крок</td><td data-label="Що визначити">Що можна зробити протягом найближчого місяця без великої закупівлі.</td></tr>
+<tr><td data-label="Поле карти">2–3 показники</td><td data-label="Що визначити">Як команда перевірить, що цифрове рішення справді допомагає.</td></tr>
+</tbody>
+</table>
+</div>
+<aside class="quick-check">
+<h3>✅ Швидка перевірка</h3>
+<p>Сформулюйте одним реченням: «Щоб підтримати [кліматичну дію], ми використаємо [цифрове рішення], яке допоможе [управлінська користь] на основі [дані]». Якщо речення не складається, карту потрібно уточнити.</p>
+</aside>
+</section>
+<section aria-labelledby="page-7-title" class="lesson-page learning-transition-page" data-page="7" data-page-role="learning-transition" hidden="">
+<div class="page-kicker">🌍 Learning Transition Layer</div>
+<h2 id="page-7-title" tabindex="-1">🌍 Перед тим як перейти до практики</h2>
+<p class="lead">Подивіться, як дані підтримують реальні управлінські рішення, оберіть корисний орієнтир і сформулюйте власне питання перед практичним завданням.</p>
+<section aria-labelledby="ukraine-examples-title" class="transition-section">
+<h3 id="ukraine-examples-title">🇺🇦 Як це працює в українських громадах</h3>
+<div class="transition-card-grid transition-card-grid-three">
+<article class="transition-card">
+<h4>Енергоспоживання комунальних будівель</h4>
+<dl class="transition-facts">
+<div><dt>Проблема</dt><dd>Загальне відчуття, що школи або інші будівлі споживають забагато енергії.</dd></div>
+<div><dt>Що зробили</dt><dd>Порівняли об’єкти та визначили, які з них потрібно перевірити першими.</dd></div>
+<div><dt>Які дані використали</dt><dd>Рахунки, показники лічильників, площу будівель і дані про відхилення.</dd></div>
+<div><dt>Що змінилося</dt><dd>Команда отримала зрозумілий порядок перевірок і модернізації.</dd></div>
+<div><dt>Що може використати Ваша громада</dt><dd>Почати з простої таблиці для 3–5 будівель, не чекаючи великої платформи.</dd></div>
+</dl>
+</article>
+<article class="transition-card">
+<h4>Маршрути комунальної техніки</h4>
+<dl class="transition-facts">
+<div><dt>Проблема</dt><dd>Високі витрати пального та складність перевірити якість виконаних маршрутів.</dd></div>
+<div><dt>Що зробили</dt><dd>Використали GPS-дані для аналізу маршрутів і часу роботи.</dd></div>
+<div><dt>Які дані використали</dt><dd>Треки руху, витрати пального, час виконання та повторювані відхилення.</dd></div>
+<div><dt>Що змінилося</dt><dd>З’явилася основа для оптимізації маршрутів і контролю послуг.</dd></div>
+<div><dt>Що може використати Ваша громада</dt><dd>Перевірити один маршрут і одне управлінське питання до масштабування.</dd></div>
+</dl>
+</article>
+<article class="transition-card">
+<h4>Карта зелених насаджень</h4>
+<dl class="transition-facts">
+<div><dt>Проблема</dt><dd>Рішення про озеленення ухвалюються без цілісної картини перегріву, тіні та стану насаджень.</dd></div>
+<div><dt>Що зробили</dt><dd>Об’єднали просторові дані для планування догляду й нових зелених зон.</dd></div>
+<div><dt>Які дані використали</dt><dd>Розташування дерев, стан насаджень, громадські простори, маршрути та зони перегріву.</dd></div>
+<div><dt>Що змінилося</dt><dd>Пріоритети стали зрозумілішими для команди та мешканців.</dd></div>
+<div><dt>Що може використати Ваша громада</dt><dd>Почати з одного району або маршруту до школи, лікарні чи ЦНАП.</dd></div>
+</dl>
+</article>
+</div>
+</section>
+<section aria-labelledby="international-experience-title" class="transition-section">
+<h3 id="international-experience-title">🌍 Корисний міжнародний досвід</h3>
+<div class="transition-card-grid">
+<article class="transition-card transition-card-compact">
+<h4>Спочатку перевіряють готовність даних</h4>
+<p>Міста визначають, які дані вже є, хто за них відповідає, де є прогалини та яке рішення вони мають підтримати. Це захищає від закупівлі інструмента без робочого процесу.</p>
+</article>
+<article class="transition-card transition-card-compact">
+<h4>Кліматичні дії порівнюють до вибору технології</h4>
+<p>Команда оцінює користь, ризики, доступність даних і можливість почати з малого. Цифровий інструмент підтримує вибір, але не ухвалює рішення замість міста.</p>
+</article>
+</div>
+</section>
+<section aria-labelledby="deepening-resources-title" class="transition-section">
+<h3 id="deepening-resources-title">🧭 Орієнтири для поглиблення</h3>
+<div class="resource-grid transition-resource-grid">
+<article class="resource-card">
+<div class="resource-badge">Дані та готовність</div>
+<h4>Як організувати кліматичні дані</h4>
+<p>Самооцінювання допоможе побачити відповідальність, якість даних і прогалини перед запуском цифрового рішення.</p>
+<a class="button button-secondary resource-link" href="https://www.c40knowledgehub.org/s/article/City-Climate-Data-Management-Framework?language=en_US" rel="noopener noreferrer" target="_blank">Відкрити ресурс ↗</a>
+</article>
+<article class="resource-card">
+<div class="resource-badge">Будівлі та енергія</div>
+<h4>Як оцінити користь модернізації будівель</h4>
+<p>Інструмент допомагає порівняти кліматичні, соціальні та медичні переваги модернізації однієї будівлі або їхнього портфеля.</p>
+<a class="button button-secondary resource-link" href="https://www.c40knowledgehub.org/s/article/Healthy-and-Efficient-Retrofitted-Buildings-Tool-HERB?language=en_US" rel="noopener noreferrer" target="_blank">Відкрити ресурс ↗</a>
+</article>
+<article class="resource-card">
+<div class="resource-badge">Вибір пріоритетів</div>
+<h4>Як порівняти кліматичні дії</h4>
+<p>Орієнтир допомагає зіставити переваги та виклики різних дій і підготувати обговорення з командою.</p>
+<a class="button button-secondary resource-link" href="https://www.c40knowledgehub.org/s/article/Action-Selection-and-Prioritisation-ASAP-Tool?language=en_US" rel="noopener noreferrer" target="_blank">Відкрити ресурс ↗</a>
+</article>
+<article class="resource-card">
+<div class="resource-badge">Інвентаризація викидів</div>
+<h4>Як упорядкувати дані про викиди</h4>
+<p>Робочий інструмент підтримує системне введення, розрахунок і звітування даних міської інвентаризації парникових газів.</p>
+<a class="button button-secondary resource-link" href="https://www.c40knowledgehub.org/s/article/City-Inventory-Reporting-and-Information-System-CIRIS?language=en_US" rel="noopener noreferrer" target="_blank">Відкрити ресурс ↗</a>
+</article>
+</div>
+</section>
+<section aria-labelledby="transition-videos-title" class="transition-section">
+<h3 id="transition-videos-title">🎥 Подивіться перед практикою</h3>
+<div class="transition-card-grid">
+<article class="transition-card transition-video-card">
+<div class="resource-badge">Відкриті дані</div>
+<h4>Як перейти від загальних вражень до даних</h4>
+<p>Відео пояснює принципи відкритих даних і допомагає підготувати обґрунтоване управлінське питання.</p>
+<a class="button button-primary resource-link" href="https://www.youtube.com/watch?v=-jJTrDF7OVM" rel="noopener noreferrer" target="_blank">Переглянути відео ↗</a>
+</article>
+<article class="transition-card transition-video-card">
+<div class="resource-badge">Сектори громади</div>
+<h4>Де шукати можливості для циркулярних рішень</h4>
+<p>Відео показує можливості у ключових секторах українських громад і допомагає обрати сферу для цифрової підтримки.</p>
+<a class="button button-primary resource-link" href="https://www.youtube.com/watch?v=JRiTGhkzSkM&amp;t=1s" rel="noopener noreferrer" target="_blank">Переглянути відео ↗</a>
+</article>
+</div>
+</section>
+<section aria-labelledby="transition-reflection-title" class="transition-section transition-reflection">
+<h3 id="transition-reflection-title">✍️ Маленьке завдання</h3>
+<label for="transition-reflection-input">Яке управлінське рішення Вашої громади найбільше виграє від кращих даних?</label>
+<textarea aria-describedby="transition-reflection-help transition-reflection-status" id="transition-reflection-input" maxlength="800" placeholder="Запишіть одну коротку думку. Це поле необов’язкове." rows="4"></textarea>
+<p class="field-help" id="transition-reflection-help">Нотатка зберігається лише у Вашому браузері та буде передана AI Assistant як додатковий контекст.</p>
+<p aria-live="polite" class="transition-save-status" id="transition-reflection-status" role="status"></p>
+</section>
+</section><section aria-labelledby="page-8-title" class="lesson-page" data-page="8" data-page-role="self-check" hidden="">
+<div class="page-kicker">✅ Інтерактивна самоперевірка</div>
+<h2 id="page-8-title" tabindex="-1">✅ Технологія чи управлінське рішення?</h2>
+<p>Оберіть одну кліматичну дію громади та один можливий цифровий інструмент: енергомоніторинг, цифрову карту, GPS-моніторинг, реєстр, датчики або управлінський дашборд.</p>
+<p>Перевірте рішення за шістьма питаннями:</p>
+<aside aria-label="Приклад сформованого рішення" class="callout callout-primary self-check-example">
+<h3>💡 Приклад</h3>
+<p><strong>Кліматична дія:</strong> зменшити споживання енергії у школах.</p>
+<p><strong>Цифровий інструмент:</strong> система енергомоніторингу.</p>
+<p><strong>Відповідь на управлінське питання:</strong> команда щомісяця бачить будівлі з найбільшими відхиленнями та визначає, де потрібна першочергова перевірка.</p>
+</aside>
+<form id="self-check-form" novalidate="">
+<div class="diagnostic-list">
+<fieldset class="diagnostic-item" data-diagnostic="1">
+<legend><span class="question-number">1</span> Яку кліматичну дію або проблему підтримує це рішення?</legend>
+<div class="choice-row"><label><input name="diagnostic-1" type="radio" value="yes"/> Так</label><label><input name="diagnostic-1" type="radio" value="clarify"/> Потрібно уточнити</label></div>
+<p aria-live="polite" class="item-feedback" id="diagnostic-feedback-1"></p>
+</fieldset>
+<fieldset class="diagnostic-item" data-diagnostic="2">
+<legend><span class="question-number">2</span> Яке управлінське рішення має стати кращим?</legend>
+<div class="choice-row"><label><input name="diagnostic-2" type="radio" value="yes"/> Так</label><label><input name="diagnostic-2" type="radio" value="clarify"/> Потрібно уточнити</label></div>
+<p aria-live="polite" class="item-feedback" id="diagnostic-feedback-2"></p>
+</fieldset>
+<fieldset class="diagnostic-item" data-diagnostic="3">
+<legend><span class="question-number">3</span> Які дані потрібні і звідки вони беруться?</legend>
+<div class="choice-row"><label><input name="diagnostic-3" type="radio" value="yes"/> Так</label><label><input name="diagnostic-3" type="radio" value="clarify"/> Потрібно уточнити</label></div>
+<p aria-live="polite" class="item-feedback" id="diagnostic-feedback-3"></p>
+</fieldset>
+<fieldset class="diagnostic-item" data-diagnostic="4">
+<legend><span class="question-number">4</span> Хто відповідає за дані та реагування?</legend>
+<div class="choice-row"><label><input name="diagnostic-4" type="radio" value="yes"/> Так</label><label><input name="diagnostic-4" type="radio" value="clarify"/> Потрібно уточнити</label></div>
+<p aria-live="polite" class="item-feedback" id="diagnostic-feedback-4"></p>
+</fieldset>
+<fieldset class="diagnostic-item" data-diagnostic="5">
+<legend><span class="question-number">5</span> Яку управлінську користь отримає команда?</legend>
+<div class="choice-row"><label><input name="diagnostic-5" type="radio" value="yes"/> Так</label><label><input name="diagnostic-5" type="radio" value="clarify"/> Потрібно уточнити</label></div>
+<p aria-live="polite" class="item-feedback" id="diagnostic-feedback-5"></p>
+</fieldset>
+<fieldset class="diagnostic-item" data-diagnostic="6">
+<legend><span class="question-number">6</span> Який перший реалістичний крок можна зробити без великої закупівлі?</legend>
+<div class="choice-row"><label><input name="diagnostic-6" type="radio" value="yes"/> Так</label><label><input name="diagnostic-6" type="radio" value="clarify"/> Потрібно уточнити</label></div>
+<p aria-live="polite" class="item-feedback" id="diagnostic-feedback-6"></p>
+</fieldset>
+</div>
+<button class="button button-primary" type="submit">✅ Перевірити рішення</button>
+<div aria-live="polite" class="result-box" id="self-check-result" role="status" tabindex="-1"></div>
+</form>
+</section>
+<section aria-labelledby="page-9-title" class="lesson-page" data-page="9" data-page-role="practice" hidden="">
+<div class="page-kicker">🛠️ Практичне завдання</div>
+<h2 id="page-9-title" tabindex="-1">🛠️ Створіть Карту цифрового рішення для кліматичної дії</h2>
+<p>Мета завдання — описати одне цифрове рішення, яке може підтримати конкретну кліматичну дію громади. Це не технічне завдання на закупівлю і не повна цифрова стратегія. Це коротка управлінська карта для розмови з командою.</p>
+<figure class="generated-visual generated-visual-repeat">
+<img alt="Вертикальна схема з шести кроків: кліматична дія, управлінське питання, цифрове рішення, дані, управлінська користь і перший крок." height="1536" src="assets/L03-A01_Від_кліматичної_дії_до_першого_цифрового_кроку_v1.0.png" width="1229"/>
+<figcaption>Нагадайте собі послідовність перед заповненням карти.</figcaption>
+</figure>
+<div class="steps">
+<section class="step-card"><div aria-hidden="true" class="step-index">1</div><div><h3>📂 Візьміть документи з попередніх занять</h3><ul><li>Картку кліматичного виклику;</li><li>Картку кліматично нейтральної візії громади.</li></ul></div></section>
+<section class="step-card"><div aria-hidden="true" class="step-index">2</div><div><h3>🌱 Оберіть одну кліматичну дію та управлінське питання</h3><p>Оберіть одну дію, найбільш пов’язану з вашим викликом і візією: зменшення споживання енергії, реагування на підтоплення, покращення мобільності, управління зеленими зонами, водою, відходами або інша підтверджена потреба громади. Сформулюйте, яке рішення має стати кращим.</p></div></section>
+<section class="step-card"><div aria-hidden="true" class="step-index">3</div><div><h3>💻 Опишіть одне цифрове рішення</h3><ul><li>підтримує одну конкретну кліматичну дію;</li><li>відповідає на одне зрозуміле управлінське питання;</li><li>використовує дані, які вже є або які реально почати збирати;</li><li>має визначеного власника даних і відповідального за реагування;</li><li>дає зрозумілу управлінську користь;</li><li>може початися з одного реалістичного першого кроку.</li></ul></div></section>
+<section class="step-card"><div aria-hidden="true" class="step-index">4</div><div><h3>🗺️ Заповніть Карту цифрового рішення</h3><p>На наступній сторінці внесіть відповіді до робочої форми.</p></div></section>
+<section class="step-card"><div aria-hidden="true" class="step-index">5</div><div><h3>📈 Додайте 2–3 показники та позначте якість даних</h3><p>Не створюйте повну систему KPI. Оберіть лише показники, які допоможуть перевірити роботу одного рішення.</p></div></section>
+</div>
+<section aria-labelledby="success-title">
+<h3 id="success-title">✅ Критерії успішного виконання</h3>
+<ul class="check-list">
+<li>використано Картку кліматичного виклику та Картку кліматично нейтральної візії громади;</li>
+<li>обрано одну конкретну кліматичну дію;</li>
+<li>описано одне цифрове рішення та управлінське питання, яке воно підтримує;</li>
+<li>визначено потрібні дані, джерело, відповідального та управлінську користь;</li>
+<li>сформульовано перший реалістичний крок;</li>
+<li>додано 2–3 показники результату та позначено прогалини в даних.</li>
+</ul>
+</section>
+</section>
+<section aria-labelledby="page-10-title" class="lesson-page portfolio-page" data-page="10" data-page-role="portfolio" hidden="">
+<div class="print-only print-portfolio-header">
+<div>Портфель мера</div>
+<h2>📂 Карта цифрового рішення для кліматичної дії</h2>
+</div>
+<div class="page-kicker no-print">📂 Портфель мера</div>
+<h2 class="no-print" id="page-10-title" tabindex="-1">📂 Карта цифрового рішення для кліматичної дії</h2>
+<p class="no-print">Форма зберігається лише у Вашому браузері. Дані не передаються назовні. Використайте кнопку «Друк / PDF», щоб зберегти заповнену карту.</p>
+<form autocomplete="off" class="portfolio-form" id="portfolio-form">
+<section aria-labelledby="portfolio-context-title" class="portfolio-context-card">
+<div>
+<h3 id="portfolio-context-title">🧩 Контекст моєї громади</h3>
+<p>Збережіть лише мінімальний контекст, який допоможе продовжити роботу в наступному занятті та зробить поради ШІ точнішими.</p>
+</div>
+<div class="context-fields">
+<div>
+<label for="community-name">Громада</label>
+<input id="community-name" name="communityName" placeholder="Наприклад: Житомирська громада" type="text"/>
+<div class="print-value" data-print-for="community-name"></div>
+</div>
+<div>
+<label for="key-theme">Ключова тема / напрям</label>
+<input id="key-theme" name="keyTheme" placeholder="Наприклад: енергоефективність муніципальних будівель" type="text"/>
+<div class="print-value" data-print-for="key-theme"></div>
+</div>
+</div>
+</section>
+<div class="form-card">
+<label for="climate-action">1. Кліматична дія</label>
+<p class="field-help" id="climate-action-help">Що саме громада хоче покращити?</p>
+<textarea aria-describedby="climate-action-help" id="climate-action" name="climateAction" rows="4"></textarea>
+<div class="print-value" data-print-for="climate-action"></div>
+</div>
+<div class="form-card">
+<label for="management-question">2. Управлінське питання</label>
+<p class="field-help" id="management-question-help">Яке рішення має стати кращим?</p>
+<textarea aria-describedby="management-question-help" id="management-question" name="managementQuestion" rows="4"></textarea>
+<div class="print-value" data-print-for="management-question"></div>
+</div>
+<div class="form-card">
+<label for="digital-solution">3. Цифрове рішення</label>
+<p class="field-help" id="digital-solution-help">Який інструмент може допомогти?</p>
+<textarea aria-describedby="digital-solution-help" id="digital-solution" name="digitalSolution" rows="4"></textarea>
+<div class="print-value" data-print-for="digital-solution"></div>
+</div>
+<div class="form-card">
+<label for="needed-data">4. Необхідні дані</label>
+<p class="field-help" id="needed-data-help">Які дані потрібні?</p>
+<textarea aria-describedby="needed-data-help" id="needed-data" name="neededData" rows="5"></textarea>
+<div class="print-value" data-print-for="needed-data"></div>
+</div>
+<div class="form-card">
+<label for="data-owner">5. Джерело даних / відповідальний</label>
+<p class="field-help" id="data-owner-help">Звідки дані і хто відповідає?</p>
+<textarea aria-describedby="data-owner-help" id="data-owner" name="dataOwner" rows="4"></textarea>
+<div class="print-value" data-print-for="data-owner"></div>
+</div>
+<div class="form-card">
+<label for="management-benefit">6. Управлінська користь</label>
+<p class="field-help" id="management-benefit-help">Що команда зможе робити краще?</p>
+<textarea aria-describedby="management-benefit-help" id="management-benefit" name="managementBenefit" rows="4"></textarea>
+<div class="print-value" data-print-for="management-benefit"></div>
+</div>
+<div class="form-card">
+<label for="first-step">7. Перший крок</label>
+<p class="field-help" id="first-step-help">Що можна зробити протягом місяця?</p>
+<textarea aria-describedby="first-step-help" id="first-step" name="firstStep" rows="4"></textarea>
+<div class="print-value" data-print-for="first-step"></div>
+</div>
+<div class="form-card indicators-card">
+<fieldset>
+<legend>8–10. Показники результату</legend>
+<p class="field-help">Як перевіримо, що рішення працює?</p>
+<label for="indicator-1">Показник результату 1</label>
+<input id="indicator-1" name="indicator1" type="text"/>
+<div class="print-value" data-print-for="indicator-1"></div>
+<label for="indicator-2">Показник результату 2</label>
+<input id="indicator-2" name="indicator2" type="text"/>
+<div class="print-value" data-print-for="indicator-2"></div>
+<label for="indicator-3">Показник результату 3 — необов’язково</label>
+<input id="indicator-3" name="indicator3" type="text"/>
+<div class="print-value" data-print-for="indicator-3"></div>
+</fieldset>
+</div>
+<div class="form-card">
+<fieldset>
+<legend>Статус даних</legend>
+<div class="radio-stack">
+<label><input name="dataStatus" type="radio" value="Дані є"/> Дані є</label>
+<label><input name="dataStatus" type="radio" value="Дані є, але розрізнені"/> Дані є, але розрізнені</label>
+<label><input name="dataStatus" type="radio" value="Даних бракує"/> Даних бракує</label>
+</div>
+</fieldset>
+<div class="print-value" id="print-data-status"></div>
+</div>
+<div class="form-actions no-print">
+<button class="button button-primary" id="print-portfolio" type="button">🖨️ Друк / PDF</button>
+<button class="button button-secondary" id="copy-transition-context" type="button">📋 Скопіювати контекст для наступного заняття</button>
+<button class="button button-danger" id="clear-portfolio" type="button">🗑️ Очистити форму</button>
+</div>
+<p aria-live="polite" class="save-status no-print" id="portfolio-save-status" role="status">Чернетка зберігається автоматично.</p>
+</form>
+<section aria-labelledby="ai-assistant-title" class="ai-assistant no-print">
+<div class="ai-assistant-heading">
+<div>
+<p class="ai-eyebrow">Навчальний помічник</p>
+<h3 id="ai-assistant-title">🤖 Попрацюйте із ШІ</h3>
+</div>
+<p class="ai-guidance"><strong>Використовуйте ШІ як консультанта, а не як автора роботи.</strong> Спочатку сформулюйте власні думки, а потім попросіть ШІ допомогти їх уточнити, перевірити або доповнити.</p>
+</div>
+<div aria-label="Промпти для роботи з практичним завданням" class="ai-prompt-grid" id="ai-prompt-grid"></div>
+<p aria-live="polite" class="ai-copy-status" id="ai-copy-status" role="status"></p>
+<noscript><p class="callout callout-warning">Для копіювання промптів увімкніть JavaScript у браузері.</p></noscript>
+</section>
+<aside class="portfolio-note">
+<h3>📂 Портфель мера</h3>
+<p>Новий документ: Карта цифрового рішення для кліматичної дії. Вона допоможе перейти від кліматичної візії до одного практичного цифрового кроку та стане основою для адаптації міжнародного досвіду в наступному занятті.</p>
+</aside>
+<p class="print-only print-footer-note">Чернетка, створена учасником. Дані потребують перевірки з відповідальними підрозділами громади.</p>
+</section>
+<section aria-labelledby="page-11-title" class="lesson-page" data-page="11" data-page-role="test" hidden="">
+<div class="page-kicker">📝 Підсумкова самоперевірка</div>
+<h2 id="page-11-title" tabindex="-1">📝 Підсумковий тест заняття</h2>
+<p>Оберіть одну правильну відповідь у кожному питанні. Тест допоможе перевірити розуміння теми; кількість спроб не обмежена.</p>
+<form id="final-test-form" novalidate="">
+<fieldset class="test-question" data-test-question="1">
+<legend>1. Для чого громаді потрібні дані у кліматичному управлінні?</legend>
+<label><input name="test-1" type="radio" value="A"/> A. Щоб створити більше звітів.</label>
+<label><input name="test-1" type="radio" value="B"/> B. Щоб приймати рішення на основі фактів, бачити втрати, ризики й пріоритети.</label>
+<label><input name="test-1" type="radio" value="C"/> C. Щоб замінити роботу всіх підрозділів.</label>
+<p aria-live="polite" class="test-item-status" id="test-status-1"></p>
+</fieldset>
+<fieldset class="test-question" data-test-question="2">
+<legend>2. Що означає Smart City у логіці цього заняття?</legend>
+<label><input name="test-2" type="radio" value="A"/> A. Наявність якомога більшої кількості цифрових сервісів.</label>
+<label><input name="test-2" type="radio" value="B"/> B. Управління громадою на основі даних, фактів і реальних потреб.</label>
+<label><input name="test-2" type="radio" value="C"/> C. Закупівля дорогого програмного забезпечення.</label>
+<p aria-live="polite" class="test-item-status" id="test-status-2"></p>
+</fieldset>
+<fieldset class="test-question" data-test-question="3">
+<legend>3. Що таке Twin Transition?</legend>
+<label><input name="test-3" type="radio" value="A"/> A. Одночасна зелена і цифрова трансформація.</label>
+<label><input name="test-3" type="radio" value="B"/> B. Поділ громади на два департаменти.</label>
+<label><input name="test-3" type="radio" value="C"/> C. Окрема ІТ-реформа без зв’язку з кліматом.</label>
+<p aria-live="polite" class="test-item-status" id="test-status-3"></p>
+</fieldset>
+<fieldset class="test-question" data-test-question="4">
+<legend>4. Який управлінський артефакт створюється у цьому занятті?</legend>
+<label><input name="test-4" type="radio" value="A"/> A. Початковий набір KPI громади.</label>
+<label><input name="test-4" type="radio" value="B"/> B. Карта цифрового рішення для кліматичної дії.</label>
+<label><input name="test-4" type="radio" value="C"/> C. Повна технічна специфікація цифрової платформи.</label>
+<p aria-live="polite" class="test-item-status" id="test-status-4"></p>
+</fieldset>
+<fieldset class="test-question" data-test-question="5">
+<legend>5. Яке цифрове рішення є сильнішим?</legend>
+<label><input name="test-5" type="radio" value="A"/> A. Те, що має найбільше функцій, але не пов’язане з рішенням команди.</label>
+<label><input name="test-5" type="radio" value="B"/> B. Те, що підтримує конкретну кліматичну дію, має потрібні дані, відповідального і перший крок.</label>
+<label><input name="test-5" type="radio" value="C"/> C. Те, для якого одразу закуплено найдорожче програмне забезпечення.</label>
+<p aria-live="polite" class="test-item-status" id="test-status-5"></p>
+</fieldset>
+<fieldset class="test-question" data-test-question="6">
+<legend>6. Чому не варто починати цифровізацію з великої платформи?</legend>
+<label><input name="test-6" type="radio" value="A"/> A. Тому що платформи завжди непотрібні.</label>
+<label><input name="test-6" type="radio" value="B"/> B. Тому що спочатку потрібно зрозуміти, які управлінські рішення мають покращитися і які дані для цього потрібні.</label>
+<label><input name="test-6" type="radio" value="C"/> C. Тому що всі дані мають залишатися на папері.</label>
+<p aria-live="polite" class="test-item-status" id="test-status-6"></p>
+</fieldset>
+<button class="button button-primary" type="submit">Перевірити відповіді</button>
+<div aria-live="polite" class="result-box" id="final-test-result" role="status" tabindex="-1"></div>
+<p class="gate-note" id="test-gate-note">Завершальна сторінка відкриється після правильної відповіді на всі шість питань.</p>
+</form>
+</section>
+<section aria-labelledby="page-12-title" class="lesson-page" data-page="12" data-page-role="completion" hidden="">
+<div class="page-kicker">🎉 Завершення заняття</div>
+<h2 id="page-12-title" tabindex="-1">🎉 Рефлексія та наступний крок</h2>
+<section aria-labelledby="reflection-title">
+<h3 id="reflection-title">💭 Рефлексія</h3>
+<ul class="reflection-list">
+<li>Яке рішення громади сьогодні ухвалюється більше інтуїтивно, ніж на основі даних?</li>
+<li>Яку кліматичну дію можна підсилити цифровим інструментом?</li>
+<li>Які дані для цього вже є, а яких бракує?</li>
+<li>Хто має бути власником даних і відповідальним за реагування?</li>
+<li>Який перший крок можна зробити протягом найближчого місяця?</li>
+</ul>
+</section>
+<aside class="callout callout-primary">
+<h3>💡 Головна думка заняття</h3>
+<p>Цифровізація має сенс лише тоді, коли допомагає громаді виконати конкретну кліматичну дію та покращує управлінське рішення. Починаємо не з платформи, а з проблеми, даних і першого практичного кроку.</p>
+</aside>
+<section aria-labelledby="next-title">
+<h3 id="next-title">➡️ Логічний перехід до наступного заняття</h3>
+<p>У цьому занятті громада створила Карту цифрового рішення для кліматичної дії. Тепер команда може пояснити, яку проблему вирішує інструмент, які дані потрібні, яку управлінську користь він дає і з чого почати.</p>
+<p>Наступний крок — подивитися ширше: які глобальні тренди, міжнародні кейси та практики Climate Mission Cities можуть допомогти громаді не вигадувати все з нуля.</p>
+<p><strong>У наступному занятті Ви перейдете до теми глобальних кейсів і Climate Mission Cities.</strong></p>
+</section>
+<section aria-labelledby="tomorrow-title">
+<h3 id="tomorrow-title">🚀 Що варто зробити вже завтра</h3>
+<p>Проведіть коротку робочу зустріч із підрозділом, який відповідає за обрану кліматичну дію, та командою цифровізації. Поставте одне питання: яке конкретне рішення має стати кращим завдяки даним і цифровому інструменту?</p>
+<p>Після зустрічі заповніть першу версію Карти цифрового рішення для кліматичної дії.</p>
+</section>
+<div class="completion-card">
+<p><strong>🎉 Заняття завершено.</strong></p>
+<div class="completion-actions">
+<button class="button button-secondary" id="return-start" type="button">↩️ Повернутися на початок</button>
+<a class="button button-primary completion-next" href="https://clusterceu-crypto.github.io/UCAN-Lesson04/" rel="next">➡️ Перейти до заняття 04</a>
+</div>
+</div>
+</section>
+</main>
+<nav aria-label="Навігація між сторінками" class="lesson-nav no-print">
+<button class="button button-secondary" id="prev-page" type="button">⬅️ Попередній розділ</button>
+<button class="button button-primary" id="next-page" type="button">Наступний розділ ➡️</button>
+</nav>
+<footer class="site-footer no-print">
+<p>UCAN · Онлайн-заняття</p>
+</footer>
+<script src="js/lesson03-ai-prompts.js?v=1.3.1"></script>
+<script src="js/script.js?v=1.3.1"></script>
 </body>
 </html>

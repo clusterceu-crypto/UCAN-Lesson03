@@ -7,7 +7,8 @@
     form: 'ucan_l03_rc_v1_portfolio_form',
     selfCheck: 'ucan_l03_rc_v1_self_check',
     testAnswers: 'ucan_l03_rc_v1_test_answers',
-    testCompleted: 'ucan_l03_rc_v1_test_completed'
+    testCompleted: 'ucan_l03_rc_v1_test_completed',
+    transitionReflection: 'ucan_l03_rc_v1_transition_reflection'
   };
 
   const pages = Array.from(document.querySelectorAll('.lesson-page'));
@@ -17,6 +18,11 @@
   const progressPercent = document.getElementById('progress-percent');
   const progressFill = document.getElementById('progress-fill');
   const progressTrack = document.querySelector('.progress-track');
+  const pageNumberByRole = (role) => {
+    const page = document.querySelector(`.lesson-page[data-page-role="${role}"]`);
+    return page ? Number.parseInt(page.dataset.page, 10) : null;
+  };
+  const TEST_PAGE = pageNumberByRole('test');
   let currentPage = 1;
 
   function storageGet(key, fallback = null) {
@@ -61,7 +67,7 @@
     progressTrack.setAttribute('aria-valuenow', String(percent));
 
     prevButton.disabled = currentPage === 1;
-    const testGateActive = currentPage === 10 && !isTestComplete();
+    const testGateActive = currentPage === TEST_PAGE && !isTestComplete();
     nextButton.disabled = currentPage === totalPages || testGateActive;
     nextButton.textContent = currentPage === totalPages ? 'Завершено' : 'Наступний розділ ➡️';
   }
@@ -96,7 +102,7 @@
 
   prevButton.addEventListener('click', () => showPage(currentPage - 1));
   nextButton.addEventListener('click', () => {
-    if (currentPage === 10 && !isTestComplete()) return;
+    if (currentPage === TEST_PAGE && !isTestComplete()) return;
     showPage(currentPage + 1);
   });
 
@@ -130,6 +136,33 @@
   });
 
   document.getElementById('return-start').addEventListener('click', () => showPage(1));
+
+  // Learning Transition Layer: optional locally saved reflection.
+  const transitionReflectionInput = document.getElementById('transition-reflection-input');
+  const transitionReflectionStatus = document.getElementById('transition-reflection-status');
+  let transitionSaveTimer = null;
+
+  function getTransitionReflection() {
+    return transitionReflectionInput ? transitionReflectionInput.value.trim() : '';
+  }
+
+  function restoreTransitionReflection() {
+    if (!transitionReflectionInput) return;
+    transitionReflectionInput.value = storageGet(STORAGE.transitionReflection, '');
+  }
+
+  if (transitionReflectionInput) {
+    transitionReflectionInput.addEventListener('input', () => {
+      storageSet(STORAGE.transitionReflection, transitionReflectionInput.value);
+      if (transitionReflectionStatus) {
+        transitionReflectionStatus.textContent = 'Збережено локально.';
+        window.clearTimeout(transitionSaveTimer);
+        transitionSaveTimer = window.setTimeout(() => {
+          transitionReflectionStatus.textContent = '';
+        }, 1800);
+      }
+    });
+  }
 
   // Interactive self-check.
   const selfCheckForm = document.getElementById('self-check-form');
@@ -448,6 +481,7 @@
       })
       .filter(Boolean);
 
+    const transitionReflection = getTransitionReflection();
     const selfCheckAnswers = getSelfCheckAnswers();
     const selfCheckEntries = Object.entries(selfCheckAnswers).map(([key, value]) => {
       const label = diagnosticPrompts[Number(key) - 1]?.instruction || `Пункт ${key}`;
@@ -455,7 +489,7 @@
       return `- ${label} — ${status}`;
     });
 
-    if (entries.length === 0 && selfCheckEntries.length === 0) {
+    if (entries.length === 0 && selfCheckEntries.length === 0 && !transitionReflection) {
       return `
 
 ДАНІ УЧАСНИКА ЩЕ НЕ ЗАПОВНЕНІ
@@ -463,6 +497,8 @@
     }
 
     const blocks = [];
+    if (transitionReflection) blocks.push(`НОТАТКА ПЕРЕД ПРАКТИКОЮ
+- Управлінське рішення, яке найбільше виграє від кращих даних: ${transitionReflection}`);
     if (entries.length) blocks.push(`ЗАПОВНЕНА КАРТА УЧАСНИКА
 ${entries.join('\n')}`);
     if (options.includeSelfCheck && selfCheckEntries.length) {
@@ -565,6 +601,7 @@ ${blocks.join('\n\n')}
   }
 
   // Restore state after all listeners are ready.
+  restoreTransitionReflection();
   restorePortfolio();
   restoreSelfCheck();
   restoreTest();

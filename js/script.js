@@ -353,6 +353,7 @@
 
   document.getElementById('print-portfolio').addEventListener('click', () => {
     preparePrintValues();
+    portfolioStatus.textContent = 'У системному вікні оберіть «Зберегти як PDF».';
     document.body.classList.add('print-portfolio');
     window.print();
   });

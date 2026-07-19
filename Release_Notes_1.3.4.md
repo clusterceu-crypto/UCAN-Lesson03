@@ -18,6 +18,8 @@ Controlled Evidence Wording and Case UX Patch.
 - Added a bridge question connecting city cases with the learner’s own management decision.
 - Lecture 1-5 is explicitly marked as optional / additional.
 - CSS and JavaScript cache-busting updated to `v=1.3.4`.
+- Portfolio action renamed from **«Друк / PDF»** to **«Завантажити PDF»** with explicit browser guidance to choose **«Зберегти як PDF»**.
+- Final test rewritten into more applied management scenarios with stronger distractors while preserving six questions, the answer key and Test Gate logic.
 
 ## Added production rule
 
@@ -33,8 +35,8 @@ Across the current 26-lesson UCAN course, future lessons should select the best 
 - Optional local reflection and AI context enrichment.
 - Existing localStorage keys and stored Portfolio data.
 - AI prompt source file and prompt texts.
-- Test questions, answers and completion gate.
-- Print behaviour and approved visual assets.
+- Six-question structure, answer key and completion gate.
+- Browser print-to-PDF behaviour and approved visual assets.
 
 ## QA result
 
@@ -49,6 +51,8 @@ Across the current 26-lesson UCAN course, future lessons should select the best 
 - ARIA references: valid.
 - JavaScript syntax: PASS.
 - AI prompt JavaScript syntax and byte identity: PASS.
+- PDF button label and guidance: PASS.
+- Applied test scenarios: 6/6; answer-key compatibility: PASS.
 - External links include safe new-tab attributes: PASS.
 
 ## Handoff status

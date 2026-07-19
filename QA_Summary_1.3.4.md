@@ -21,7 +21,10 @@
 - Cache-busting values: `v=1.3.4` for CSS and both JavaScript files.
 - JavaScript syntax: PASS.
 - AI prompt JavaScript syntax: PASS.
-- Main JavaScript and AI prompt source remain functionally unchanged from Patch 1.3.3.
+- AI prompt source remains unchanged from Patch 1.3.3.
+- Main JavaScript change is limited to learner guidance before the browser print-to-PDF dialog.
+- PDF action label: «Завантажити PDF»; explicit «Зберегти як PDF» guidance: PASS.
+- Final test: 6 applied questions, 18 labelled options, original answer-key mapping preserved.
 
 ## Headless browser functional smoke test
 
@@ -38,6 +41,7 @@ Test environment: Chromium, mobile viewport 390 × 844 px, in-memory page with c
 - Navigation to Portfolio page 10: PASS.
 - Test Gate disabled before successful test completion: PASS.
 - Six correct answers unlock the Test Gate: PASS.
+- Updated scenario-based questions remain compatible with stored radio values and answer key: PASS.
 - Navigation to completion page 12: PASS.
 - JavaScript page errors: none.
 
@@ -54,7 +58,7 @@ The patch does not claim measured impact where the cited municipal source does n
 
 ## Remaining publication check
 
-After deployment to GitHub Pages, manually open the three city sources, four C40 resources and two YouTube videos in a normal HTTPS browser session.
+After deployment to GitHub Pages, manually open the three city sources, four C40 resources and two YouTube videos in a normal HTTPS browser session. Also verify the «Завантажити PDF» flow in Chrome/Edge and confirm that the generated PDF contains only the completed Portfolio page.
 
 ## Status
 

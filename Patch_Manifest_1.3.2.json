@@ -1,0 +1,26 @@
+{
+  "README_Patch_1.3.2.md": {
+    "bytes": 2684,
+    "sha256": "5b74c2c985841f327532267532f98855d9d91c85a0e139f87082cc98cab53ced"
+  },
+  "Release_Notes_1.3.2.md": {
+    "bytes": 2303,
+    "sha256": "27b355cba3957b7970003ccf82d73e31a57e10e8a32e259ab78917364c6a30a7"
+  },
+  "css/style.css": {
+    "bytes": 21882,
+    "sha256": "ab82f79b0a88c569c44715666b7f5fa565d0db1a84095de4a32c1b7b643cd92b"
+  },
+  "index.html": {
+    "bytes": 68026,
+    "sha256": "abea52f7121f05e021f1c6b37892be98fd610f07c1f61b4324d091dda207b7ce"
+  },
+  "js/lesson03-ai-prompts.js": {
+    "bytes": 7348,
+    "sha256": "e98a9cf5ae320ab56da15e55aafe282e16ce7e695cd17c6a22ea8c1aea98eb51"
+  },
+  "js/script.js": {
+    "bytes": 27567,
+    "sha256": "48009dc3e6c0ea3d9c4fe00db2df3fcd81f1153b174fb72e0d8f96bd30546622"
+  }
+}

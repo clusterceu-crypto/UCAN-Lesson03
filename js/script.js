@@ -123,7 +123,7 @@
 
   const resetProgress = document.getElementById('reset-progress');
   resetProgress.addEventListener('click', () => {
-    const confirmed = window.confirm('Скинути прогрес, відповіді самоперевірки та підсумкового тесту? Дані практичної форми залишаться збереженими.');
+    const confirmed = window.confirm('Скинути прогрес, відповіді самоперевірки та підсумкового тесту? Дані практичної форми та нотатка перед практикою залишаться збереженими.');
     if (!confirmed) return;
     storageRemove(STORAGE.page);
     storageRemove(STORAGE.progress);
@@ -153,9 +153,11 @@
 
   if (transitionReflectionInput) {
     transitionReflectionInput.addEventListener('input', () => {
-      storageSet(STORAGE.transitionReflection, transitionReflectionInput.value);
+      const saved = storageSet(STORAGE.transitionReflection, transitionReflectionInput.value);
       if (transitionReflectionStatus) {
-        transitionReflectionStatus.textContent = 'Збережено локально.';
+        transitionReflectionStatus.textContent = saved
+          ? 'Збережено локально.'
+          : 'Не вдалося зберегти нотатку у браузері.';
         window.clearTimeout(transitionSaveTimer);
         transitionSaveTimer = window.setTimeout(() => {
           transitionReflectionStatus.textContent = '';

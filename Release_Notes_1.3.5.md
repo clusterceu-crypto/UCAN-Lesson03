@@ -26,3 +26,5 @@ The previous print-dialog workflow was removed from the learner-facing button. T
 - Patch implementation: complete.
 - Static QA: passed.
 - Functional browser QA: required before release freeze.
+
+- Після browser review кількість тестових питань скорочено до 5; дистрактори переформульовано як правдоподібні управлінські альтернативи.

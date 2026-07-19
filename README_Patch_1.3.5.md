@@ -60,3 +60,7 @@ Run the package in Chrome, Edge and Firefox and verify:
 - repeated clicks are blocked while PDF is being generated;
 - final test gate opens only after all 10 answers are correct;
 - state restoration works after reload.
+
+
+## Controlled refinement
+Після browser review тест скорочено до 5 питань. Кожне питання має 4 правдоподібні варіанти й вимагає вибору найкращого управлінського рішення, а не впізнавання очевидної правильної відповіді.

@@ -621,11 +621,11 @@
   const finalTestForm = document.getElementById('final-test-form');
   const finalTestResult = document.getElementById('final-test-result');
   const testGateNote = document.getElementById('test-gate-note');
-  const correctAnswers = { 1: 'B', 2: 'C', 3: 'D', 4: 'A', 5: 'C', 6: 'B', 7: 'D', 8: 'A', 9: 'B', 10: 'C' };
+  const correctAnswers = { 1: 'C', 2: 'B', 3: 'D', 4: 'A', 5: 'C' };
 
   function getTestAnswers() {
     const answers = {};
-    for (let i = 1; i <= 10; i += 1) {
+    for (let i = 1; i <= 5; i += 1) {
       const selected = finalTestForm.querySelector(`input[name="test-${i}"]:checked`);
       if (selected) answers[i] = selected.value;
     }
@@ -643,7 +643,7 @@
     storageSet(STORAGE.testAnswers, JSON.stringify(answers));
     const incorrect = [];
     const unanswered = [];
-    for (let i = 1; i <= 10; i += 1) {
+    for (let i = 1; i <= 5; i += 1) {
       const fieldset = finalTestForm.querySelector(`[data-test-question="${i}"]`);
       const status = document.getElementById(`test-status-${i}`);
       fieldset.classList.remove('needs-review', 'is-correct');
@@ -668,7 +668,7 @@
       finalTestResult.textContent = `Є відповіді, які варто переглянути: ${incorrect.join(', ')}. Спробуйте ще раз.`;
       storageSet(STORAGE.testCompleted, 'false');
     } else {
-      finalTestResult.textContent = 'Усі десять відповідей правильні. Ви можете перейти до завершальної сторінки.';
+      finalTestResult.textContent = 'Усі п’ять відповідей правильні. Ви можете перейти до завершальної сторінки.';
       storageSet(STORAGE.testCompleted, 'true');
       testGateNote.textContent = 'Тест завершено. Кнопка «Далі» доступна.';
     }
@@ -678,7 +678,7 @@
 
   function restoreTest() {
     const answers = parseJson(storageGet(STORAGE.testAnswers), {});
-    for (let i = 1; i <= 10; i += 1) {
+    for (let i = 1; i <= 5; i += 1) {
       finalTestForm.querySelectorAll(`input[name="test-${i}"]`).forEach((input) => { input.checked = false; });
       const value = answers[i];
       const radio = value ? finalTestForm.querySelector(`input[name="test-${i}"][value="${value}"]`) : null;
@@ -693,7 +693,7 @@
       testGateNote.textContent = 'Тест завершено. Кнопка «Далі» доступна.';
     } else {
       finalTestResult.textContent = '';
-      testGateNote.textContent = 'Завершальна сторінка відкриється після правильної відповіді на всі десять питань.';
+      testGateNote.textContent = 'Завершальна сторінка відкриється після правильної відповіді на всі п’ять питань.';
     }
     updateNavigation();
   }

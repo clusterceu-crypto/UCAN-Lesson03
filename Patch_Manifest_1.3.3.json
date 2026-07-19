@@ -1,0 +1,34 @@
+{
+  "Case_Source_Handoff_1.3.3.md": {
+    "bytes": 4017,
+    "sha256": "f1829b5d4e66a12113703a485a9c951249eb6c9020aa13fa9ef8cf59f0bb0b5f"
+  },
+  "QA_Summary_1.3.3.md": {
+    "bytes": 1440,
+    "sha256": "6da3e7bd701ea7ab6c910ce109a586818db9d6128821955baa33b5f07ffd6caf"
+  },
+  "README_Patch_1.3.3.md": {
+    "bytes": 4309,
+    "sha256": "0123aa5b67bcf0e7d0b93aad5a9628665a695208d3c38532e9bb1dbf2d158776"
+  },
+  "Release_Notes_1.3.3.md": {
+    "bytes": 2274,
+    "sha256": "97f2f6596750dd51c790feb8f787ae51bf1ec88ed0de4de59b03c33301bfd8e6"
+  },
+  "css/style.css": {
+    "bytes": 22554,
+    "sha256": "688ce8893900c61038b0684093bc8f6cb82f89a845e052158ac129954d5e7897"
+  },
+  "index.html": {
+    "bytes": 75784,
+    "sha256": "d65302ac6a483774bfeb9b095a07d5fe16fa86bf711d983a3717f36f801e4406"
+  },
+  "js/lesson03-ai-prompts.js": {
+    "bytes": 7348,
+    "sha256": "e98a9cf5ae320ab56da15e55aafe282e16ce7e695cd17c6a22ea8c1aea98eb51"
+  },
+  "js/script.js": {
+    "bytes": 27567,
+    "sha256": "48009dc3e6c0ea3d9c4fe00db2df3fcd81f1153b174fb72e0d8f96bd30546622"
+  }
+}

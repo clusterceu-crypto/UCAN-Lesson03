@@ -10,34 +10,41 @@
 </head>
 <body>
 <a class="skip-link" href="#main-content">Перейти до основного змісту</a>
-<header aria-label="Навігація заняття" class="site-header">
+<header aria-label="Глобальна навігація заняття" class="site-header">
 <div class="header-inner">
-<div aria-label="UCAN" class="brand">
-<span aria-hidden="true" class="brand-mark">U</span>
-<span class="brand-text">UCAN · Онлайн-курс</span>
+<div class="header-brand-group">
+<div aria-label="UCAN" class="brand"><span aria-hidden="true" class="brand-mark">U</span><span class="brand-text">UCAN</span></div>
+<a class="button button-quiet button-small header-lesson-link" href="https://clusterceu-crypto.github.io/UCAN-Lesson02/" rel="prev">← Попереднє заняття</a>
 </div>
-<div class="header-actions">
-<button class="button button-quiet" id="reset-progress" type="button">🔄 Почати спочатку</button>
+<div class="header-center">
+<span class="lesson-label">Заняття 03</span>
+<span aria-live="polite" class="page-label" id="page-label">Початок</span>
 </div>
+<button aria-describedby="reset-progress-scope" class="button button-quiet button-small" id="reset-progress" type="button">🔄 Почати спочатку</button>
+<span class="visually-hidden" id="reset-progress-scope">Очищує прогрес, самоперевірку й тест, але зберігає Практичну картку та нотатку перед практикою.</span>
 </div>
+</header>
+<div class="lesson-progress-navigation">
 <div aria-label="Прогрес заняття" class="progress-shell">
-<div class="progress-meta">
-<span>Прогрес проходження</span>
-<span id="progress-percent">8%</span>
-</div>
-<div aria-label="Прогрес проходження" aria-valuemax="100" aria-valuemin="0" aria-valuenow="8" class="progress-track" role="progressbar">
+<span class="progress-text" id="progress-text">Сторінка 1 із 12</span>
+<span class="progress-percent" id="progress-percent">8%</span>
+<div aria-label="Прогрес заняття" aria-valuemax="100" aria-valuemin="0" aria-valuenow="8" aria-valuetext="Сторінка 1 із 12, прогрес 8%" class="progress-track" role="progressbar">
 <div class="progress-fill" id="progress-fill"></div>
 </div>
 </div>
-</header>
+<nav aria-label="Розділи заняття" class="lesson-section-strip"><div class="lesson-section-list" id="lesson-section-list">
+<button class="lesson-section-link" data-page-link="1" type="button">Початок</button><button class="lesson-section-link" data-page-link="2" type="button">Дані</button><button class="lesson-section-link" data-page-link="3" type="button">Smart City</button><button class="lesson-section-link" data-page-link="4" type="button">Twin Transition</button><button class="lesson-section-link" data-page-link="5" type="button">Цифрове рішення</button><button class="lesson-section-link" data-page-link="6" type="button">Показники</button><button class="lesson-section-link" data-page-link="7" type="button">Підготовка</button><button class="lesson-section-link" data-page-link="8" type="button">Самоперевірка</button><button class="lesson-section-link" data-page-link="9" type="button">Практична картка</button><button class="lesson-section-link" data-page-link="10" type="button">Портфель мера</button><button class="lesson-section-link" data-page-link="11" type="button">Тест</button><button class="lesson-section-link" data-page-link="12" data-requires-test="true" type="button">Підсумок</button>
+</div></nav>
+</div>
+<div aria-live="polite" class="status-region" id="global-status" role="status"></div>
 <main id="main-content" tabindex="-1">
-<section aria-labelledby="page-1-title" class="lesson-page is-active" data-page="1">
+<section aria-labelledby="page-1-title" class="lesson-page is-active" data-page="1" data-page-label="Початок">
 <div class="page-kicker">💻 Технології та цифровізація</div>
 <h1 id="page-1-title" tabindex="-1">💻 Роль технологій та цифровізації у міських кліматичних діях</h1>
 <p class="lead">Дані, цифровізація та управління на основі фактів</p>
 <div aria-label="Параметри заняття" class="meta-strip">
 <span>Основна частина: 20–30 хвилин</span>
-<span>Практичний результат: одна управлінська карта</span>
+<span>Практичний результат: одна Практична картка</span>
 </div>
 <aside aria-labelledby="core-message-title" class="callout callout-primary">
 <h2 class="callout-title" id="core-message-title">💡 Головна думка</h2>
@@ -64,13 +71,13 @@
 <li>пояснювати Twin Transition — подвійний зелений і цифровий перехід;</li>
 <li>обирати одну кліматичну дію, якій потрібна цифрова підтримка;</li>
 <li>визначати потрібні дані, їхнє джерело, відповідального та управлінську користь;</li>
-<li>створювати Карту цифрового рішення для кліматичної дії з першим кроком і 2–3 показниками результату.</li>
+<li>створювати Практичну картку цифрового рішення для кліматичної дії з першим кроком і 2–3 показниками результату.</li>
 </ul>
 </section>
 <section aria-labelledby="result-title">
 <h2 id="result-title">📂 Практичний результат</h2>
 <div class="portfolio-card">
-<p><strong>Карта цифрового рішення для кліматичної дії</strong> — короткий документ, який пов’язує кліматичний виклик і кліматично нейтральну візію, сформовані раніше, конкретну дію громади, потрібні дані, цифровий інструмент, управлінську користь, перший крок і 2–3 показники результату.</p>
+<p><strong>Практична картка цифрового рішення для кліматичної дії</strong> — короткий документ, який пов’язує кліматичний виклик і кліматично нейтральну візію, сформовані раніше, конкретну дію громади, потрібні дані, цифровий інструмент, управлінську користь, перший крок і 2–3 показники результату.</p>
 </div>
 </section>
 <figure class="generated-visual">
@@ -88,12 +95,12 @@
 <tr><td>3</td><td>Smart City без гаджетизації</td><td>Перевірити, чи технологія справді покращує управління.</td></tr>
 <tr><td>4</td><td>Twin Transition</td><td>Поєднати зелену та цифрову трансформацію в одній управлінській логіці.</td></tr>
 <tr><td>5</td><td>Від кліматичної дії до цифрового рішення</td><td>Визначити потрібні дані, управлінську користь і перший крок.</td></tr>
-<tr><td>6</td><td>Перед тим як перейти до практики</td><td>Розглянути конкретні міські приклади, обрати орієнтир і сформулювати власне управлінське питання.</td></tr><tr><td>7</td><td>Практичне завдання</td><td>Створити Карту цифрового рішення для Портфеля мера.</td></tr><tr><td>8</td><td>Тест і рефлексія</td><td>Перевірити логіку рішення та підготувати розмову з командою.</td></tr></tbody>
+<tr><td>6</td><td>Перед тим як перейти до практики</td><td>Розглянути конкретні міські приклади, обрати орієнтир і сформулювати власне управлінське питання.</td></tr><tr><td>7</td><td>Практичне завдання</td><td>Створити Практичну картку для Портфеля мера.</td></tr><tr><td>8</td><td>Тест і рефлексія</td><td>Перевірити логіку рішення та підготувати розмову з командою.</td></tr></tbody>
 </table>
 </div>
 </section>
 </section>
-<section aria-labelledby="page-2-title" class="lesson-page" data-page="2" hidden="">
+<section aria-labelledby="page-2-title" class="lesson-page" data-page="2" data-page-label="Дані" hidden="">
 <div class="page-kicker">📘 Теоретичний блок 1</div>
 <h2 id="page-2-title" tabindex="-1">📊 Дані як новий управлінський ресурс громади</h2>
 <p>Дані — це не лише таблиці, звіти або файли в комп’ютері. Для міського голови дані — це спосіб бачити реальний стан громади і не покладатися тільки на враження, скарги або політичну видимість проблеми.</p>
@@ -109,6 +116,10 @@
 </tbody>
 </table>
 </div>
+<aside class="callout callout-primary">
+<h3>💡 Дані мають цінність лише в рішенні</h3>
+<p><strong>Не всі дані мають управлінську цінність. Корисними є ті, які допомагають побачити проблему, обрати рішення та оцінити результат.</strong></p>
+</aside>
 <aside class="callout callout-leader">
 <h3>🏛️ Що це означає для міського голови та управлінської команди?</h3>
 <p>Дані потрібні не для того, щоб створювати більше звітів. Дані потрібні, щоб команда бачила, де громада втрачає гроші, де зростає ризик і де потрібно діяти першочергово.</p>
@@ -122,7 +133,7 @@
 <p>Оберіть одну кліматичну дію громади. Яке управлінське рішення потрібно покращити? Які дані вже є? Хто ними володіє? Який цифровий інструмент може допомогти?</p>
 </aside>
 </section>
-<section aria-labelledby="page-3-title" class="lesson-page" data-page="3" hidden="">
+<section aria-labelledby="page-3-title" class="lesson-page" data-page="3" data-page-label="Smart City" hidden="">
 <div class="page-kicker">📘 Теоретичний блок 2</div>
 <h2 id="page-3-title" tabindex="-1">🏙️ Smart City — це не гаджети, а модель управління</h2>
 <p>Раніше Smart City було визначено не як набір технологій, а як спосіб ухвалювати кращі управлінські рішення. У цьому занятті робимо наступний крок: цифровізація має цінність лише тоді, коли відповідає на конкретне управлінське питання.</p>
@@ -151,7 +162,7 @@
 <p>Починати цифровізацію з покупки програмного забезпечення, не визначивши кліматичну дію, управлінське питання, потрібні дані, власника процесу та перший практичний крок.</p>
 </aside>
 </section>
-<section aria-labelledby="page-4-title" class="lesson-page" data-page="4" hidden="">
+<section aria-labelledby="page-4-title" class="lesson-page" data-page="4" data-page-label="Twin Transition" hidden="">
 <div class="page-kicker">📘 Теоретичний блок 3</div>
 <h2 id="page-4-title" tabindex="-1">🔄 Twin Transition — зелена і цифрова трансформація разом</h2>
 <p>Twin Transition означає подвійний перехід: зелений і цифровий. Для громади це дуже практична логіка: кліматичні рішення мають спиратися на дані, а цифровізація має допомагати зменшувати викиди, витрати й ризики.</p>
@@ -177,7 +188,7 @@
 <p>Мешканці відчувають Twin Transition не як термін, а як кращі послуги: тепліші школи, надійніший транспорт, менше аварій, прозоріші рішення і зрозуміліші пріоритети.</p>
 </aside>
 </section>
-<section aria-labelledby="page-5-title" class="lesson-page" data-page="5" hidden="">
+<section aria-labelledby="page-5-title" class="lesson-page" data-page="5" data-page-label="Цифрове рішення" hidden="">
 <div class="page-kicker">📘 Теоретичні блоки 4–5</div>
 <h2 id="page-5-title" tabindex="-1">🌱 Від кліматичної дії до цифрового рішення</h2>
 <p>Цифрове рішення починається не з назви платформи. Воно починається з конкретної кліматичної дії та управлінського питання. Спочатку команда визначає, що потрібно покращити: зменшити втрати енергії, швидше реагувати на підтоплення, оптимізувати маршрути або краще планувати зелені зони. Лише після цього обираються дані й цифровий інструмент.</p>
@@ -211,7 +222,7 @@
 <p>Обирати цифровий інструмент тому, що він популярний або сучасний. Спочатку команда має визначити кліматичну дію, управлінське питання та рішення, яке потрібно покращити.</p>
 </aside>
 </section>
-<section aria-labelledby="page-6-title" class="lesson-page" data-page="6" hidden="">
+<section aria-labelledby="page-6-title" class="lesson-page" data-page="6" data-page-label="Показники" hidden="">
 <div class="page-kicker">📘 Теоретичні блоки 6–7</div>
 <h2 id="page-6-title" tabindex="-1">📊 Дані, відповідальність і 2–3 показники результату</h2>
 <h3>👥 Дані та відповідальність до запуску</h3>
@@ -252,7 +263,7 @@
 <p>Сформулюйте одним реченням: «Щоб підтримати [кліматичну дію], ми використаємо [цифрове рішення], яке допоможе [управлінська користь] на основі [дані]». Якщо речення не складається, карту потрібно уточнити.</p>
 </aside>
 </section>
-<section aria-labelledby="page-7-title" class="lesson-page learning-transition-page" data-page="7" data-page-role="learning-transition" hidden="">
+<section aria-labelledby="page-7-title" class="lesson-page learning-transition-page" data-page="7" data-page-label="Підготовка" data-page-role="learning-transition" hidden="">
 <div class="page-kicker">🌍 Підготовка до практики</div>
 <h2 id="page-7-title" tabindex="-1">🌍 Перед тим як перейти до практики</h2>
 <p class="lead">Подивіться, як конкретні міста пов’язують дані й цифрові інструменти з управлінськими рішеннями. Український приклад відкрито для швидкого старту; інші картки розкривайте відповідно до свого питання.</p>
@@ -322,6 +333,16 @@
 <h4>🔎 Оберіть найближчий орієнтир</h4>
 <p>Який підхід найближчий до ситуації Вашої громади: відкриті транспортні дані, спільна просторова модель чи карта кліматичних ризиків? Назвіть одне управлінське рішення, якому потрібна подібна цифрова підтримка.</p>
 </aside>
+</section>
+<section aria-labelledby="wua-title" class="transition-section wua-example">
+<p class="resource-eyebrow">Практичний приклад</p>
+<h3 id="wua-title">Waste Ukraine Analytics (WUA)</h3>
+<p class="wua-subtitle">Дані про відходи → аналітика → основа для управлінських рішень</p>
+<p>Waste Ukraine Analytics — український цифровий ресурс для роботи з даними у сфері відходів. На офіційному сайті представлені послуги, пов’язані з наборами та візуалізацією даних, інформаційним аудитом для органів місцевого самоврядування й аналітичними дашбордами.</p>
+<p>Цей приклад показує логіку переходу від розрізнених даних до структурованої аналітичної основи для управлінського рішення.</p>
+<p>Для громади важливо починати не з вибору платформи, а з конкретної проблеми: які потоки відходів потрібно побачити, які дані потрібні, хто за них відповідає і яке рішення має стати кращим.</p>
+<p class="wua-note"><strong>Примітка:</strong> WUA представлено як практичний приклад українського цифрового ресурсу. Це не означає обов’язкового використання платформи в межах курсу UCAN.</p>
+<a class="button button-secondary resource-link" href="https://wua.digital/uk/" rel="noopener noreferrer" target="_blank">Перейти на офіційний сайт WUA ↗</a>
 </section>
 <section aria-labelledby="deepening-resources-title" class="transition-section">
 <h3 id="deepening-resources-title">🧭 Орієнтири для поглиблення</h3>
@@ -406,7 +427,7 @@
 <p class="field-help" id="transition-reflection-help">Нотатка зберігається лише у Вашому браузері та буде передана AI Assistant як додатковий контекст.</p>
 <p aria-live="polite" class="transition-save-status" id="transition-reflection-status" role="status"></p>
 </section>
-</section><section aria-labelledby="page-8-title" class="lesson-page" data-page="8" data-page-role="self-check" hidden="">
+</section><section aria-labelledby="page-8-title" class="lesson-page" data-page="8" data-page-label="Самоперевірка" data-page-role="self-check" hidden="">
 <div class="page-kicker">✅ Інтерактивна самоперевірка</div>
 <h2 id="page-8-title" tabindex="-1">✅ Технологія чи управлінське рішення?</h2>
 <p>Оберіть одну кліматичну дію громади та один можливий цифровий інструмент: енергомоніторинг, цифрову карту, GPS-моніторинг, реєстр, датчики або управлінський дашборд.</p>
@@ -454,10 +475,19 @@
 <div aria-live="polite" class="result-box" id="self-check-result" role="status" tabindex="-1"></div>
 </form>
 </section>
-<section aria-labelledby="page-9-title" class="lesson-page" data-page="9" data-page-role="practice" hidden="">
+<section aria-labelledby="page-9-title" class="lesson-page" data-page="9" data-page-label="Практична картка" data-page-role="practice" hidden="">
 <div class="page-kicker">🛠️ Практичне завдання</div>
-<h2 id="page-9-title" tabindex="-1">🛠️ Створіть Карту цифрового рішення для кліматичної дії</h2>
-<p>Мета завдання — описати одне цифрове рішення, яке може підтримати конкретну кліматичну дію громади. Це не технічне завдання на закупівлю і не повна цифрова стратегія. Це коротка управлінська карта для розмови з командою.</p>
+<h2 id="page-9-title" tabindex="-1">🛠️ Створіть Практичну картку</h2>
+<p>Мета завдання — підготувати Практичну картку цифрового рішення для кліматичної дії. Це не технічне завдання на закупівлю і не повна цифрова стратегія, а короткий структурований матеріал для розмови з командою.</p>
+<section aria-labelledby="practice-sequence-title" class="practice-sequence">
+<h3 id="practice-sequence-title">Що потрібно визначити</h3>
+<ol><li>одну проблему або кліматичну дію громади;</li><li>які дані потрібні для її аналізу;</li><li>хто відповідає за збір та оновлення даних;</li><li>яке управлінське рішення може бути ухвалене;</li><li>як команда перевірить результат.</li></ol>
+</section>
+<section aria-label="Дані → Інформація → Аналітика → Рекомендація → Управлінське рішення → Результат" class="learning-sequence">
+<h3>Від даних до результату</h3>
+<ol><li>Дані</li><li>Інформація</li><li>Аналітика</li><li>Рекомендація</li><li>Управлінське рішення</li><li>Результат</li></ol>
+<p>Цінність виникає не в момент збору даних, а тоді, коли вони допомагають команді сформувати рекомендацію, ухвалити рішення та перевірити результат.</p>
+</section>
 <figure class="generated-visual generated-visual-repeat">
 <img alt="Вертикальна схема з шести кроків: кліматична дія, управлінське питання, цифрове рішення, дані, управлінська користь і перший крок." height="1536" src="assets/L03-A01_Від_кліматичної_дії_до_першого_цифрового_кроку_v1.0.png" width="1229"/>
 <figcaption>Нагадайте собі послідовність перед заповненням карти.</figcaption>
@@ -466,7 +496,7 @@
 <section class="step-card"><div aria-hidden="true" class="step-index">1</div><div><h3>📂 Візьміть документи з попередніх занять</h3><ul><li>Картку кліматичного виклику;</li><li>Картку кліматично нейтральної візії громади.</li></ul></div></section>
 <section class="step-card"><div aria-hidden="true" class="step-index">2</div><div><h3>🌱 Оберіть одну кліматичну дію та управлінське питання</h3><p>Оберіть одну дію, найбільш пов’язану з вашим викликом і візією: зменшення споживання енергії, реагування на підтоплення, покращення мобільності, управління зеленими зонами, водою, відходами або інша підтверджена потреба громади. Сформулюйте, яке рішення має стати кращим.</p></div></section>
 <section class="step-card"><div aria-hidden="true" class="step-index">3</div><div><h3>💻 Опишіть одне цифрове рішення</h3><ul><li>підтримує одну конкретну кліматичну дію;</li><li>відповідає на одне зрозуміле управлінське питання;</li><li>використовує дані, які вже є або які реально почати збирати;</li><li>має визначеного власника даних і відповідального за реагування;</li><li>дає зрозумілу управлінську користь;</li><li>може початися з одного реалістичного першого кроку.</li></ul></div></section>
-<section class="step-card"><div aria-hidden="true" class="step-index">4</div><div><h3>🗺️ Заповніть Карту цифрового рішення</h3><p>На наступній сторінці внесіть відповіді до робочої форми.</p></div></section>
+<section class="step-card"><div aria-hidden="true" class="step-index">4</div><div><h3>🗺️ Заповніть Практичну картку</h3><p>На наступній сторінці внесіть відповіді до робочої форми.</p></div></section>
 <section class="step-card"><div aria-hidden="true" class="step-index">5</div><div><h3>📈 Додайте 2–3 показники та позначте якість даних</h3><p>Не створюйте повну систему KPI. Оберіть лише показники, які допоможуть перевірити роботу одного рішення.</p></div></section>
 </div>
 <section aria-labelledby="success-title">
@@ -481,14 +511,14 @@
 </ul>
 </section>
 </section>
-<section aria-labelledby="page-10-title" class="lesson-page portfolio-page" data-page="10" data-page-role="portfolio" hidden="">
+<section aria-labelledby="page-10-title" class="lesson-page portfolio-page" data-page="10" data-page-label="Портфель мера" data-page-role="portfolio" hidden="">
 <div class="print-only print-portfolio-header">
 <div>Портфель мера</div>
-<h2>📂 Карта цифрового рішення для кліматичної дії</h2>
+<h2>📂 Портфель мера</h2>
 </div>
 <div class="page-kicker no-print">📂 Портфель мера</div>
-<h2 class="no-print" id="page-10-title" tabindex="-1">📂 Карта цифрового рішення для кліматичної дії</h2>
-<p class="no-print">Форма зберігається лише у Вашому браузері. Дані не передаються назовні. Натисніть «Завантажити PDF». Браузер сформує файл із Вашими відповідями і завантажить його автоматично. Дані залишаються у Вашому браузері та не передаються назовні.</p>
+<h2 class="no-print" id="page-10-title" tabindex="-1">📂 Портфель мера</h2>
+<p class="no-print">Збережіть у Портфелі мера свою Практичну картку цифрового рішення для кліматичної дії. Форма зберігається лише у Вашому браузері. Дані не передаються назовні. Натисніть «Завантажити PDF», щоб отримати файл із Вашими відповідями.</p>
 <form autocomplete="off" class="portfolio-form" id="portfolio-form">
 <section aria-labelledby="portfolio-context-title" class="portfolio-context-card">
 <div>
@@ -577,7 +607,7 @@
 <div class="print-value" id="print-data-status"></div>
 </div>
 <div class="form-actions no-print">
-<button aria-label="Підготувати карту та зберегти її у форматі PDF" class="button button-primary" id="print-portfolio" type="button">⬇️ Завантажити PDF</button>
+<button aria-label="Підготувати Практичну картку та зберегти її у форматі PDF" class="button button-primary" id="print-portfolio" type="button">⬇️ Завантажити Практичну картку (PDF)</button>
 <button class="button button-secondary" id="copy-transition-context" type="button">📋 Скопіювати контекст для наступного заняття</button>
 <button class="button button-danger" id="clear-portfolio" type="button">🗑️ Очистити форму</button>
 </div>
@@ -589,19 +619,25 @@
 <p class="ai-eyebrow">Навчальний помічник</p>
 <h3 id="ai-assistant-title">🤖 Попрацюйте із ШІ</h3>
 </div>
-<p class="ai-guidance"><strong>Використовуйте ШІ як консультанта, а не як автора роботи.</strong> Спочатку сформулюйте власні думки, а потім попросіть ШІ допомогти їх уточнити, перевірити або доповнити.</p>
+<p class="ai-guidance"><strong>Використовуйте ШІ як консультанта, а не як автора роботи.</strong> Оберіть сценарій, скопіюйте промпт, відкрийте AI-сервіс, вставте текст у новий чат, перевірте результат і поверніться до Портфеля мера.</p>
 </div>
-<div aria-label="Промпти для роботи з практичним завданням" class="ai-prompt-grid" id="ai-prompt-grid"></div>
+<div aria-label="Сценарії промптів для Практичної картки" class="ai-prompt-grid" id="ai-prompt-grid"></div>
+<section aria-labelledby="ai-service-title" class="ai-service-block">
+<h4 id="ai-service-title">Відкрийте AI-сервіс і вставте скопійований промпт</h4>
+<p>Після копіювання відкрийте вибраний сервіс у новій вкладці, вставте промпт у новий чат і самостійно перевірте відповідь.</p>
+<div class="ai-service-actions"><a aria-label="Відкрити ChatGPT у новій вкладці" class="button button-secondary" href="https://chatgpt.com/" rel="noopener noreferrer" target="_blank">Відкрити ChatGPT ↗</a><a aria-label="Відкрити Gemini у новій вкладці" class="button button-secondary" href="https://gemini.google.com/app" rel="noopener noreferrer" target="_blank">Відкрити Gemini ↗</a></div>
 <p aria-live="polite" class="ai-copy-status" id="ai-copy-status" role="status"></p>
+</section>
 <noscript><p class="callout callout-warning">Для копіювання промптів увімкніть JavaScript у браузері.</p></noscript>
 </section>
 <aside class="portfolio-note">
 <h3>📂 Портфель мера</h3>
-<p>Новий документ: Карта цифрового рішення для кліматичної дії. Вона допоможе перейти від кліматичної візії до одного практичного цифрового кроку та стане основою для адаптації міжнародного досвіду в наступному занятті.</p>
+<p>Збережіть Практичну картку цифрового рішення для кліматичної дії. Вона допоможе перейти від кліматичної візії до одного практичного цифрового кроку та стане основою для адаптації міжнародного досвіду в наступному занятті.</p>
 </aside>
+<aside class="ai-safety-note no-print" role="note"><p>Не передавайте ШІ конфіденційні, персональні або службові дані. Використовуйте результат як консультативну підказку та перевіряйте його разом із відповідальними підрозділами громади.</p></aside>
 <p class="print-only print-footer-note">Чернетка, створена учасником. Дані потребують перевірки з відповідальними підрозділами громади.</p>
 </section>
-<section aria-labelledby="page-11-title" class="lesson-page" data-page="11" data-page-role="test" hidden="">
+<section aria-labelledby="page-11-title" class="lesson-page" data-page="11" data-page-label="Тест" data-page-role="test" hidden="">
 <div class="page-kicker">📝 Підсумкова самоперевірка</div>
 <h2 id="page-11-title" tabindex="-1">📝 Підсумковий тест заняття</h2>
 <p>Оберіть одну правильну відповідь у кожному питанні. Тест перевіряє не запам’ятовування термінів, а здатність пов’язати кліматичну дію, управлінське питання, дані, відповідальність і перший цифровий крок. Кількість спроб не обмежена.</p>
@@ -651,7 +687,7 @@
 <p class="gate-note" id="test-gate-note">Завершальна сторінка відкриється після правильної відповіді на всі п’ять питань.</p>
 </form>
 </section>
-<section aria-labelledby="page-12-title" class="lesson-page" data-page="12" data-page-role="completion" hidden="">
+<section aria-labelledby="page-12-title" class="lesson-page" data-page="12" data-page-label="Підсумок" data-page-role="completion" hidden="">
 <div class="page-kicker">🎉 Завершення заняття</div>
 <h2 id="page-12-title" tabindex="-1">🎉 Рефлексія та наступний крок</h2>
 <section aria-labelledby="reflection-title">
@@ -667,17 +703,18 @@
 <aside class="callout callout-primary">
 <h3>💡 Головна думка заняття</h3>
 <p>Цифровізація має сенс лише тоді, коли допомагає громаді виконати конкретну кліматичну дію та покращує управлінське рішення. Починаємо не з платформи, а з проблеми, даних і першого практичного кроку.</p>
+<p><strong>Корисними є ті дані, які допомагають побачити проблему, обрати рішення та оцінити результат.</strong></p>
 </aside>
 <section aria-labelledby="next-title">
 <h3 id="next-title">➡️ Логічний перехід до наступного заняття</h3>
-<p>У цьому занятті громада створила Карту цифрового рішення для кліматичної дії. Тепер команда може пояснити, яку проблему вирішує інструмент, які дані потрібні, яку управлінську користь він дає і з чого почати.</p>
+<p>У цьому занятті громада створила Практичну картку цифрового рішення для кліматичної дії та зберегла її у Портфелі мера. Тепер команда може пояснити, яку проблему вирішує інструмент, які дані потрібні, яку управлінську користь він дає і з чого почати.</p>
 <p>Наступний крок — подивитися ширше: які глобальні тренди, міжнародні кейси та практики Climate Mission Cities можуть допомогти громаді не вигадувати все з нуля.</p>
 <p><strong>У наступному занятті Ви перейдете до теми глобальних кейсів і Climate Mission Cities.</strong></p>
 </section>
 <section aria-labelledby="tomorrow-title">
 <h3 id="tomorrow-title">🚀 Що варто зробити вже завтра</h3>
 <p>Проведіть коротку робочу зустріч із підрозділом, який відповідає за обрану кліматичну дію, та командою цифровізації. Поставте одне питання: яке конкретне рішення має стати кращим завдяки даним і цифровому інструменту?</p>
-<p>Після зустрічі заповніть першу версію Карти цифрового рішення для кліматичної дії.</p>
+<p>Після зустрічі заповніть першу версію Практичної картки цифрового рішення для кліматичної дії.</p>
 </section>
 <div class="completion-card">
 <p><strong>🎉 Заняття завершено.</strong></p>
@@ -690,6 +727,7 @@
 </main>
 <nav aria-label="Навігація між сторінками" class="lesson-nav no-print">
 <button class="button button-secondary" id="prev-page" type="button">⬅️ Попередній розділ</button>
+<span aria-live="polite" class="nav-page-count" id="nav-page-count">Сторінка 1 із 12</span>
 <button class="button button-primary" id="next-page" type="button">Наступний розділ ➡️</button>
 </nav>
 <footer class="site-footer no-print">

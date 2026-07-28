@@ -18,6 +18,10 @@
   const progressPercent = document.getElementById('progress-percent');
   const progressFill = document.getElementById('progress-fill');
   const progressTrack = document.querySelector('.progress-track');
+  const progressText = document.getElementById('progress-text');
+  const pageLabel = document.getElementById('page-label');
+  const navPageCount = document.getElementById('nav-page-count');
+  const pageLinks = Array.from(document.querySelectorAll('[data-page-link]'));
   const pageNumberByRole = (role) => {
     const page = document.querySelector(`.lesson-page[data-page-role="${role}"]`);
     return page ? Number.parseInt(page.dataset.page, 10) : null;
@@ -62,14 +66,38 @@
 
   function updateNavigation() {
     const percent = Math.round((currentPage / totalPages) * 100);
+    const activePage = pages[currentPage - 1];
+    const activeLabel = activePage?.dataset.pageLabel || '';
     progressPercent.textContent = `${percent}%`;
+    progressText.textContent = `Сторінка ${currentPage} із ${totalPages}`;
     progressFill.style.width = `${percent}%`;
     progressTrack.setAttribute('aria-valuenow', String(percent));
+    progressTrack.setAttribute('aria-valuetext', `Сторінка ${currentPage} із ${totalPages}, прогрес ${percent}%`);
+    if (pageLabel) pageLabel.textContent = activeLabel;
+    if (navPageCount) navPageCount.textContent = `Сторінка ${currentPage} із ${totalPages}`;
 
     prevButton.disabled = currentPage === 1;
     const testGateActive = currentPage === TEST_PAGE && !isTestComplete();
     nextButton.disabled = currentPage === totalPages || testGateActive;
     nextButton.textContent = currentPage === totalPages ? 'Завершено' : 'Наступний розділ ➡️';
+    updateSectionNavigation();
+  }
+
+  function updateSectionNavigation() {
+    const visited = parseJson(storageGet(STORAGE.progress), []);
+    const maxVisited = visited.length ? Math.max(...visited) : 1;
+    pageLinks.forEach((link) => {
+      const target = Number.parseInt(link.dataset.pageLink, 10);
+      const active = target === currentPage;
+      const requiresTest = link.dataset.requiresTest === 'true';
+      const available = active || (target <= maxVisited && (!requiresTest || isTestComplete()));
+      link.disabled = !available;
+      link.setAttribute('aria-disabled', String(!available));
+      link.classList.toggle('is-completed', target < currentPage && visited.includes(target));
+      if (active) link.setAttribute('aria-current', 'page');
+      else link.removeAttribute('aria-current');
+      link.title = available ? '' : (requiresTest ? 'Спочатку правильно виконайте підсумковий тест.' : 'Цей розділ стане доступним після проходження попереднього розділу.');
+    });
   }
 
   function showPage(pageNumber, options = {}) {
@@ -105,6 +133,9 @@
     if (currentPage === TEST_PAGE && !isTestComplete()) return;
     showPage(currentPage + 1);
   });
+  pageLinks.forEach((link) => link.addEventListener('click', () => {
+    if (!link.disabled) showPage(Number.parseInt(link.dataset.pageLink, 10));
+  }));
 
   document.addEventListener('keydown', (event) => {
     if (!event.altKey) return;
@@ -123,7 +154,7 @@
 
   const resetProgress = document.getElementById('reset-progress');
   resetProgress.addEventListener('click', () => {
-    const confirmed = window.confirm('Скинути прогрес, відповіді самоперевірки та підсумкового тесту? Дані практичної форми та нотатка перед практикою залишаться збереженими.');
+    const confirmed = window.confirm('Скинути прогрес, відповіді самоперевірки та підсумкового тесту? Дані Практичної картки та нотатка перед практикою залишаться збереженими.');
     if (!confirmed) return;
     storageRemove(STORAGE.page);
     storageRemove(STORAGE.progress);
@@ -234,9 +265,9 @@
     if (!hasAllAnswers) {
       selfCheckResult.textContent = 'Дайте відповідь на всі шість питань.';
     } else if (allYes) {
-      selfCheckResult.textContent = 'Карта достатньо сформована для практичного завдання. Перейдіть далі та заповніть її.';
+      selfCheckResult.textContent = 'Практична картка достатньо сформована для наступного кроку. Перейдіть далі та заповніть її.';
     } else {
-      selfCheckResult.textContent = 'Це ще не повна карта цифрового рішення. Уточніть позначені елементи та спробуйте ще раз.';
+      selfCheckResult.textContent = 'Практичну картку ще потрібно уточнити. Перегляньте позначені елементи та спробуйте ще раз.';
     }
     selfCheckResult.focus();
   }
@@ -283,7 +314,7 @@
 
   function savePortfolio() {
     const success = storageSet(STORAGE.form, JSON.stringify(collectPortfolioData()));
-    portfolioStatus.textContent = success ? 'Чернетку збережено у Вашому браузері.' : 'Не вдалося зберегти чернетку в браузері. Ви можете продовжити роботу й надрукувати форму.';
+    portfolioStatus.textContent = success ? 'Практичну картку збережено у Вашому браузері.' : 'Не вдалося зберегти Практичну картку в браузері. Ви можете продовжити роботу й завантажити PDF.';
   }
 
   portfolioForm.addEventListener('input', () => {
@@ -305,11 +336,11 @@
   }
 
   document.getElementById('clear-portfolio').addEventListener('click', () => {
-    const confirmed = window.confirm('Очистити всі поля Карти цифрового рішення? Цю дію не можна скасувати.');
+    const confirmed = window.confirm('Очистити всі поля Практичної картки? Цю дію не можна скасувати.');
     if (!confirmed) return;
     portfolioForm.reset();
     storageRemove(STORAGE.form);
-    portfolioStatus.textContent = 'Форму очищено.';
+    portfolioStatus.textContent = 'Практичну картку очищено.';
   });
 
 
@@ -552,7 +583,7 @@
     }
 
     newPage();
-    drawTitle('Карта цифрового рішення для кліматичної дії', 'Портфель мера · UCAN · Заняття 03');
+    drawTitle('Практична картка цифрового рішення для кліматичної дії', 'Портфель мера · UCAN · Заняття 03');
     drawField('Громада', data.communityName);
     drawField('Ключова тема / напрям', data.keyTheme);
     drawField('1. Кліматична дія', data.climateAction);
@@ -595,8 +626,8 @@
       const blob = buildImagePdf(pages);
       const community = sanitizeFilePart(data.communityName);
       const filename = community
-        ? `UCAN_L03_Карта_цифрового_рішення_${community}.pdf`
-        : 'UCAN_L03_Карта_цифрового_рішення.pdf';
+        ? `UCAN_L03_Практична_картка_${community}.pdf`
+        : 'UCAN_L03_Практична_картка.pdf';
       const url = URL.createObjectURL(blob);
       const link = document.createElement('a');
       link.href = url;
@@ -779,7 +810,7 @@ ${blocks.join('\n\n')}
     return `${item.prompt}${buildPortfolioContext({ includeSelfCheck: isReview })}`;
   }
 
-  async function copyPrompt(prompt, title) {
+  async function copyPrompt(prompt, title, button = null, status = aiStatus) {
     let copied = false;
     try {
       if (navigator.clipboard && window.isSecureContext) {
@@ -791,13 +822,30 @@ ${blocks.join('\n\n')}
     } catch (error) {
       copied = fallbackCopy(prompt);
     }
-    aiStatus.textContent = copied
-      ? `Промпт «${title}» скопійовано. Вставте його у вікно ШІ.`
-      : 'Не вдалося скопіювати автоматично. Відкрийте промпт і скопіюйте текст вручну.';
+    if (status) {
+      status.textContent = copied
+        ? 'Промпт скопійовано. Тепер відкрийте AI-сервіс і вставте його в новий чат.'
+        : 'Не вдалося скопіювати автоматично. Відкрийте перегляд промпту та скопіюйте текст вручну.';
+      status.className = `ai-copy-status ${copied ? 'is-success' : 'is-error'}`;
+    }
+    if (button && copied) {
+      const originalLabel = button.dataset.originalLabel || button.textContent;
+      button.dataset.originalLabel = originalLabel;
+      button.textContent = '✓ Скопійовано';
+      button.classList.add('is-success');
+      window.setTimeout(() => {
+        button.textContent = originalLabel;
+        button.classList.remove('is-success');
+        if (status) {
+          status.textContent = '';
+          status.className = 'ai-copy-status';
+        }
+      }, 1800);
+    }
     return copied;
   }
 
-  function openPromptDialog(item) {
+  function openPromptDialog(item, invoker = null) {
     const dialog = document.createElement('dialog');
     dialog.className = 'ai-prompt-dialog';
     dialog.innerHTML = `<div class="ai-dialog-inner"><h3>${item.icon} ${item.title}</h3><p>Скопіюйте текст і вставте його у вибраний ШІ-інструмент.</p><textarea class="ai-dialog-prompt" readonly></textarea><div class="ai-dialog-actions"><button class="button button-primary" type="button" data-dialog-copy>📋 Скопіювати промпт</button><button class="button button-secondary" type="button" data-dialog-close>✖️ Закрити</button></div></div>`;
@@ -805,7 +853,7 @@ ${blocks.join('\n\n')}
     dialog.querySelector('textarea').value = preparedPrompt;
     dialog.querySelector('[data-dialog-copy]').addEventListener('click', () => copyPrompt(buildPrompt(item), item.title));
     dialog.querySelector('[data-dialog-close]').addEventListener('click', () => dialog.close());
-    dialog.addEventListener('close', () => dialog.remove());
+    dialog.addEventListener('close', () => { dialog.remove(); if (invoker) invoker.focus(); });
     document.body.appendChild(dialog);
     dialog.showModal();
     dialog.querySelector('textarea').focus();
@@ -821,45 +869,34 @@ ${blocks.join('\n\n')}
       description.textContent = item.description;
       const actions = document.createElement('div');
       actions.className = 'ai-prompt-actions';
+      const status = document.createElement('p');
+      status.className = 'ai-copy-status';
+      status.setAttribute('aria-live', 'polite');
+      status.setAttribute('role', 'status');
 
       const copyButton = document.createElement('button');
       copyButton.className = 'button button-primary';
       copyButton.type = 'button';
       copyButton.textContent = '📋 Скопіювати промпт';
-      copyButton.addEventListener('click', () => copyPrompt(buildPrompt(item), item.title));
+      copyButton.addEventListener('click', () => copyPrompt(buildPrompt(item), item.title, copyButton, status));
 
       const viewButton = document.createElement('button');
       viewButton.className = 'button button-secondary';
       viewButton.type = 'button';
       viewButton.textContent = '👁️ Переглянути промпт';
-      viewButton.addEventListener('click', () => openPromptDialog(item));
+      viewButton.addEventListener('click', () => openPromptDialog(item, viewButton));
 
-      const platformActions = document.createElement('div');
-      platformActions.className = 'ai-platform-actions';
-      platformActions.setAttribute('aria-label', 'Відкрити промпт у вибраному ШІ');
-
-      const chatButton = document.createElement('a');
-      chatButton.className = 'button button-quiet';
-      chatButton.href = 'https://chatgpt.com/';
-      chatButton.target = '_blank';
-      chatButton.rel = 'noopener noreferrer';
-      chatButton.textContent = '🤖 Відкрити ChatGPT ↗';
-      chatButton.addEventListener('click', () => copyPrompt(buildPrompt(item), item.title));
-
-      const geminiButton = document.createElement('a');
-      geminiButton.className = 'button button-quiet';
-      geminiButton.href = 'https://gemini.google.com/app';
-      geminiButton.target = '_blank';
-      geminiButton.rel = 'noopener noreferrer';
-      geminiButton.textContent = '✨ Відкрити Gemini ↗';
-      geminiButton.addEventListener('click', () => copyPrompt(buildPrompt(item), item.title));
-
-      platformActions.append(chatButton, geminiButton);
-      actions.append(copyButton, viewButton, platformActions);
-      card.append(title, description, actions);
+      actions.append(copyButton, viewButton);
+      card.append(title, description, actions, status);
       aiGrid.appendChild(card);
     });
   }
+
+  document.querySelectorAll('.ai-service-actions a').forEach((link) => link.addEventListener('click', () => {
+    const service = link.textContent.replace('Відкрити ', '').replace(' ↗', '').trim();
+    aiStatus.textContent = `${service} відкривається в новій вкладці. Вставте скопійований промпт у новий чат.`;
+    aiStatus.className = 'ai-copy-status';
+  }));
 
   // Restore state after all listeners are ready.
   restoreTransitionReflection();

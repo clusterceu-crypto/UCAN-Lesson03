@@ -17,7 +17,7 @@
   --warning-border: #b66b00;
   --shadow: 0 10px 30px rgba(6, 38, 95, 0.08);
   --radius: 14px;
-  --content: 980px;
+  --content: 1240px;
 }
 
 * { box-sizing: border-box; }
@@ -232,7 +232,7 @@ textarea { resize: vertical; min-height: 7rem; }
   bottom: 0.75rem;
   transform: translateX(-50%);
   z-index: 60;
-  width: min(calc(100% - 1rem), 720px);
+  width: min(100% - 1.5rem, var(--content));
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: center;

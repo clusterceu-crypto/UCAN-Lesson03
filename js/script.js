@@ -825,7 +825,7 @@ ${blocks.join('\n\n')}
     if (status) {
       status.textContent = copied
         ? 'Промпт скопійовано. Тепер відкрийте AI-сервіс і вставте його в новий чат.'
-        : 'Не вдалося скопіювати автоматично. Відкрийте перегляд промпту та скопіюйте текст вручну.';
+        : 'Не вдалося скопіювати автоматично. Спробуйте ще раз або скористайтеся іншим способом копіювання у браузері.';
       status.className = `ai-copy-status ${copied ? 'is-success' : 'is-error'}`;
     }
     if (button && copied) {
@@ -843,20 +843,6 @@ ${blocks.join('\n\n')}
       }, 1800);
     }
     return copied;
-  }
-
-  function openPromptDialog(item, invoker = null) {
-    const dialog = document.createElement('dialog');
-    dialog.className = 'ai-prompt-dialog';
-    dialog.innerHTML = `<div class="ai-dialog-inner"><h3>${item.icon} ${item.title}</h3><p>Скопіюйте текст і вставте його у вибраний ШІ-інструмент.</p><textarea class="ai-dialog-prompt" readonly></textarea><div class="ai-dialog-actions"><button class="button button-primary" type="button" data-dialog-copy>📋 Скопіювати промпт</button><button class="button button-secondary" type="button" data-dialog-close>✖️ Закрити</button></div></div>`;
-    const preparedPrompt = buildPrompt(item);
-    dialog.querySelector('textarea').value = preparedPrompt;
-    dialog.querySelector('[data-dialog-copy]').addEventListener('click', () => copyPrompt(buildPrompt(item), item.title));
-    dialog.querySelector('[data-dialog-close]').addEventListener('click', () => dialog.close());
-    dialog.addEventListener('close', () => { dialog.remove(); if (invoker) invoker.focus(); });
-    document.body.appendChild(dialog);
-    dialog.showModal();
-    dialog.querySelector('textarea').focus();
   }
 
   if (aiPack && aiGrid && Array.isArray(aiPack.prompts)) {
@@ -880,13 +866,7 @@ ${blocks.join('\n\n')}
       copyButton.textContent = '📋 Скопіювати промпт';
       copyButton.addEventListener('click', () => copyPrompt(buildPrompt(item), item.title, copyButton, status));
 
-      const viewButton = document.createElement('button');
-      viewButton.className = 'button button-secondary';
-      viewButton.type = 'button';
-      viewButton.textContent = '👁️ Переглянути промпт';
-      viewButton.addEventListener('click', () => openPromptDialog(item, viewButton));
-
-      actions.append(copyButton, viewButton);
+      actions.append(copyButton);
       card.append(title, description, actions, status);
       aiGrid.appendChild(card);
     });

@@ -623,3 +623,459 @@ textarea:focus-visible, input[type="text"]:focus-visible { border-color: var(--t
   .ai-service-actions, .ai-prompt-actions { display: grid; grid-template-columns: 1fr; }
   .ai-service-actions .button, .ai-prompt-actions .button { width: 100%; }
 }
+
+/* Controlled UI harmonization — Lesson 03, develop baseline */
+:root {
+  --content: 1240px;
+  --ui-heading-font: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --ui-body-font: Arial, Aptos, sans-serif;
+}
+body { font-family: var(--ui-body-font); line-height: 1.58; }
+h1, h2, h3, .brand, .lesson-label, .page-label, .page-kicker, .button, th, legend, .progress-text, .progress-percent, .lesson-section-link, .callout-title, .form-card > label, .form-card legend, .question-number, .item-feedback, .test-item-status, .save-status { font-family: var(--ui-heading-font); }
+.header-inner, .progress-shell, .lesson-section-list, main { width: min(100% - 1.5rem, var(--content)); }
+.lesson-progress-navigation { background: var(--white); border-bottom: 1px solid var(--grey-200); }
+.progress-shell { padding-top: 0.65rem; }
+.lesson-section-strip { border-top: 1px solid var(--grey-200); background: var(--white); }
+.lesson-section-list { margin-inline: auto; padding: 0.55rem 0; gap: 0.45rem; }
+.lesson-section-link { border-radius: 999px; padding: 0.55rem 0.85rem; }
+.lesson-page { padding: clamp(1.25rem, 3vw, 3rem); }
+h1 { font-size: clamp(2rem, 4vw, 3.2rem); }
+h2 { font-size: clamp(1.45rem, 3vw, 2rem); }
+h3 { font-size: clamp(1.1rem, 2vw, 1.35rem); }
+p, li, td, th, label, input, textarea, button { font-size: 1rem; }
+.callout, .quick-check, .portfolio-note, .portfolio-card, .form-card, .diagnostic-item, .test-question, .step-card { border-radius: 16px; }
+.button { border-radius: 999px; padding: 0.75rem 1.1rem; }
+.choice-row label, .test-question label, .radio-stack label { border-radius: 12px; padding: 0.75rem 0.9rem; }
+.generated-visual img { border: 1px solid var(--grey-200); border-radius: 16px; }
+.site-footer { border-top: 1px solid var(--grey-200); background: var(--white); }
+@media (max-width: 760px) {
+  .header-inner { align-items: flex-start; flex-wrap: wrap; padding-block: 0.65rem; }
+  .header-center { order: 3; width: 100%; }
+  .lesson-page { border-radius: 12px; padding: 1.1rem; }
+  h1 { font-size: clamp(1.75rem, 8vw, 2.35rem); }
+  h2 { font-size: clamp(1.35rem, 6vw, 1.7rem); }
+  .button, .form-actions .button, .completion-actions .button { min-height: 44px; }
+}
+
+/* UCAN UI Standardization Sprint v1.0
+   Reference: Lesson 02 develop — heading typography and information-block palette. */
+:root {
+  --ui-ref-navy: #173a5e;
+  --ui-ref-navy-deep: #0d2945;
+  --ui-ref-green: #2f7d57;
+  --ui-ref-green-soft: #e7f3ed;
+  --ui-ref-turquoise: #1f8f8a;
+  --ui-ref-turquoise-soft: #e6f6f5;
+  --ui-ref-gray-050: #f8fafb;
+  --ui-ref-gray-100: #eef2f4;
+  --ui-ref-gray-300: #c9d2d8;
+  --ui-ref-gray-600: #53636e;
+  --ui-ref-warning-soft: #fff4dd;
+}
+
+/* Blue headings: exact Lesson 02 family, weight, scale, leading and color. */
+h1, h2, h3, h4,
+.callout-title,
+.transition-card h4,
+.resource-card h4,
+.ai-prompt-card h4 {
+  font-family: Arial, Aptos, sans-serif;
+  color: var(--ui-ref-navy-deep);
+  font-weight: 700;
+  line-height: 1.22;
+}
+h1 {
+  font-size: clamp(1.75rem, 4vw, 2.7rem);
+  margin: 0 0 1.2rem;
+}
+h2 {
+  font-size: clamp(1.25rem, 2.8vw, 1.75rem);
+  margin: 1.8rem 0 .83em;
+}
+h3,
+.callout-title,
+.transition-card h4,
+.resource-card h4,
+.ai-prompt-card h4 {
+  font-size: 1.16rem;
+}
+h4 { font-size: 1rem; }
+/* Lesson 03 uses h2 for most page titles; render them as Lesson 02 page-title h1. */
+.lesson-page > h1,
+.lesson-page > h2 {
+  font-size: clamp(1.75rem, 4vw, 2.7rem);
+  margin: 0 0 1.2rem;
+}
+
+/* Information blocks: Lesson 02 radius, padding, border and semantic colors. */
+.callout,
+.quick-check,
+.portfolio-note,
+.portfolio-card,
+.transition-reflection,
+.practice-sequence,
+.learning-sequence,
+.wua-example,
+.ai-service-block,
+.ai-safety-note,
+.official-video,
+.official-resources,
+.portfolio-context-card {
+  border-radius: 16px;
+  padding: 1rem 1.15rem;
+}
+.callout,
+.portfolio-note,
+.practice-sequence {
+  background: var(--ui-ref-gray-050);
+  border: 1px solid var(--ui-ref-gray-300);
+}
+.callout-primary,
+.quick-check,
+.learning-sequence,
+.ai-service-block,
+.official-video,
+.official-resources,
+.portfolio-context-card {
+  background: var(--ui-ref-turquoise-soft);
+  border: 1px solid #9bd5d1;
+  border-left: 5px solid var(--ui-ref-turquoise);
+}
+.callout-leader {
+  background: var(--ui-ref-gray-050);
+  border: 1px solid var(--ui-ref-gray-300);
+  border-left: 5px solid var(--ui-ref-navy);
+}
+.callout-community,
+.portfolio-card,
+.transition-reflection,
+.wua-example {
+  background: var(--ui-ref-green-soft);
+  border: 1px solid #9bc9b2;
+  border-left: 5px solid var(--ui-ref-green);
+}
+.callout-warning,
+.ai-safety-note {
+  background: var(--ui-ref-warning-soft);
+  border: 1px solid #e6bf78;
+  border-left: 5px solid #c68a32;
+}
+.transition-card,
+.transition-disclosure,
+.resource-card,
+.form-card,
+.diagnostic-item,
+.test-question,
+.step-card,
+.ai-prompt-card {
+  background: #fff;
+  border-color: var(--ui-ref-gray-300);
+  border-radius: 16px;
+}
+.transition-video-card {
+  background: var(--ui-ref-turquoise-soft);
+  border-color: #9bd5d1;
+}
+.transition-disclosure[open] summary {
+  background: var(--ui-ref-gray-050);
+  border-bottom-color: var(--ui-ref-gray-300);
+}
+.transition-disclosure summary::after {
+  color: var(--ui-ref-navy-deep);
+  background: var(--ui-ref-gray-100);
+}
+.resource-badge,
+.step-index,
+.question-number {
+  background: var(--ui-ref-navy);
+}
+
+/* UCAN Header Standard v1.0
+   Shared compact header for Lessons 01-03; reference structure: Lesson 03. */
+:root {
+  --ucan-header-navy: #06265f;
+  --ucan-header-white: #ffffff;
+  --ucan-header-teal: #149eb5;
+  --ucan-header-teal-soft: #e5f7fa;
+  --ucan-header-green: #0b722d;
+  --ucan-header-grey-100: #f4f7f9;
+  --ucan-header-grey-200: #dde5eb;
+  --ucan-header-grey-300: #c8d4dd;
+  --ucan-header-grey-700: #4a5a68;
+  --ucan-header-content: 1240px;
+  --ucan-header-font: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.ucan-header-standard {
+  position: sticky;
+  top: 0;
+  z-index: 60;
+  margin: 0;
+  padding: 0;
+  color: var(--ucan-header-white);
+  background: var(--ucan-header-navy);
+  border: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 3px 12px rgba(6, 38, 95, 0.12);
+}
+.ucan-header-standard .header-inner {
+  width: min(100% - 1.5rem, var(--ucan-header-content));
+  min-height: 64px;
+  margin-inline: auto;
+  padding: 0.75rem 0;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 1rem;
+}
+.ucan-header-standard .header-brand-group {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.ucan-header-standard .brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  color: var(--ucan-header-white);
+  font-family: var(--ucan-header-font);
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+.ucan-header-standard .brand-mark {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  padding: 0;
+  color: var(--ucan-header-navy);
+  background: var(--ucan-header-white);
+  border-radius: 50%;
+  font-family: var(--ucan-header-font);
+  font-weight: 800;
+  letter-spacing: 0;
+}
+.ucan-header-standard .brand-text { color: inherit; }
+.ucan-header-standard .header-center {
+  min-width: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: baseline;
+  gap: 0.35rem 0.75rem;
+  text-align: center;
+}
+.ucan-header-standard .lesson-label,
+.ucan-header-standard .page-label {
+  margin: 0;
+  font-family: var(--ucan-header-font);
+  line-height: 1.25;
+}
+.ucan-header-standard .lesson-label {
+  color: var(--ucan-header-white);
+  font-size: 0.95rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  text-transform: none;
+}
+.ucan-header-standard .page-label {
+  max-width: 42vw;
+  overflow: hidden;
+  color: var(--ucan-header-teal-soft);
+  font-size: 0.88rem;
+  font-weight: 600;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.ucan-header-standard .button-quiet,
+.ucan-header-standard .button-small {
+  min-height: 36px;
+  padding: 0.4rem 0.7rem;
+  color: var(--ucan-header-white);
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.58);
+  border-radius: 999px;
+  font-family: var(--ucan-header-font);
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+.ucan-header-standard .button-quiet:hover,
+.ucan-header-standard .button-small:hover {
+  color: var(--ucan-header-navy);
+  background: var(--ucan-header-white);
+  border-color: var(--ucan-header-white);
+}
+.ucan-header-standard .header-action-spacer { width: 1px; height: 36px; }
+
+.ucan-progress-standard {
+  position: relative;
+  z-index: 45;
+  background: var(--ucan-header-white);
+  border-bottom: 1px solid var(--ucan-header-grey-200);
+  box-shadow: 0 2px 8px rgba(6, 38, 95, 0.04);
+}
+.ucan-progress-standard .progress-shell {
+  width: min(100% - 1.5rem, var(--ucan-header-content));
+  margin-inline: auto;
+  padding: 0.65rem 0 0.55rem;
+  display: grid;
+  grid-template-columns: auto auto minmax(120px, 1fr);
+  align-items: center;
+  gap: 0.75rem;
+}
+.ucan-progress-standard .progress-text,
+.ucan-progress-standard .progress-percent,
+.ucan-progress-standard #progressLabel,
+.ucan-progress-standard #progressPercent {
+  color: var(--ucan-header-grey-700);
+  font-family: var(--ucan-header-font);
+  font-size: 0.88rem;
+  font-weight: 700;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+.ucan-progress-standard .progress-percent,
+.ucan-progress-standard #progressPercent {
+  color: var(--ucan-header-green);
+  font-weight: 800;
+}
+.ucan-progress-standard .progress-track,
+.ucan-progress-standard .progress-bar[role="progressbar"] {
+  width: 100%;
+  height: 8px;
+  overflow: hidden;
+  background: var(--ucan-header-grey-200);
+  border: 0;
+  border-radius: 999px;
+}
+.ucan-progress-standard .progress-fill,
+.ucan-progress-standard .progress-track > .progress-bar,
+.ucan-progress-standard .progress-bar > .progress-fill {
+  display: block;
+  height: 100%;
+  background: var(--ucan-header-teal);
+  border-radius: 999px;
+  transition: width 180ms ease;
+}
+.ucan-progress-standard .lesson-section-strip,
+.ucan-progress-standard.page-menu,
+.ucan-progress-standard .page-menu {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: auto;
+  background: var(--ucan-header-white);
+  border-top: 1px solid var(--ucan-header-grey-200);
+  scrollbar-width: thin;
+}
+.ucan-progress-standard .lesson-section-list,
+.ucan-progress-standard.page-menu,
+.ucan-progress-standard .page-menu {
+  min-width: max-content;
+}
+.ucan-progress-standard .lesson-section-list {
+  width: min(100% - 1.5rem, var(--ucan-header-content));
+  margin-inline: auto;
+  padding: 0.55rem 0;
+  display: flex;
+  gap: 0.45rem;
+}
+.ucan-progress-standard .page-menu {
+  width: min(100% - 1.5rem, var(--ucan-header-content));
+  margin-inline: auto;
+  padding: 0.55rem 0;
+  display: flex;
+  gap: 0.45rem;
+}
+.ucan-progress-standard .lesson-section-link,
+.ucan-progress-standard .page-menu button {
+  min-height: 40px;
+  padding: 0.55rem 0.85rem;
+  color: var(--ucan-header-navy);
+  background: var(--ucan-header-white);
+  border: 1px solid var(--ucan-header-grey-300);
+  border-radius: 999px;
+  font-family: var(--ucan-header-font);
+  font-size: 0.9rem;
+  font-weight: 700;
+  line-height: 1.15;
+  white-space: nowrap;
+}
+.ucan-progress-standard .lesson-section-link:hover:not(:disabled),
+.ucan-progress-standard .page-menu button:hover:not(:disabled) {
+  border-color: var(--ucan-header-teal);
+  background: var(--ucan-header-teal-soft);
+}
+.ucan-progress-standard .lesson-section-link[aria-current="page"],
+.ucan-progress-standard .page-menu button.active {
+  color: var(--ucan-header-white);
+  background: var(--ucan-header-navy);
+  border-color: var(--ucan-header-navy);
+}
+.ucan-progress-standard .lesson-section-link.is-completed:not([aria-current="page"]),
+.ucan-progress-standard .page-menu button.completed:not(.active) {
+  color: var(--ucan-header-green);
+  border-color: var(--ucan-header-green);
+}
+.ucan-progress-standard .lesson-section-link:disabled,
+.ucan-progress-standard .page-menu button:disabled,
+.ucan-progress-standard .page-menu button.locked {
+  color: var(--ucan-header-grey-700);
+  background: var(--ucan-header-grey-100);
+  border-color: var(--ucan-header-grey-300);
+}
+.ucan-header-standard :focus-visible,
+.ucan-progress-standard :focus-visible {
+  outline: 3px solid var(--ucan-header-teal);
+  outline-offset: 3px;
+}
+
+@media (max-width: 760px) {
+  .ucan-header-standard .header-inner {
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 0.55rem 0.75rem;
+    padding-block: 0.65rem;
+  }
+  .ucan-header-standard .header-brand-group {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    align-items: start;
+    gap: 0.45rem;
+  }
+  .ucan-header-standard .header-lesson-link { width: 100%; }
+  .ucan-header-standard .header-center {
+    justify-content: flex-end;
+    text-align: right;
+  }
+  .ucan-header-standard .page-label { max-width: 45vw; }
+  .ucan-header-standard #reset-progress,
+  .ucan-header-standard #reset-progress-top {
+    grid-column: 1 / -1;
+    width: 100%;
+  }
+  .ucan-header-standard .header-action-spacer { display: none; }
+  .ucan-progress-standard .progress-shell {
+    width: min(100% - 1rem, var(--ucan-header-content));
+    grid-template-columns: auto minmax(100px, 1fr);
+    gap: 0.5rem;
+  }
+  .ucan-progress-standard .progress-text,
+  .ucan-progress-standard #progressLabel { display: none; }
+  .ucan-progress-standard .lesson-section-list,
+  .ucan-progress-standard .page-menu {
+    width: min(100% - 1rem, var(--ucan-header-content));
+  }
+  .ucan-progress-standard .lesson-section-link,
+  .ucan-progress-standard .page-menu button {
+    min-height: 44px;
+    padding: 0.6rem 0.85rem;
+  }
+}
+
+@media print {
+  .ucan-header-standard,
+  .ucan-progress-standard { display: none !important; }
+}
+

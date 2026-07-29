@@ -224,7 +224,6 @@ textarea { resize: vertical; min-height: 7rem; }
 
 .test-question { margin-bottom: 1rem; }
 .test-question label { margin: 0.55rem 0; }
-.completion-card { margin-top: 2rem; padding: 1.3rem; background: var(--green-100); border: 2px solid var(--green-800); border-radius: var(--radius); }
 
 .lesson-nav {
   position: fixed;
@@ -316,7 +315,7 @@ textarea { resize: vertical; min-height: 7rem; }
 }
 
 
-/* Patch 1.2.1: transition context, multi-AI actions and completion link. */
+/* Patch 1.2.1: transition context and multi-AI actions. */
 .portfolio-context-card { grid-column: 1 / -1; display: grid; gap: 1rem; padding: 1.15rem; background: var(--blue-50, #eef6fb); border: 2px solid var(--blue-800); border-radius: var(--radius); }
 .portfolio-context-card h3 { margin: 0 0 0.35rem; }
 .portfolio-context-card p { margin: 0; }
@@ -325,7 +324,6 @@ textarea { resize: vertical; min-height: 7rem; }
 .context-fields input { width: 100%; }
 .self-check-example p { margin: 0.35rem 0; }
 .ai-platform-actions { display: grid; grid-template-columns: 1fr; gap: 0.55rem; }
-.completion-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center; }
 @media (min-width: 700px) {
   .context-fields { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .ai-platform-actions { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -339,13 +337,6 @@ textarea { resize: vertical; min-height: 7rem; }
 .ai-platform-actions { display: flex; flex-direction: column; gap: 0.55rem; width: 100%; }
 .ai-platform-actions .button { width: 100%; justify-content: center; }
 .diagnostic-example { display: inline-block; margin-top: 0.35rem; font-weight: 500; }
-.completion-actions { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); width: 100%; }
-.completion-actions .completion-next { justify-self: end; }
-@media (max-width: 620px) {
-  .completion-actions { grid-template-columns: 1fr; }
-  .completion-actions .button, .completion-actions .completion-next { width: 100%; justify-self: stretch; }
-}
-
 
 /* Patch 1.3: officially mapped videos and CNSC toolkit resources. */
 .official-video, .official-resources {

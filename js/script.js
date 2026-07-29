@@ -27,6 +27,7 @@
     return page ? Number.parseInt(page.dataset.page, 10) : null;
   };
   const TEST_PAGE = pageNumberByRole('test');
+  const NEXT_LESSON_URL = 'https://clusterceu-crypto.github.io/UCAN-Lesson04/';
   let currentPage = 1;
 
   function storageGet(key, fallback = null) {
@@ -78,8 +79,8 @@
 
     prevButton.disabled = currentPage === 1;
     const testGateActive = currentPage === TEST_PAGE && !isTestComplete();
-    nextButton.disabled = currentPage === totalPages || testGateActive;
-    nextButton.textContent = currentPage === totalPages ? 'Завершено' : 'Наступний розділ ➡️';
+    nextButton.disabled = testGateActive;
+    nextButton.textContent = currentPage === totalPages ? 'Перейти до заняття 04 ➡️' : 'Наступний розділ ➡️';
     updateSectionNavigation();
   }
 
@@ -129,10 +130,16 @@
   }
 
   prevButton.addEventListener('click', () => showPage(currentPage - 1));
-  nextButton.addEventListener('click', () => {
+  function advancePage() {
+    if (currentPage === totalPages) {
+      window.location.assign(NEXT_LESSON_URL);
+      return;
+    }
     if (currentPage === TEST_PAGE && !isTestComplete()) return;
     showPage(currentPage + 1);
-  });
+  }
+
+  nextButton.addEventListener('click', advancePage);
   pageLinks.forEach((link) => link.addEventListener('click', () => {
     if (!link.disabled) showPage(Number.parseInt(link.dataset.pageLink, 10));
   }));
@@ -148,7 +155,7 @@
     }
     if (event.key === 'ArrowRight') {
       event.preventDefault();
-      if (!nextButton.disabled) showPage(currentPage + 1);
+      if (!nextButton.disabled) advancePage();
     }
   });
 
@@ -165,8 +172,6 @@
     restoreTest();
     showPage(1);
   });
-
-  document.getElementById('return-start').addEventListener('click', () => showPage(1));
 
   // Learning Transition Layer: optional locally saved reflection.
   const transitionReflectionInput = document.getElementById('transition-reflection-input');

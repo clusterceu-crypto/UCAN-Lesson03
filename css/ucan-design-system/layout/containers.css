@@ -1,0 +1,32 @@
+/**
+ * UCAN Shared CSS Library v1.0
+ * Containers and Heading Composition
+ * Layer: Layout
+ * Generated from UCAN Design System Standard v1.0.
+ * No lesson-specific selectors, content or behavior.
+ */
+
+/* DS-LAY-001 — Content Container */
+.ucan-container {
+  width: min(calc(100% - (2 * var(--ucan-layout-gutter-desktop))), var(--ucan-layout-content-max));
+  margin-inline: auto;
+}
+
+/* DS-LAY-004 — Page Heading Stack */
+.ucan-page-heading {
+  display: grid;
+  gap: var(--ucan-space-2);
+  margin-bottom: var(--ucan-space-6);
+}
+
+.ucan-page-heading > * { margin-block: 0; }
+
+/* DS-TYP-004 — Metadata Pill Strip */
+.ucan-meta-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--ucan-space-2);
+  margin: var(--ucan-space-4) 0 var(--ucan-space-6);
+}
+
+.ucan-meta-strip > span { padding: var(--ucan-space-2) var(--ucan-space-3); color: var(--ucan-color-brand-navy-900); background: var(--ucan-color-brand-blue-100); border-radius: var(--ucan-radius-pill); font-size: var(--ucan-font-size-caption); font-weight: var(--ucan-font-weight-semibold); }

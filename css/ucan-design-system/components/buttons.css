@@ -1,0 +1,60 @@
+/**
+ * UCAN Shared CSS Library v1.0
+ * Action Components
+ * Layer: Components
+ * Generated from UCAN Design System Standard v1.0.
+ * No lesson-specific selectors, content or behavior.
+ */
+
+/* DS-ACT-001 — Button */
+.ucan-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--ucan-space-2);
+  min-width: 110px;
+  min-height: var(--ucan-button-height-default);
+  padding: var(--ucan-button-padding-default);
+  color: var(--ucan-color-brand-navy-900);
+  background: var(--ucan-color-surface-white);
+  border: 2px solid transparent;
+  border-radius: var(--ucan-button-radius);
+  font-weight: var(--ucan-font-weight-bold);
+  line-height: 1.25;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: filter var(--ucan-motion-fast), background-color var(--ucan-motion-fast), border-color var(--ucan-motion-fast);
+}
+
+.ucan-button--primary { color: var(--ucan-color-surface-white); background: var(--ucan-color-brand-navy-900); }
+
+.ucan-button--primary:hover:not(:disabled) { color: var(--ucan-color-surface-white); background: var(--ucan-color-brand-navy-800); }
+
+.ucan-button--secondary { color: var(--ucan-color-brand-navy-900); background: var(--ucan-color-surface-white); border-color: var(--ucan-color-brand-navy-900); }
+
+.ucan-button--secondary:hover:not(:disabled) { background: var(--ucan-color-brand-blue-100); }
+
+.ucan-button--quiet { min-width: 0; color: inherit; background: transparent; border-color: currentColor; }
+
+.ucan-button--danger { color: var(--ucan-color-semantic-danger-700); background: var(--ucan-color-surface-white); border-color: var(--ucan-color-semantic-danger-700); }
+
+.ucan-button--external { color: var(--ucan-color-brand-navy-900); background: var(--ucan-color-brand-teal-100); border-color: var(--ucan-color-brand-teal-600); }
+
+.ucan-button--small { min-height: var(--ucan-button-height-small); padding: var(--ucan-space-2) var(--ucan-space-3); font-size: var(--ucan-font-size-small); }
+
+.ucan-button:hover:not(:disabled):not([aria-disabled="true"]) { filter: brightness(0.96); }
+
+.ucan-button:active:not(:disabled) { transform: translateY(1px); }
+
+.ucan-button:disabled, .ucan-button[aria-disabled="true"] { cursor: not-allowed; opacity: var(--ucan-button-state-disabled); }
+
+.ucan-button[aria-busy="true"], .ucan-button.is-loading { cursor: progress; opacity: 0.78; }
+
+.ucan-button.is-success, .ucan-button[data-state="success"] { color: var(--ucan-color-surface-white); background: var(--ucan-color-brand-green-700); border-color: var(--ucan-color-brand-green-700); }
+
+.ucan-button.is-warning, .ucan-button[data-state="warning"] { color: var(--ucan-color-semantic-warning-700); background: var(--ucan-color-semantic-warning-100); border-color: var(--ucan-color-semantic-warning-700); }
+
+.ucan-button.is-error, .ucan-button[data-state="error"] { color: var(--ucan-color-semantic-danger-700); background: var(--ucan-color-semantic-danger-100); border-color: var(--ucan-color-semantic-danger-700); }
+
+.ucan-button.is-completed, .ucan-button[data-state="completed"] { color: var(--ucan-color-brand-green-700); background: var(--ucan-color-brand-green-100); border-color: var(--ucan-color-brand-green-700); }

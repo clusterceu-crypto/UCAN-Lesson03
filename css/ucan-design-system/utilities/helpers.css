@@ -1,0 +1,15 @@
+/**
+ * UCAN Shared CSS Library v1.0
+ * Helper Utilities
+ * Layer: Utilities
+ * Generated from UCAN Design System Standard v1.0.
+ * No lesson-specific selectors, content or behavior.
+ */
+
+.ucan-text-muted { color: var(--ucan-color-neutral-700); }
+
+.ucan-text-success { color: var(--ucan-color-brand-green-700); }
+
+.ucan-text-warning { color: var(--ucan-color-semantic-warning-700); }
+
+.ucan-text-danger { color: var(--ucan-color-semantic-danger-700); }

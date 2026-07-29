@@ -1,0 +1,38 @@
+/**
+ * UCAN Shared CSS Library v1.0
+ * Typography Tokens
+ * Layer: Tokens
+ * Generated from UCAN Design System Standard v1.0.
+ * No lesson-specific selectors, content or behavior.
+ */
+
+:root {
+  /* font.family.body: All body and interface text | source value: Aptos, Arial, sans-serif */
+  --ucan-font-family-body: Aptos, Arial, sans-serif;
+  /* font.family.document: Canvas/PDF fallback | source value: Arial, "DejaVu Sans", sans-serif */
+  --ucan-font-family-document: Arial, "DejaVu Sans", sans-serif;
+  /* font.size.base: Body text | source value: 1rem / 16px */
+  --ucan-font-size-base: 1rem;
+  /* font.line-height.body: Body text rhythm | source value: 1.62 */
+  --ucan-font-line-height-body: 1.62;
+  /* font.size.h1: Page title | source value: clamp(1.9rem, 5vw, 3.2rem) */
+  --ucan-font-size-h1: clamp(1.9rem, 5vw, 3.2rem);
+  /* font.size.h2: Section title | source value: clamp(1.3rem, 3vw, 1.9rem) */
+  --ucan-font-size-h2: clamp(1.3rem, 3vw, 1.9rem);
+  /* font.size.h3: Component title | source value: 1.18rem */
+  --ucan-font-size-h3: 1.18rem;
+  /* font.size.small: Labels, page counter, metadata | source value: 0.85rem */
+  --ucan-font-size-small: 0.85rem;
+  /* font.size.caption: Figure captions and help text | source value: 0.92rem */
+  --ucan-font-size-caption: 0.92rem;
+  /* font.weight.regular: Body text | source value: 400 */
+  --ucan-font-weight-regular: 400;
+  /* font.weight.semibold: Labels and secondary emphasis | source value: 700 */
+  --ucan-font-weight-semibold: 700;
+  /* font.weight.bold: Navigation, key labels and component headings | source value: 800 */
+  --ucan-font-weight-bold: 800;
+  /* text.measure.body: Maximum prose width | source value: 78ch */
+  --ucan-text-measure-body: 78ch;
+  /* text.measure.lead: Lead paragraph width | source value: 66ch */
+  --ucan-text-measure-lead: 66ch;
+}

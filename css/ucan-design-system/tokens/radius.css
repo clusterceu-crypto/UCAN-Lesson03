@@ -1,0 +1,22 @@
+/**
+ * UCAN Shared CSS Library v1.0
+ * Radius Tokens
+ * Layer: Tokens
+ * Generated from UCAN Design System Standard v1.0.
+ * No lesson-specific selectors, content or behavior.
+ */
+
+:root {
+  /* radius.control: Buttons, inputs, choice rows | source value: 10px */
+  --ucan-radius-control: 10px;
+  /* radius.compact: Small cards and mobile surfaces | source value: 12px */
+  --ucan-radius-compact: 12px;
+  /* radius.nav: Floating navigation and dialog shell | source value: 14px */
+  --ucan-radius-nav: 14px;
+  /* radius.component: Default cards, callouts and panels | source value: 16px */
+  --ucan-radius-component: 16px;
+  /* radius.page: Canonical page card | source value: 16px */
+  --ucan-radius-page: 16px;
+  /* radius.pill: Pills, progress tracks and circular tokens | source value: 999px */
+  --ucan-radius-pill: 999px;
+}

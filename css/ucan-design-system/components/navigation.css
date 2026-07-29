@@ -1,0 +1,183 @@
+/**
+ * UCAN Shared CSS Library v1.0
+ * Navigation and Shell Components
+ * Layer: Components
+ * Generated from UCAN Design System Standard v1.0.
+ * No lesson-specific selectors, content or behavior.
+ */
+
+/* DS-HDR-001 — Site Header */
+.ucan-header {
+  position: sticky;
+  top: 0;
+  z-index: var(--ucan-layer-sticky);
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: var(--ucan-space-4);
+  min-height: 64px;
+  padding: var(--ucan-space-3) max(var(--ucan-space-4), calc((100vw - var(--ucan-layout-content-max)) / 2));
+  color: var(--ucan-color-surface-white);
+  background: var(--ucan-color-brand-navy-900);
+  box-shadow: var(--ucan-shadow-header);
+}
+
+/* DS-HDR-002 — Brand Mark */
+.ucan-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--ucan-space-2);
+  color: inherit;
+  font-weight: var(--ucan-font-weight-bold);
+  letter-spacing: 0.08em;
+  text-decoration: none;
+}
+
+.ucan-brand__mark { display: grid; place-items: center; width: 38px; height: 38px; color: var(--ucan-color-brand-navy-900); background: var(--ucan-color-surface-white); border-radius: var(--ucan-radius-pill); }
+
+/* DS-HDR-003 — Lesson Label */
+.ucan-lesson-label {
+  color: var(--ucan-color-surface-white);
+  font-size: var(--ucan-font-size-small);
+  font-weight: var(--ucan-font-weight-bold);
+}
+
+/* DS-HDR-004 — Page Label */
+.ucan-page-label {
+  min-width: 0;
+  max-width: min(34vw, 26rem);
+  overflow: hidden;
+  color: var(--ucan-color-brand-teal-100);
+  font-size: var(--ucan-font-size-small);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ucan-header__center { min-width: 0; display: flex; flex-wrap: wrap; justify-content: center; gap: var(--ucan-space-1) var(--ucan-space-3); text-align: center; }
+
+/* DS-HDR-005 — Reset Progress Action */
+.ucan-reset-action {
+  align-self: center;
+}
+
+/* DS-NAV-001 — Progress Region */
+.ucan-progress-region {
+  display: flex;
+  align-items: center;
+  gap: var(--ucan-space-3);
+  min-height: 42px;
+  padding: var(--ucan-space-2) max(var(--ucan-space-4), calc((100vw - var(--ucan-layout-content-max)) / 2));
+  background: var(--ucan-color-surface-white);
+  border-bottom: 1px solid var(--ucan-color-neutral-200);
+}
+
+/* DS-NAV-002 — Progress Bar */
+.ucan-progress {
+  flex: 1;
+  height: 8px;
+  overflow: hidden;
+  background: var(--ucan-color-neutral-200);
+  border-radius: var(--ucan-radius-pill);
+}
+
+.ucan-progress__fill { display: block; width: 0; height: 100%; background: var(--ucan-color-brand-green-700); border-radius: inherit; transition: width var(--ucan-motion-standard); }
+
+/* DS-NAV-003 — Progress Text and Percent */
+.ucan-progress__text, .ucan-progress__percent {
+  color: var(--ucan-color-neutral-700);
+  font-size: var(--ucan-font-size-small);
+  white-space: nowrap;
+}
+
+.ucan-progress__percent { color: var(--ucan-color-brand-green-700); font-weight: var(--ucan-font-weight-bold); }
+
+/* DS-NAV-004 — Section Strip */
+.ucan-section-strip {
+  overflow-x: auto;
+  padding: var(--ucan-space-1) max(var(--ucan-space-4), calc((100vw - var(--ucan-layout-content-max)) / 2)) var(--ucan-space-3);
+  background: var(--ucan-color-surface-white);
+  border-bottom: 1px solid var(--ucan-color-neutral-200);
+  overscroll-behavior-inline: contain;
+  scrollbar-width: thin;
+}
+
+.ucan-section-strip__list { display: flex; min-width: max-content; gap: var(--ucan-space-2); margin: 0; padding: 0; list-style: none; }
+
+/* DS-NAV-005 — Section Link / Pill */
+.ucan-section-link {
+  min-height: 40px;
+  max-width: 16rem;
+  padding: var(--ucan-space-2) var(--ucan-space-3);
+  color: var(--ucan-color-brand-navy-900);
+  background: var(--ucan-color-surface-white);
+  border: 1px solid var(--ucan-color-neutral-300);
+  border-radius: var(--ucan-radius-pill);
+  font-weight: var(--ucan-font-weight-semibold);
+  line-height: 1.2;
+  text-align: center;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.ucan-section-link:hover:not(:disabled) { color: var(--ucan-color-brand-navy-900); background: var(--ucan-color-brand-blue-100); border-color: var(--ucan-color-brand-navy-900); }
+
+.ucan-section-link[aria-current="page"], .ucan-section-link.is-active { color: var(--ucan-color-surface-white); background: var(--ucan-color-brand-navy-900); border-color: var(--ucan-color-brand-navy-900); }
+
+.ucan-section-link.is-completed:not([aria-current="page"]) { color: var(--ucan-color-brand-green-700); border-color: var(--ucan-color-brand-green-700); }
+
+.ucan-section-link:disabled, .ucan-section-link[aria-disabled="true"] { cursor: not-allowed; opacity: var(--ucan-button-state-disabled); background: var(--ucan-color-neutral-100); }
+
+/* DS-NAV-006 — Floating Bottom Navigation */
+.ucan-floating-nav {
+  position: fixed;
+  left: 50%;
+  bottom: max(var(--ucan-space-3), env(safe-area-inset-bottom));
+  z-index: var(--ucan-layer-floating-nav);
+  transform: translateX(-50%);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  align-items: center;
+  gap: var(--ucan-space-3);
+  width: min(calc(100% - var(--ucan-space-4)), var(--ucan-layout-nav-max));
+  padding: var(--ucan-space-2);
+  background: color-mix(in srgb, var(--ucan-color-surface-white) 98%, transparent);
+  border: 1px solid var(--ucan-color-neutral-200);
+  border-radius: var(--ucan-radius-nav);
+  box-shadow: var(--ucan-shadow-nav);
+  backdrop-filter: blur(10px);
+}
+
+.ucan-floating-nav .ucan-button { width: 100%; }
+
+/* DS-NAV-007 — Page Counter */
+.ucan-page-counter {
+  color: var(--ucan-color-neutral-700);
+  font-size: var(--ucan-font-size-small);
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* DS-NAV-008 — Previous Lesson Link */
+.ucan-previous-lesson-link {
+  white-space: nowrap;
+}
+
+/* DS-NAV-009 — Completion Navigation */
+.ucan-completion-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--ucan-space-3);
+  align-items: center;
+  justify-content: space-between;
+}
+
+@media (max-width: 680px) {
+  .ucan-header { grid-template-columns: minmax(0, 1fr) auto; gap: var(--ucan-space-2); }
+  .ucan-header__center { justify-content: flex-start; text-align: left; }
+  .ucan-page-label { max-width: 42vw; }
+  .ucan-progress-region { display: grid; grid-template-columns: 1fr auto; gap: var(--ucan-space-2); }
+  .ucan-progress { grid-column: 1 / -1; width: 100%; }
+  .ucan-floating-nav { grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: var(--ucan-space-1); width: calc(100% - var(--ucan-space-2)); }
+  .ucan-page-counter { display: none; }
+  .ucan-section-link { min-height: var(--ucan-target-minimum); max-width: 14rem; }
+}

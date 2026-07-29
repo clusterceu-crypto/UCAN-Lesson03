@@ -1,0 +1,15 @@
+/**
+ * UCAN Shared CSS Library v1.0
+ * Focus and Keyboard Visibility
+ * Layer: Utilities / Accessibility
+ * Generated from UCAN Design System Standard v1.0.
+ * No lesson-specific selectors, content or behavior.
+ */
+
+/* DS-UTL-002 — Focus Ring */
+.ucan-shell :focus-visible {
+  outline: var(--ucan-focus-ring);
+  outline-offset: var(--ucan-focus-offset);
+}
+
+.ucan-image-zoom-trigger:focus-visible, .ucan-image-lightbox :focus-visible { outline: var(--ucan-focus-ring-emphasis); outline-offset: var(--ucan-focus-offset); }

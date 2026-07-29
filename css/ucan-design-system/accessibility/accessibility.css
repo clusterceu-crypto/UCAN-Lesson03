@@ -1,0 +1,22 @@
+/**
+ * UCAN Shared CSS Library v1.0
+ * Accessibility Foundation
+ * Layer: Utilities / Accessibility
+ * Generated from UCAN Design System Standard v1.0.
+ * No lesson-specific selectors, content or behavior.
+ */
+
+/* DS-A11Y-001 — Skip Link */
+.ucan-skip-link {
+  position: fixed;
+  top: var(--ucan-space-2);
+  left: var(--ucan-space-2);
+  z-index: var(--ucan-layer-skip-link);
+  transform: translateY(-170%);
+  padding: var(--ucan-space-3) var(--ucan-space-4);
+  color: var(--ucan-color-surface-white);
+  background: var(--ucan-color-brand-navy-900);
+  border-radius: var(--ucan-radius-control);
+}
+
+.ucan-skip-link:focus { transform: translateY(0); }

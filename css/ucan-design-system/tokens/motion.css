@@ -1,0 +1,18 @@
+/**
+ * UCAN Shared CSS Library v1.0
+ * Motion Tokens
+ * Layer: Tokens
+ * Generated from UCAN Design System Standard v1.0.
+ * No lesson-specific selectors, content or behavior.
+ */
+
+:root {
+  /* motion.fast: Choice hover/validation border changes | source value: 160ms ease */
+  --ucan-motion-fast: 160ms ease;
+  /* motion.standard: Progress fill and standard UI changes | source value: 180ms ease */
+  --ucan-motion-standard: 180ms ease;
+  /* motion.slow: Legacy L01 progress | source value: 250ms ease */
+  --ucan-motion-slow: 250ms ease;
+  /* motion.reduced: prefers-reduced-motion | source value: 0.001ms / no smooth scroll */
+  --ucan-motion-reduced: 0.001ms;
+}

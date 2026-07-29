@@ -1,0 +1,38 @@
+/**
+ * UCAN Shared CSS Library v1.0
+ * Spacing Utilities
+ * Layer: Utilities
+ * Generated from UCAN Design System Standard v1.0.
+ * No lesson-specific selectors, content or behavior.
+ */
+
+.ucan-mt-0 { margin-top: var(--ucan-space-0) !important; }
+.ucan-mb-0 { margin-bottom: var(--ucan-space-0) !important; }
+.ucan-gap-0 { gap: var(--ucan-space-0) !important; }
+.ucan-mt-1 { margin-top: var(--ucan-space-1) !important; }
+.ucan-mb-1 { margin-bottom: var(--ucan-space-1) !important; }
+.ucan-gap-1 { gap: var(--ucan-space-1) !important; }
+.ucan-mt-2 { margin-top: var(--ucan-space-2) !important; }
+.ucan-mb-2 { margin-bottom: var(--ucan-space-2) !important; }
+.ucan-gap-2 { gap: var(--ucan-space-2) !important; }
+.ucan-mt-3 { margin-top: var(--ucan-space-3) !important; }
+.ucan-mb-3 { margin-bottom: var(--ucan-space-3) !important; }
+.ucan-gap-3 { gap: var(--ucan-space-3) !important; }
+.ucan-mt-4 { margin-top: var(--ucan-space-4) !important; }
+.ucan-mb-4 { margin-bottom: var(--ucan-space-4) !important; }
+.ucan-gap-4 { gap: var(--ucan-space-4) !important; }
+.ucan-mt-5 { margin-top: var(--ucan-space-5) !important; }
+.ucan-mb-5 { margin-bottom: var(--ucan-space-5) !important; }
+.ucan-gap-5 { gap: var(--ucan-space-5) !important; }
+.ucan-mt-6 { margin-top: var(--ucan-space-6) !important; }
+.ucan-mb-6 { margin-bottom: var(--ucan-space-6) !important; }
+.ucan-gap-6 { gap: var(--ucan-space-6) !important; }
+.ucan-mt-8 { margin-top: var(--ucan-space-8) !important; }
+.ucan-mb-8 { margin-bottom: var(--ucan-space-8) !important; }
+.ucan-gap-8 { gap: var(--ucan-space-8) !important; }
+.ucan-mt-10 { margin-top: var(--ucan-space-10) !important; }
+.ucan-mb-10 { margin-bottom: var(--ucan-space-10) !important; }
+.ucan-gap-10 { gap: var(--ucan-space-10) !important; }
+.ucan-mt-12 { margin-top: var(--ucan-space-12) !important; }
+.ucan-mb-12 { margin-bottom: var(--ucan-space-12) !important; }
+.ucan-gap-12 { gap: var(--ucan-space-12) !important; }

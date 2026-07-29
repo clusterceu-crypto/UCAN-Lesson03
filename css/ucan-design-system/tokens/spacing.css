@@ -1,0 +1,32 @@
+/**
+ * UCAN Shared CSS Library v1.0
+ * Spacing Tokens
+ * Layer: Tokens
+ * Generated from UCAN Design System Standard v1.0.
+ * No lesson-specific selectors, content or behavior.
+ */
+
+:root {
+  /* space.0: No spacing | source value: 0 */
+  --ucan-space-0: 0;
+  /* space.1: Micro gap | source value: 0.25rem / 4px */
+  --ucan-space-1: 0.25rem;
+  /* space.2: Compact control gap | source value: 0.5rem / 8px */
+  --ucan-space-2: 0.5rem;
+  /* space.3: Standard inline gap | source value: 0.75rem / 12px */
+  --ucan-space-3: 0.75rem;
+  /* space.4: Base component padding/gap | source value: 1rem / 16px */
+  --ucan-space-4: 1rem;
+  /* space.5: Comfortable card padding | source value: 1.25rem / 20px */
+  --ucan-space-5: 1.25rem;
+  /* space.6: Section gap | source value: 1.5rem / 24px */
+  --ucan-space-6: 1.5rem;
+  /* space.8: Major component separation | source value: 2rem / 32px */
+  --ucan-space-8: 2rem;
+  /* space.10: Large page rhythm | source value: 2.5rem / 40px */
+  --ucan-space-10: 2.5rem;
+  /* space.12: Desktop page-card padding maximum | source value: 3rem / 48px */
+  --ucan-space-12: 3rem;
+  /* space.safe-bottom: Reserve space for floating navigation | source value: calc(6.5rem + env(safe-area-inset-bottom)) */
+  --ucan-space-safe-bottom: calc(6.5rem + env(safe-area-inset-bottom));
+}

@@ -1,0 +1,64 @@
+/**
+ * UCAN Shared CSS Library v1.0
+ * Portfolio Components
+ * Layer: Components
+ * Generated from UCAN Design System Standard v1.0.
+ * No lesson-specific selectors, content or behavior.
+ */
+
+/* DS-POR-001 — Portfolio Form */
+.ucan-portfolio-form {
+  display: grid;
+  gap: var(--ucan-space-4);
+}
+
+/* DS-POR-002 — Portfolio Summary */
+.ucan-portfolio-summary {
+  margin-top: var(--ucan-space-6);
+  padding: var(--ucan-space-5);
+  background: var(--ucan-color-surface-white);
+  border: 2px solid var(--ucan-color-brand-navy-900);
+  border-radius: var(--ucan-radius-component);
+}
+
+.ucan-portfolio-summary dl { display: grid; grid-template-columns: minmax(220px, 0.75fr) 1.25fr; gap: var(--ucan-space-2) var(--ucan-space-4); }
+.ucan-portfolio-summary dt { color: var(--ucan-color-brand-navy-900); font-weight: var(--ucan-font-weight-semibold); }
+.ucan-portfolio-summary dd { margin: 0; white-space: pre-wrap; }
+
+/* DS-POR-003 — Portfolio Context / Transfer Card */
+.ucan-portfolio-context {
+  display: grid;
+  gap: var(--ucan-space-4);
+  padding: var(--ucan-space-5);
+  background: var(--ucan-color-brand-blue-100);
+  border: 2px solid var(--ucan-color-brand-navy-800);
+  border-radius: var(--ucan-radius-component);
+}
+
+/* DS-POR-004 — Print Value */
+.ucan-print-value {
+  display: none;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+/* DS-POR-005 — Direct PDF Action */
+.ucan-pdf-action {
+  position: relative;
+}
+
+.ucan-pdf-action[aria-busy="true"] { cursor: progress; }
+
+@media (min-width: 800px) {
+  .ucan-portfolio-form--two-column { grid-template-columns: var(--ucan-grid-columns-two); }
+  .ucan-portfolio-form--two-column .ucan-form-actions, .ucan-portfolio-form--two-column .ucan-status { grid-column: 1 / -1; }
+}
+
+@media (max-width: 680px) { .ucan-portfolio-summary dl { grid-template-columns: 1fr; } }
+
+@media print {
+  .ucan-portfolio-form { display: block; }
+  .ucan-portfolio-form .ucan-input, .ucan-portfolio-form .ucan-textarea, .ucan-portfolio-form .ucan-radio-group, .ucan-portfolio-form .ucan-checkbox-group, .ucan-portfolio-form .ucan-form-actions { display: none !important; }
+  .ucan-print-value { display: block; min-height: 1.4em; margin-top: var(--ucan-space-1); padding-top: var(--ucan-space-1); border-top: 1px solid var(--ucan-color-neutral-300); }
+  .ucan-portfolio-summary { border: 0; padding: 0; }
+}

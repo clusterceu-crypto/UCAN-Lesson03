@@ -1,0 +1,20 @@
+/**
+ * UCAN Shared CSS Library v1.0
+ * Z-index Tokens
+ * Layer: Tokens
+ * Generated from UCAN Design System Standard v1.0.
+ * No lesson-specific selectors, content or behavior.
+ */
+
+:root {
+  /* layer.base: Document flow | source value: 0 */
+  --ucan-layer-base: 0;
+  /* layer.sticky: Sticky header/progress | source value: 70 */
+  --ucan-layer-sticky: 70;
+  /* layer.floating-nav: Bottom navigation | source value: 80 */
+  --ucan-layer-floating-nav: 80;
+  /* layer.overlay: Dialogs/lightbox backdrop | source value: 900 */
+  --ucan-layer-overlay: 900;
+  /* layer.skip-link: Skip link when focused | source value: 1000 */
+  --ucan-layer-skip-link: 1000;
+}

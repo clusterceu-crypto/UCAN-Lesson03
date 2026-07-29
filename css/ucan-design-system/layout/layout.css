@@ -1,0 +1,98 @@
+/**
+ * UCAN Shared CSS Library v1.0
+ * Layout Foundation
+ * Layer: Layout
+ * Generated from UCAN Design System Standard v1.0.
+ * No lesson-specific selectors, content or behavior.
+ */
+
+/* DS-SHELL-001 — Application Shell */
+.ucan-shell {
+  min-height: 100vh;
+  color: var(--ucan-color-neutral-900);
+  background: var(--ucan-color-neutral-100);
+  font-family: var(--ucan-font-family-body);
+  font-size: var(--ucan-font-size-base);
+  line-height: var(--ucan-font-line-height-body);
+  padding-bottom: var(--ucan-space-safe-bottom);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body { margin: 0; }
+
+img { display: block; max-width: 100%; height: auto; }
+
+button, input, textarea, select { font: inherit; }
+
+/* DS-LAY-002 — Lesson Page */
+.ucan-lesson-page {
+  display: block;
+  scroll-margin-top: calc(var(--ucan-space-12) * 2.75);
+}
+
+.ucan-lesson-page[hidden] { display: none !important; }
+
+/* DS-LAY-003 — Page Card */
+.ucan-page-card {
+  padding: clamp(var(--ucan-space-5), 3vw, var(--ucan-space-12));
+  color: var(--ucan-color-neutral-900);
+  background: var(--ucan-color-surface-white);
+  border-radius: var(--ucan-radius-page);
+  box-shadow: var(--ucan-shadow-surface);
+}
+
+/* DS-LAY-005 — Section Rhythm */
+.ucan-section {
+  margin-block: var(--ucan-space-8);
+}
+
+.ucan-section > :first-child { margin-top: 0; }
+.ucan-section > :last-child { margin-bottom: 0; }
+
+/* DS-TYP-001 — Heading Hierarchy */
+.ucan-heading, .ucan-shell h1, .ucan-shell h2, .ucan-shell h3, .ucan-shell h4 {
+  color: var(--ucan-color-brand-navy-900);
+  line-height: 1.2;
+  text-wrap: balance;
+  overflow-wrap: normal;
+}
+
+.ucan-shell h1 { font-size: var(--ucan-font-size-h1); margin: 0 0 var(--ucan-space-4); }
+
+.ucan-shell h2 { font-size: var(--ucan-font-size-h2); margin: var(--ucan-space-8) 0 var(--ucan-space-4); }
+
+.ucan-shell h3 { font-size: var(--ucan-font-size-h3); margin: var(--ucan-space-6) 0 var(--ucan-space-3); }
+
+.ucan-shell p, .ucan-shell li, .ucan-shell dd { max-width: var(--ucan-text-measure-body); }
+
+/* DS-TYP-002 — Lead Text */
+.ucan-lead {
+  max-width: var(--ucan-text-measure-lead);
+  margin-top: 0;
+  color: var(--ucan-color-neutral-700);
+  font-size: clamp(1.08rem, 2.5vw, 1.32rem);
+  font-weight: var(--ucan-font-weight-semibold);
+}
+
+/* DS-TYP-003 — Block Label / Kicker */
+.ucan-block-label, .ucan-page-kicker {
+  display: inline-block;
+  margin: 0 0 var(--ucan-space-2);
+  color: var(--ucan-color-brand-green-700);
+  font-size: var(--ucan-font-size-small);
+  font-weight: var(--ucan-font-weight-bold);
+  letter-spacing: 0.06em;
+  line-height: 1.3;
+  text-transform: uppercase;
+}
+
+/* DS-FTR-001 — Site Footer */
+.ucan-site-footer {
+  width: min(calc(100% - (2 * var(--ucan-layout-gutter-desktop))), var(--ucan-layout-content-max));
+  margin: var(--ucan-space-4) auto calc(var(--ucan-space-12) * 2);
+  color: var(--ucan-color-neutral-500);
+  font-size: var(--ucan-font-size-small);
+}

@@ -1,0 +1,55 @@
+/**
+ * UCAN Shared CSS Library v1.0
+ * Feedback and State Components
+ * Layer: Components
+ * Generated from UCAN Design System Standard v1.0.
+ * No lesson-specific selectors, content or behavior.
+ */
+
+/* DS-STA-001 — Global Status Region */
+.ucan-status-region {
+  min-height: 1.5rem;
+  width: min(calc(100% - (2 * var(--ucan-layout-gutter-desktop))), var(--ucan-layout-content-max));
+  margin: var(--ucan-space-2) auto 0;
+  color: var(--ucan-color-semantic-danger-700);
+  font-weight: var(--ucan-font-weight-semibold);
+}
+
+/* DS-INT-003 — Feedback Box */
+.ucan-feedback {
+  min-height: 2.2rem;
+  margin-top: var(--ucan-space-3);
+  padding: var(--ucan-space-3) var(--ucan-space-4);
+  background: var(--ucan-color-neutral-100);
+  border: 1px solid var(--ucan-color-neutral-300);
+  border-radius: var(--ucan-radius-control);
+}
+
+.ucan-feedback.is-success { background: var(--ucan-color-brand-green-100); border-color: var(--ucan-color-brand-green-700); }
+.ucan-feedback.is-warning { color: var(--ucan-color-semantic-warning-700); background: var(--ucan-color-semantic-warning-100); border-color: var(--ucan-color-semantic-warning-700); }
+.ucan-feedback.is-error { color: var(--ucan-color-semantic-danger-700); background: var(--ucan-color-semantic-danger-100); border-color: var(--ucan-color-semantic-danger-700); }
+
+/* DS-UTL-006 — Loading State */
+.is-loading, [data-state="loading"] {
+  cursor: progress;
+}
+
+.is-loading[aria-busy="true"] { opacity: 0.78; }
+
+/* DS-UTL-007 — Success State */
+.is-success, [data-state="success"] {
+  color: var(--ucan-color-brand-green-700);
+}
+
+/* DS-UTL-008 — Warning / Error State */
+.is-warning, [data-state="warning"], .is-error, [data-state="error"] {
+  color: var(--ucan-color-semantic-warning-700);
+}
+
+.is-error, [data-state="error"] { color: var(--ucan-color-semantic-danger-700); }
+
+/* DS-UTL-009 — Disabled / Locked State */
+.is-disabled, .is-locked, [aria-disabled="true"] {
+  cursor: not-allowed;
+  opacity: var(--ucan-button-state-disabled);
+}
